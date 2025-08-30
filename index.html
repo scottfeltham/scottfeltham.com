@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Scott Feltham — Fractional CTO & AI-First Leader</title>
+    <meta name="description" content="Fractional CTO & AI-First Engineering Leader. 20+ years scaling SaaS platforms. Founder of NeoForge Consulting & creator of Neurocademy." />
+    <meta property="og:title" content="Scott Feltham — Fractional CTO & AI-First Leader" />
+    <meta property="og:description" content="Fractional CTO & AI-First Engineering Leader. 20+ years scaling SaaS platforms. Founder of NeoForge Consulting & creator of Neurocademy." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://scottfeltham.com" />
+    <meta name="theme-color" content="#0b0f15" />
+
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/styles.css" />
+  </head>
+  <body class="theme-dark">
+    <a class="skip-link" href="#input">Skip to command input</a>
+    <main id="app" class="terminal tmux-container" aria-label="AI Agent CLI">
+      <!-- Left pane (main terminal) -->
+      <div class="tmux-pane tmux-left" data-pane="0">
+        <div class="tmux-pane-header">
+          <span class="pane-number">0</span>
+          <span class="pane-title">main</span>
+        </div>
+        <section id="output" class="output" aria-live="polite" aria-atomic="false"></section>
+        <form id="input-form" class="input-form" autocomplete="off">
+          <label class="sr-only" for="input">Command input</label>
+          <div class="prompt-line">
+            <span id="prompt" class="prompt" aria-hidden="true">guest@scottfeltham.com:~$</span>
+            <input id="input" name="input" class="input" type="text" spellcheck="false" autofocus placeholder="type 'help' to get started" />
+          </div>
+        </form>
+      </div>
+
+      <!-- Right column with 2 rows -->
+      <div class="tmux-right">
+        <!-- Top right pane -->
+        <div class="tmux-pane tmux-right-top" data-pane="1">
+          <div class="tmux-pane-header">
+            <span class="pane-number">1</span>
+            <span class="pane-title">info</span>
+          </div>
+          <section id="info-output" class="output pane-content">
+            <div class="neofetch-section">
+              <div class="line"><span class="accent">************************</span>  <span class="accent">scott</span>@<span class="host">scottfeltham.com</span></div>
+              <div class="line"><span class="accent">*                      *</span>  <span class="muted">---------------------------</span></div>
+              <div class="line"><span class="accent">*  ________  ________  *</span>  <span class="info-label">OS:</span> <span class="accent">Fractional CTO v2025.1</span></div>
+              <div class="line"><span class="accent">* |\   ____\|\  _____\ *</span>  <span class="info-label">Shell:</span> <span class="accent">AI-First Engineering</span></div>
+              <div class="line"><span class="accent">* \ \  \___|\ \  \__/  *</span>  <span class="info-label">WM:</span> <span class="accent">FORGE Framework</span></div>
+              <div class="line"><span class="accent">*  \ \_____  \ \   __\ *</span>  <span class="info-label">Theme:</span> <span class="accent">High Agency</span></div>
+              <div class="line"><span class="accent">*   \|____|\  \ \  \_| *</span>  <span class="info-label">CPU:</span> <span class="accent">Team Scaling</span></div>
+              <div class="line"><span class="accent">*     ____\_\  \ \__\  *</span>  <span class="info-label">GPU:</span> <span class="accent">AI Adoption</span></div>
+              <div class="line"><span class="accent">*    |\_________\|__|  *</span>  <span class="info-label">Memory:</span> <span class="accent">20+ Years Experience</span></div>
+              <div class="line"><span class="accent">*    \|_________|      *</span>  <span class="info-label">Location:</span> <span class="accent">Dubai (Global)</span></div>
+              <div class="line"><span class="accent">*                      *</span>  </div>
+              <div class="line"><span class="accent">************************</span>  <span class="info-label">Uptime:</span> <span class="accent">NeoForge Consulting</span></div>
+              <div class="line">                          <span class="info-label">Packages:</span> <span class="accent">2x Productivity</span></div>
+              <div class="line">                          <span class="info-label">Resolution:</span> <span class="accent">Ship & Scale</span></div>
+            </div>
+          </section>
+        </div>
+
+        <!-- Bottom right pane -->
+        <div class="tmux-pane tmux-right-bottom" data-pane="2">
+          <div class="tmux-pane-header">
+            <span class="pane-number">2</span>
+            <span class="pane-title">status</span>
+          </div>
+          <section id="status-output" class="output pane-content">
+            <div class="status-section">
+              <div class="line"><span class="muted">// System Status</span></div>
+              <div class="line">Theme: <span id="current-theme" class="accent">dark</span></div>
+              <div class="line">Commands: <span id="cmd-count" class="accent">0</span> executed</div>
+              <div class="line">Session: <span id="session-time" class="accent">00:00</span></div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!-- Tmux status bar -->
+      <div class="tmux-status-bar">
+        <div class="status-left">
+          <span class="status-item">[0]</span>
+          <span class="status-item">scottfeltham.com</span>
+        </div>
+        <div class="status-center">
+          <span class="status-item">Ctrl-B ? for help</span>
+        </div>
+        <div class="status-right">
+          <span id="status-time" class="status-item"></span>
+        </div>
+      </div>
+    </main>
+
+    <noscript>
+      <div class="no-js">
+        This site is an interactive CLI and requires JavaScript. You can still view basic info:
+        <ul>
+          <li>About: Senior engineer and product-minded builder focusing on delightful, robust systems.</li>
+          <li>Projects: GitHub @scottfeltham</li>
+          <li>Contact: hello@scottfeltham.com</li>
+        </ul>
+      </div>
+    </noscript>
+
+    <script src="/assets/script.js" defer></script>
+  </body>
+</html>
+

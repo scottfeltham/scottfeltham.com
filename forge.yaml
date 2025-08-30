@@ -1,0 +1,4 @@
+# FORGE Configuration
+project: scottfeltham.com
+mode: conversational
+ai: {primary: claude, model: sonnet}

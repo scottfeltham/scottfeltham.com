@@ -484,7 +484,7 @@
         { content: '   <span class="banner-glow">███████║╚██████╗╚██████╔╝   ██║      ██║       ██║     ███████╗███████╗██║   ██║  ██║██║  ██║██║ ╚═╝ ██║</span>', class: 'ascii-line', delay: 0.6 },
         { content: '   <span class="banner-glow">╚══════╝ ╚═════╝ ╚═════╝    ╚═╝      ╚═╝       ╚═╝     ╚══════╝╚══════╝╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝</span>', class: 'ascii-line', delay: 0.7 },
         { content: '', class: '', delay: 0.8 },
-        { content: '                                    <span class="accent">Fractional CTO | AI-First Leader</span>', class: 'tagline', delay: 0.9 },
+        { content: '                                    <span class="accent">Senior Engineering Consultant | AI-First Leader</span>', class: 'tagline', delay: 0.9 },
         { content: '<span class="muted">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>', class: 'border-line', delay: 1.0 }
       ];
     } else if (terminalWidth >= 70) {
@@ -506,7 +506,7 @@
         { content: '  <span class="banner-glow">██║     ███████╗███████╗██║   ██║  ██║██║  ██║██║ ╚═╝ ██║</span>', class: 'ascii-line', delay: 1.3 },
         { content: '  <span class="banner-glow">╚═╝     ╚══════╝╚══════╝╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝</span>', class: 'ascii-line', delay: 1.4 },
         { content: '', class: '', delay: 1.5 },
-        { content: '                <span class="accent">Fractional CTO | AI-First Leader</span>', class: 'tagline', delay: 1.6 },
+        { content: '                <span class="accent">Senior Engineering Consultant | AI-First Leader</span>', class: 'tagline', delay: 1.6 },
         { content: '<span class="muted">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>', class: 'border-line', delay: 1.7 }
       ];
     } else {
@@ -516,7 +516,7 @@
         { content: '', class: '', delay: 0.1 },
         { content: '  <strong class="accent banner-glow" style="font-size: 2em;">SCOTT FELTHAM</strong>', class: 'ascii-line', delay: 0.2 },
         { content: '', class: '', delay: 0.3 },
-        { content: '         <span class="accent">Fractional CTO | AI-First Leader</span>', class: 'tagline', delay: 0.4 },
+        { content: '         <span class="accent">Senior Engineering Consultant | AI-First Leader</span>', class: 'tagline', delay: 0.4 },
         { content: '<span class="muted">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>', class: 'border-line', delay: 0.5 }
       ];
     }
@@ -600,7 +600,7 @@
       // Reset counter for command output
       terminalLineCount = 0;
       
-      lineAnimated('<strong>Scott Feltham</strong> — Fractional CTO & AI-First Engineering Leader', '', 0);
+      lineAnimated('<strong>Scott Feltham</strong> — Senior Engineering Consultant & AI-First Engineering Leader', '', 0);
       lineAnimated('', '', 50);
       lineAnimated('<strong>What I Bring:</strong>', '', 100);
       lineAnimated('• <strong>High Agency:</strong> I take initiative and drive results', '', 150);
@@ -609,7 +609,7 @@
       lineAnimated('• <strong>Speed of Execution:</strong> I ship solutions, then perfect them', '', 300);
       lineAnimated('', '', 350);
       lineAnimated('<strong>Current Focus:</strong>', '', 400);
-      lineAnimated(`• Founder of <a href="${LINKS.neoforge}" target="_blank" rel="noopener"><strong>NeoForge Consulting</strong></a> (Fractional CTO services)`, '', 450);
+      lineAnimated(`• Founder of <a href="${LINKS.neoforge}" target="_blank" rel="noopener"><strong>NeoForge Consulting</strong></a> (Senior Engineering Consultant services)`, '', 450);
       lineAnimated(`• Creator of <a href="${LINKS.neurocademy}" target="_blank" rel="noopener"><strong>Neurocademy</strong></a> (AI-powered education platform)`, '', 500);
       lineAnimated('• Developing FORGE Framework for delivery acceleration', '', 550);
       lineAnimated('', '', 600);
@@ -620,7 +620,7 @@
 
     about() {
       const lines = [
-        'I\'m a <strong>Fractional CTO and AI-First Engineering Leader</strong> with over 20 years of',
+        'I\'m a <strong>Senior Engineering Consultant and AI-First Engineering Leader</strong> with over 20 years of',
         'experience transforming engineering organizations and scaling SaaS platforms.',
         '',
         '<strong>My Journey:</strong>',
@@ -651,7 +651,7 @@
       line('<strong>Current Ventures:</strong>');
       line('');
       line(`• <strong><a href="${LINKS.neoforge}" target="_blank" rel="noopener">NeoForge Consulting</a></strong>`);
-      line('  Fractional CTO services specializing in AI adoption and modern delivery practices.');
+      line('  Senior Engineering Consultant services specializing in AI adoption and modern delivery practices.');
       line('  Helping startups and SMEs build scalable engineering organizations.');
       line('');
       line(`• <strong><a href="${LINKS.neurocademy}" target="_blank" rel="noopener">Neurocademy</a></strong>`);
@@ -684,7 +684,7 @@
     skills() {
       [
         '<strong>Leadership & Strategy:</strong>',
-        '• Fractional CTO services and technical roadmap definition',
+        '• Senior Engineering Consultant services and technical roadmap definition',
         '• Team scaling from 5 to 50+ engineers with sustainable practices',
         '• AI adoption strategies that double developer productivity',
         '• FORGE Framework methodology for accelerated delivery',
@@ -786,11 +786,11 @@
     echo(...rest) { line(rest.join(' ')); },
 
     consulting() {
-      line('<strong>NeoForge Consulting</strong> — Fractional CTO Services');
+      line('<strong>NeoForge Consulting</strong> — Senior Engineering Consultant Services');
       line('');
       line('<strong>What I Offer:</strong>');
       line('');
-      line('🚀 <strong>Fractional CTO Services</strong>');
+      line('🚀 <strong>Senior Engineering Consultant Services</strong>');
       line('  • Strategic technical leadership and roadmap definition');
       line('  • Architecture reviews, technology selection, and governance frameworks');
       line('  • Board reporting, technical due diligence, and stakeholder communication');
@@ -948,7 +948,7 @@
       lineAnimated('&nbsp;', '', 150);
       lineAnimated('Available commands:', '', 200);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'whoami\'); return false;">whoami</a></strong>       - Learn about me', '', 250);
-      lineAnimated('  <strong><a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a></strong>   - Fractional CTO services', '', 300);
+      lineAnimated('  <strong><a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a></strong>   - Senior Engineering Consultant services', '', 300);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'neurocademy\'); return false;">neurocademy</a></strong>  - AI learning platform', '', 350);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'achievements\'); return false;">achievements</a></strong> - Recent impact', '', 400);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'help\'); return false;">help</a></strong>         - See all commands', '', 450);
@@ -993,7 +993,7 @@
       lineAnimated('&nbsp;', '', 150);
       lineAnimated('Available commands:', '', 200);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'whoami\'); return false;">whoami</a></strong>       - Learn about me', '', 250);
-      lineAnimated('  <strong><a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a></strong>   - Fractional CTO services', '', 300);
+      lineAnimated('  <strong><a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a></strong>   - Senior Engineering Consultant services', '', 300);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'neurocademy\'); return false;">neurocademy</a></strong>  - AI learning platform', '', 350);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'achievements\'); return false;">achievements</a></strong> - Recent impact', '', 400);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'help\'); return false;">help</a></strong>         - See all commands', '', 450);

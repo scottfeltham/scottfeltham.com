@@ -20,7 +20,7 @@
 
   const LINKS = {
     github: 'https://github.com/scottfeltham',
-    linkedin: 'https://www.linkedin.com/in/scottfeltham',
+    linkedin: 'https://www.linkedin.com/in/scottdfeltham',
     x: 'https://x.com/scottfeltham',
     email: 'mailto:scott@neoforge.co',
     resume: '/assets/resume.pdf',
@@ -484,7 +484,7 @@
         { content: '   <span class="banner-glow">███████║╚██████╗╚██████╔╝   ██║      ██║       ██║     ███████╗███████╗██║   ██║  ██║██║  ██║██║ ╚═╝ ██║</span>', class: 'ascii-line', delay: 0.6 },
         { content: '   <span class="banner-glow">╚══════╝ ╚═════╝ ╚═════╝    ╚═╝      ╚═╝       ╚═╝     ╚══════╝╚══════╝╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝</span>', class: 'ascii-line', delay: 0.7 },
         { content: '', class: '', delay: 0.8 },
-        { content: '                                    <span class="accent">Senior Engineering Consultant | AI-First Leader</span>', class: 'tagline', delay: 0.9 },
+        { content: '                                    <span class="accent">Fractional CTO | Senior Engineering Leader</span>', class: 'tagline', delay: 0.9 },
         { content: '<span class="muted">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>', class: 'border-line', delay: 1.0 }
       ];
     } else if (terminalWidth >= 70) {
@@ -506,7 +506,7 @@
         { content: '  <span class="banner-glow">██║     ███████╗███████╗██║   ██║  ██║██║  ██║██║ ╚═╝ ██║</span>', class: 'ascii-line', delay: 1.3 },
         { content: '  <span class="banner-glow">╚═╝     ╚══════╝╚══════╝╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝</span>', class: 'ascii-line', delay: 1.4 },
         { content: '', class: '', delay: 1.5 },
-        { content: '                <span class="accent">Senior Engineering Consultant | AI-First Leader</span>', class: 'tagline', delay: 1.6 },
+        { content: '                <span class="accent">Fractional CTO | Senior Engineering Leader</span>', class: 'tagline', delay: 1.6 },
         { content: '<span class="muted">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>', class: 'border-line', delay: 1.7 }
       ];
     } else {
@@ -516,7 +516,7 @@
         { content: '', class: '', delay: 0.1 },
         { content: '  <strong class="accent banner-glow" style="font-size: 2em;">SCOTT FELTHAM</strong>', class: 'ascii-line', delay: 0.2 },
         { content: '', class: '', delay: 0.3 },
-        { content: '         <span class="accent">Senior Engineering Consultant | AI-First Leader</span>', class: 'tagline', delay: 0.4 },
+        { content: '         <span class="accent">Fractional CTO | Senior Engineering Leader</span>', class: 'tagline', delay: 0.4 },
         { content: '<span class="muted">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>', class: 'border-line', delay: 0.5 }
       ];
     }
@@ -562,24 +562,21 @@
     '<strong>Available commands</strong>',
     '  <a href="#" onclick="runCommand(\'help\'); return false;">help</a>                Show this help',
     '  <a href="#" onclick="runCommand(\'banner\'); return false;">banner</a>              Show the site banner',
-    '  <a href="#" onclick="runCommand(\'whoami\'); return false;">whoami</a>              About Scott',
-    '  <a href="#" onclick="runCommand(\'about\'); return false;">about</a>               Longer bio and recent impact',
-    '  <a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a>          NeoForge Consulting services',
-    '  <a href="#" onclick="runCommand(\'neurocademy\'); return false;">neurocademy</a>         AI-powered learning platform',
+    '  <a href="#" onclick="runCommand(\'whoami\'); return false;">whoami</a>              Who I am and what I do',
+    '  <a href="#" onclick="runCommand(\'about\'); return false;">about</a>               Full bio and career timeline',
+    '  <a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a>          Fractional CTO & NeoForge services',
+    '  <a href="#" onclick="runCommand(\'projects\'); return false;">projects</a>            Current work and past delivery',
+    '  <a href="#" onclick="runCommand(\'achievements\'); return false;">achievements</a>        Quantified impact and results',
+    '  <a href="#" onclick="runCommand(\'skills\'); return false;">skills</a>              Technical expertise',
     '  <a href="#" onclick="runCommand(\'forge\'); return false;">forge</a>               FORGE Framework methodology',
-    '  <a href="#" onclick="runCommand(\'achievements\'); return false;">achievements</a>        Recent measurable impact',
-    '  <a href="#" onclick="runCommand(\'projects\'); return false;">projects</a>            All highlighted projects',
-    '  <a href="#" onclick="runCommand(\'skills\'); return false;">skills</a>              Technical expertise and stack',
-    '  <a href="#" onclick="runCommand(\'contact\'); return false;">contact</a>             Ways to get in touch',
+    '  <a href="#" onclick="runCommand(\'neurocademy\'); return false;">neurocademy</a>         AI-powered learning platform',
+    '  <a href="#" onclick="runCommand(\'contact\'); return false;">contact</a>             Get in touch',
     '  <a href="#" onclick="runCommand(\'social\'); return false;">social</a>              Quick links',
-    '  <a href="#" onclick="runCommand(\'status\'); return false;">status</a>              System status and info',
+    '  <a href="#" onclick="runCommand(\'status\'); return false;">status</a>              System status',
     '  open &lt;alias|url&gt;   Open link: <a href="#" onclick="runCommand(\'open github\'); return false;">github</a> | <a href="#" onclick="runCommand(\'open linkedin\'); return false;">linkedin</a> | <a href="#" onclick="runCommand(\'open x\'); return false;">x</a> | <a href="#" onclick="runCommand(\'open email\'); return false;">email</a> | <a href="#" onclick="runCommand(\'open resume\'); return false;">resume</a> | <a href="#" onclick="runCommand(\'open neoforge\'); return false;">neoforge</a> | <a href="#" onclick="runCommand(\'open neurocademy\'); return false;">neurocademy</a>',
     '  theme &lt;name&gt;        Switch theme: <a href="#" onclick="runCommand(\'theme dark\'); return false;">dark</a> | <a href="#" onclick="runCommand(\'theme light\'); return false;">light</a> | <a href="#" onclick="runCommand(\'theme matrix\'); return false;">matrix</a> | <a href="#" onclick="runCommand(\'theme retro\'); return false;">retro</a> | <a href="#" onclick="runCommand(\'theme catppuccin\'); return false;">catppuccin</a> | <a href="#" onclick="runCommand(\'theme tokyo-night\'); return false;">tokyo-night</a> | <a href="#" onclick="runCommand(\'theme nord\'); return false;">nord</a> | <a href="#" onclick="runCommand(\'theme dracula\'); return false;">dracula</a>',
     '  fontsize &lt;size|+|-&gt; Adjust font: <a href="#" onclick="runCommand(\'fontsize +\'); return false;">+</a> | <a href="#" onclick="runCommand(\'fontsize -\'); return false;">-</a> | <a href="#" onclick="runCommand(\'fontsize 14\'); return false;">reset</a> (Ctrl+/- shortcuts)',
     '  <a href="#" onclick="runCommand(\'clear\'); return false;">clear</a>               Clear the screen',
-    '  <a href="#" onclick="runCommand(\'time\'); return false;">time</a>                Current time',
-    '  <a href="#" onclick="runCommand(\'date\'); return false;">date</a>                Current date',
-    '  echo &lt;text&gt;         Print text',
   ];
 
   const COMMANDS = {
@@ -599,114 +596,122 @@
     whoami() {
       // Reset counter for command output
       terminalLineCount = 0;
-      
-      lineAnimated('<strong>Scott Feltham</strong> — Senior Engineering Consultant & AI-First Engineering Leader', '', 0);
+
+      lineAnimated('<strong>Scott Feltham</strong> — Fractional CTO & Senior Engineering Leader', '', 0);
       lineAnimated('', '', 50);
-      lineAnimated('<strong>What I Bring:</strong>', '', 100);
-      lineAnimated('• <strong>High Agency:</strong> I take initiative and drive results', '', 150);
-      lineAnimated('• <strong>Adaptability:</strong> I learn fast and apply new technologies quickly', '', 200);
-      lineAnimated('• <strong>Curiosity:</strong> I ask better questions to solve real problems', '', 250);
-      lineAnimated('• <strong>Speed of Execution:</strong> I ship solutions, then perfect them', '', 300);
-      lineAnimated('', '', 350);
-      lineAnimated('<strong>Current Focus:</strong>', '', 400);
-      lineAnimated(`• Founder of <a href="${LINKS.neoforge}" target="_blank" rel="noopener"><strong>NeoForge Consulting</strong></a> (Senior Engineering Consultant services)`, '', 450);
-      lineAnimated(`• Creator of <a href="${LINKS.neurocademy}" target="_blank" rel="noopener"><strong>Neurocademy</strong></a> (AI-powered education platform)`, '', 500);
-      lineAnimated('• Developing FORGE Framework for delivery acceleration', '', 550);
-      lineAnimated('', '', 600);
-      lineAnimated('<strong>Experience:</strong> 20+ years | <strong>Location:</strong> Dubai (working globally)', '', 650);
-      lineAnimated('', '', 700);
-      lineTypewriter('I excel at taking ownership, shipping iteratively, and building teams that think like owners.', '', 750, true);
+      lineAnimated('I help organisations build better products through senior engineering', '', 100);
+      lineAnimated('leadership and practical AI adoption.', '', 150);
+      lineAnimated('', '', 200);
+      lineAnimated('<strong>What I Do:</strong>', '', 250);
+      lineAnimated('• <strong>Fractional CTO:</strong> Strategic technical leadership without a full-time hire', '', 300);
+      lineAnimated('• <strong>Engineering Excellence:</strong> Strengthening systems, simplifying architecture', '', 350);
+      lineAnimated('• <strong>Practical AI Adoption:</strong> Workflows that improve speed and decisions', '', 400);
+      lineAnimated('', '', 450);
+      lineAnimated('<strong>Where I\'ve Delivered:</strong>', '', 500);
+      lineAnimated('• <strong>Builder.ai</strong> — Architecture leadership, 100+ engineers', '', 550);
+      lineAnimated('• <strong>Orange Bus</strong> — Multi-client enterprise transformation', '', 600);
+      lineAnimated('• <strong>Kahunas</strong> — SaaS turnaround, 2x productivity in 90 days', '', 650);
+      lineAnimated('• <strong>HMRC</strong> — Government digital service for millions of UK families', '', 700);
+      lineAnimated('', '', 750);
+      lineAnimated('<strong>Experience:</strong> 20+ years | <strong>Location:</strong> Dubai & Global', '', 800);
+      lineAnimated('', '', 850);
+      lineTypewriter('Available directly or via Mission+ and Boardman networks.', '', 900, true);
     },
 
     about() {
       const lines = [
-        'I\'m a <strong>Senior Engineering Consultant and AI-First Engineering Leader</strong> with over 20 years of',
-        'experience transforming engineering organizations and scaling SaaS platforms.',
+        'I help organisations build better products through senior engineering leadership',
+        'and practical AI adoption.',
         '',
-        '<strong>My Journey:</strong>',
-        '• Started in defense systems (General Dynamics, 1998-2005)',
-        '• Evolved through startups, agencies, and scale-ups',
-        '• Led engineering at Builder.ai, Kahunas, mkodo, and others',
-        '• Now building NeoForge Consulting and Neurocademy',
+        '20+ years leading engineering at scale — from early-stage startups to 100+ engineer',
+        'enterprises. I\'ve doubled delivery output, maintained 99.9% uptime during rapid',
+        'scaling, and shipped MVPs in 15 days.',
         '',
-        '<strong>What I Do Best:</strong>',
-        '• <strong>AI Integration:</strong> Embedding AI into engineering practices to double output',
-        '• <strong>Team Scaling:</strong> Building high-performing, autonomous engineering teams',
-        '• <strong>Delivery Acceleration:</strong> Using FORGE Framework for faster, quality shipping',
-        '• <strong>Strategic Leadership:</strong> Technical roadmaps, governance, and decision-making',
+        '<strong>Career Timeline:</strong>',
+        '• <strong>2024-Present:</strong> NeoForge Engineering (Founder) + Fractional CTO',
+        '• <strong>2022-2024:</strong> Builder.ai — Architecture leadership, 100+ engineers',
+        '• <strong>2019-2022:</strong> Orange Bus — Multi-client enterprise delivery',
+        '• <strong>2017-2019:</strong> Kahunas — SaaS turnaround, 2x productivity',
+        '• <strong>2015:</strong> HMRC — Government digital service at scale',
+        '',
+        '<strong>Three Focus Areas:</strong>',
+        '• <strong>Engineering Excellence:</strong> Strengthening systems, simplifying architecture',
+        '• <strong>Practical AI Adoption:</strong> Workflows that improve speed and decisions',
+        '• <strong>Hands-on Leadership:</strong> Working directly with founders, CTOs, and teams',
         '',
         '<strong>Philosophy:</strong>',
-        'I believe in <strong>shipping good today beats perfect tomorrow</strong>. I lead by doing,',
-        'partner closely with product and design, and focus on pragmatic solutions that scale.',
-        'Organizations that value speed, iteration, and results are where I thrive.',
+        'After years in broader leadership, I realised my value comes from staying close',
+        'enough to understand the details, constraints, and trade-offs inside a system.',
         '',
-        '<strong>Current Mission:</strong>',
-        'Helping startups and SMEs adopt AI-driven delivery practices while building',
-        'educational tools that support neurodivergent learners.'
+        'When engineering is healthy, the whole organisation moves faster.',
+        'When it weakens, everything slows.'
       ];
       lines.forEach(line);
     },
 
     projects() {
-      line('<strong>Current Ventures:</strong>');
+      line('<strong>What I\'m Doing Now:</strong>');
       line('');
-      line(`• <strong><a href="${LINKS.neoforge}" target="_blank" rel="noopener">NeoForge Consulting</a></strong>`);
-      line('  Senior Engineering Consultant services specializing in AI adoption and modern delivery practices.');
-      line('  Helping startups and SMEs build scalable engineering organizations.');
+      line('• <strong>Fractional CTO</strong>');
+      line('  Strategic technical leadership for SMEs and enterprises.');
+      line('  Available directly or via Mission+ and Boardman networks.');
+      line('');
+      line(`• <strong><a href="${LINKS.neoforge}" target="_blank" rel="noopener">NeoForge Engineering</a></strong> (Founder)`);
+      line('  Hands-on consulting for organisations that want to move faster.');
+      line('  Engineering excellence, practical AI adoption, delivery acceleration.');
       line('');
       line(`• <strong><a href="${LINKS.neurocademy}" target="_blank" rel="noopener">Neurocademy</a></strong>`);
-      line('  AI-powered learning platform for neurodivergent-friendly education.');
-      line('  Built during 30-day Bolt.new hackathon, focusing on inclusive lesson planning.');
+      line('  AI-powered learning platform for neurodivergent learners.');
+      line('  Inspired by supporting my own neurodivergent child. We build what we teach.');
       line('');
-      line('<strong>Key Projects & Achievements:</strong>');
+      line('<strong>Where I\'ve Delivered:</strong>');
       line('');
-      line('• <strong>FORGE Framework</strong>');
-      line('  Delivery acceleration methodology: Focus → Orchestrate → Refine → Generate → Evaluate.');
-      line('  Proven to double team velocity while maintaining quality.');
+      line('• <strong>Builder.ai</strong> (2022-2024)');
+      line('  Architecture leadership across 100+ partner engineers.');
+      line('  Mentored 8 engineers to senior roles.');
       line('');
-      line('• <strong>Kahunas Engineering Leadership</strong>');
-      line('  VP Engineering role: 2x developer productivity, 99.9% uptime during scale-up.');
-      line('  Led 20+ person engineering organization through AI-first transformation.');
+      line('• <strong>Orange Bus</strong> (2019-2022)');
+      line('  Multi-client enterprise digital transformation.');
+      line('  100+ engineers across simultaneous delivery programmes.');
       line('');
-      line('• <strong>mkodo SaaS Launch</strong>');
-      line('  Head of Engineering: Delivered GeoLocs from concept to production in 8 months.');
-      line('  Built for regulated markets with compliance and rapid iteration.');
+      line('• <strong>Kahunas</strong> (2017-2019)');
+      line('  SaaS turnaround: 2x productivity, 99.9% uptime.');
       line('');
-      line('• <strong>Builder.ai Architecture Guild</strong>');
-      line('  Senior Technical Architect: Led automation, scalability patterns, team development.');
-      line('  Mentored 8 engineers to senior roles, supported GCC region client engagements.');
+      line('• <strong>HMRC</strong> (2015)');
+      line('  Tax-Free Childcare — government service for millions.');
       line('');
-      line(`• <strong><a href="${LINKS.github}" target="_blank" rel="noopener">Open Source & Experiments</a></strong>`);
-      line('  Tools, CLIs, and UI experiments shared publicly.');
-      line('  This interactive CLI site built with vanilla JavaScript.');
+      line(`• <strong><a href="${LINKS.github}" target="_blank" rel="noopener">GitHub</a></strong> — Open source tools and experiments`);
     },
 
     skills() {
       [
-        '<strong>Leadership & Strategy:</strong>',
-        '• Senior Engineering Consultant services and technical roadmap definition',
-        '• Team scaling from 5 to 50+ engineers with sustainable practices',
-        '• AI adoption strategies that double developer productivity',
-        '• FORGE Framework methodology for accelerated delivery',
+        '<strong>Leadership:</strong>',
+        '• Fractional CTO — strategic technical leadership',
+        '• Team scaling from 5 to 100+ engineers',
+        '• Architecture reviews and technology strategy',
+        '• Technical due diligence and board reporting',
         '',
-        '<strong>AI & Modern Stack:</strong>',
-        '• <strong>AI/ML:</strong> Claude, GPT-4, GitHub Copilot, prompt engineering at scale',
-        '• <strong>Cloud:</strong> AWS (expert), GCP, Azure, Terraform infrastructure-as-code',
-        '• <strong>Languages:</strong> Python, Go, TypeScript/JavaScript, Ruby, C#, Scala, Kotlin',
-        '• <strong>Frontend:</strong> React, React Native, Next.js, animations, accessibility',
-        '• <strong>Backend:</strong> APIs, microservices, auth systems, event-driven architecture',
+        '<strong>Engineering:</strong>',
+        '• <strong>Cloud:</strong> AWS (expert), GCP, Azure, Terraform',
+        '• <strong>Languages:</strong> Python, Go, TypeScript, Ruby, C#, Kotlin',
+        '• <strong>Frontend:</strong> React, React Native, Next.js',
+        '• <strong>Backend:</strong> APIs, microservices, event-driven architecture',
+        '• <strong>DevOps:</strong> CI/CD, containerization, monitoring',
         '',
-        '<strong>Engineering Excellence:</strong>',
-        '• <strong>Testing:</strong> TDD/BDD, automated testing pipelines, quality gates',
-        '• <strong>DevOps:</strong> CI/CD, containerization, monitoring, observability',
-        '• <strong>Performance:</strong> System optimization, scaling, 99.9% uptime delivery',
-        '• <strong>Security:</strong> Secure coding, compliance, vulnerability management',
+        '<strong>AI & Delivery:</strong>',
+        '• Practical AI adoption — Claude, GPT-4, GitHub Copilot',
+        '• FORGE Framework for delivery acceleration',
+        '• AI workflow integration that doubles productivity',
         '',
-        '<strong>Key Strengths:</strong>',
-        '• Learning new technologies quickly as business needs arise',
-        '• Building teams that ship consistently and think like owners',
-        '• Balancing rapid delivery with platform stability and quality',
-        '• Making pragmatic technical decisions under uncertainty'
+        '<strong>Industries:</strong>',
+        '• Defence, Government, SaaS, Enterprise, Startups',
+        '• Regulated markets, high-growth scaling, digital transformation',
+        '',
+        '<strong>What I\'m Known For:</strong>',
+        '• Staying close to the work — not just strategy, execution',
+        '• Building teams that ship consistently',
+        '• Making pragmatic decisions under uncertainty',
+        '• Solving the problems that quietly slow organisations down'
       ].forEach(line);
     },
 
@@ -777,6 +782,7 @@
 
     clear() {
       $output.innerHTML = '';
+      STATE.started = false;
       boot();
     },
 
@@ -786,46 +792,42 @@
     echo(...rest) { line(rest.join(' ')); },
 
     consulting() {
-      line('<strong>NeoForge Consulting</strong> — Senior Engineering Consultant Services');
+      line('<strong>How I Work With Organisations</strong>');
       line('');
-      line('<strong>What I Offer:</strong>');
+      line('<strong>FRACTIONAL CTO</strong>');
+      line('Strategic technical leadership for companies that need senior engineering');
+      line('expertise without a full-time hire.');
       line('');
-      line('🚀 <strong>Senior Engineering Consultant Services</strong>');
-      line('  • Strategic technical leadership and roadmap definition');
-      line('  • Architecture reviews, technology selection, and governance frameworks');
-      line('  • Board reporting, technical due diligence, and stakeholder communication');
-      line('  • Risk assessment and mitigation strategies for scaling organizations');
+      line('  • Architecture decisions and technology strategy');
+      line('  • Team structure, hiring, and leadership development');
+      line('  • Delivery processes and engineering culture');
+      line('  • Practical AI adoption and workflow improvement');
       line('');
-      line('🤖 <strong>AI Integration & Adoption</strong>');
-      line('  • AI-first engineering practices that double developer productivity');
-      line('  • GitHub Copilot, Claude, and GPT integration into development workflows');
-      line('  • Prompt engineering training and best practices for engineering teams');
-      line('  • ROI measurement and optimization of AI tool investments');
+      line('  Available directly or via <strong>Mission+</strong> and <strong>Boardman</strong> networks.');
       line('');
-      line('👥 <strong>Engineering Leadership & Team Scaling</strong>');
-      line('  • Building high-performing, autonomous engineering teams');
-      line('  • Hiring strategies, team structure design, and leadership development');
-      line('  • Engineering culture transformation and process optimization');
-      line('  • Mentoring senior engineers into technical leaders');
+      line('<strong>NEOFORGE ENGINEERING</strong>');
+      line('Hands-on consulting for organisations that want to move faster and build');
+      line('better systems.');
       line('');
-      line('⚡ <strong>Delivery Acceleration</strong>');
-      line('  • FORGE Framework implementation for faster, quality delivery');
-      line('  • CI/CD pipeline optimization and DevOps best practices');
-      line('  • Quality gates, testing strategies, and release management');
-      line('  • Performance optimization and scalability planning');
+      line('  • Engineering excellence — Strengthening systems, simplifying architecture');
+      line('  • Practical AI adoption — Workflows that improve speed and decisions');
+      line('  • Hands-on leadership — Working directly with founders, CTOs, and teams');
       line('');
-      line('<strong>Recent Client Impact:</strong>');
-      line('• 2x developer productivity gains through AI adoption');
-      line('• 99.9% platform availability during critical growth phases');
-      line('• 8-month concept-to-production delivery for regulated markets');
-      line('• 8 engineers successfully mentored to senior technical roles');
+      line('<strong>Results I\'ve Delivered:</strong>');
+      line('• 2x developer productivity in 90 days (Kahunas)');
+      line('• 99.9% uptime during rapid scaling');
+      line('• 15-day MVP delivery (Neurocademy)');
+      line('• 100+ engineers led across Builder.ai, Orange Bus');
+      line('• Government digital service for millions (HMRC)');
       line('');
-      line('<strong>Ideal For:</strong>');
-      line('Startups, scale-ups, and SMEs ready to embrace AI and modern practices,');
-      line('measuring results over hours, and encouraging experimentation.');
+      line('<strong>Let\'s Talk If:</strong>');
+      line('• Your organisation is stuck and you\'re not sure why');
+      line('• You need senior technical leadership without a full-time hire');
+      line('• You want to adopt AI practically — results, not hype');
+      line('• You\'re scaling and need systems that won\'t break');
       line('');
-      line(`📧 Get in touch: <a href="${LINKS.email}">scott@neoforge.co</a>`);
-      line(`🌐 Learn more: <a href="${LINKS.neoforge}" target="_blank" rel="noopener">${LINKS.neoforge}</a>`);
+      line(`📧 <a href="${LINKS.email}">scott@neoforge.co</a>`);
+      line(`🌐 <a href="${LINKS.neoforge}" target="_blank" rel="noopener">${LINKS.neoforge}</a>`);
     },
 
     neurocademy() {
@@ -858,43 +860,42 @@
     },
 
     achievements() {
-      line('<strong>Quantified Impact & Achievements</strong>');
+      line('<strong>Quantified Impact & Results</strong>');
       line('');
-      line('<strong>🚀 AI & Productivity Transformation (Kahunas - 2025)</strong>');
-      line('• <strong>2x developer productivity</strong> through AI-first practices implementation');
-      line('• <strong>99.9% platform availability</strong> during critical scale-up phase');
-      line('• Led 20+ person engineering organization through AI adoption');
-      line('• Balanced rapid feature delivery with platform stability');
+      line('<strong>Builder.ai (2022-2024)</strong>');
+      line('• Architecture leadership across <strong>100+ partner engineers</strong>');
+      line('• Mentored <strong>8 engineers</strong> to senior technical roles');
+      line('• Led Architecture Guild — automation and scalable patterns');
+      line('• Enterprise architecture for dozens of simultaneous projects');
       line('');
-      line('<strong>⚡ Rapid SaaS Delivery (mkodo - 2022)</strong>');
-      line('• Delivered GeoLocs from <strong>concept to production in 8 months</strong>');
-      line('• Built for regulated markets with compliance requirements');
-      line('• Managed complete product lifecycle as Head of Engineering');
-      line('• Made rapid decisions to maintain momentum under pressure');
+      line('<strong>Orange Bus (2019-2022)</strong>');
+      line('• <strong>Multi-client enterprise</strong> digital transformation');
+      line('• Technical delivery leadership across <strong>100+ engineers</strong>');
+      line('• Created repeatable design patterns for distributed teams');
+      line('• Enterprise clients across multiple industries');
       line('');
-      line('<strong>👥 Leadership & Team Development (Builder.ai - 2023-2025)</strong>');
-      line('• <strong>Mentored 8 direct reports</strong> to senior technical roles');
-      line('• Led Architecture Guild creating automation and scalable patterns');
-      line('• Supported GCC region clients with technical pre-sales');
-      line('• Built systems designed for reliability and future growth');
+      line('<strong>Kahunas (2017-2019)</strong>');
+      line('• <strong>2x developer productivity</strong> in 90 days');
+      line('• <strong>99.9% platform availability</strong> during rapid scale-up');
+      line('• SaaS turnaround — from technical debt to autonomous teams');
+      line('• Led 20+ person engineering organization');
       line('');
-      line('<strong>🏗️ Innovation Under Pressure</strong>');
-      line(`• Built <a href="${LINKS.neurocademy}" target="_blank" rel="noopener">Neurocademy</a> during <strong>30-day hackathon</strong> (joined final 15 days)`);
-      line('• Created <strong>FORGE Framework</strong> now adopted by multiple teams');
-      line('• Maintained SaaS operations through company acquisition (Moltin/Elastic Path)');
-      line('• <strong>Zero downtime</strong> during organizational transitions');
+      line('<strong>HMRC Tax-Free Childcare (2015)</strong>');
+      line('• UK government digital service for <strong>millions of families</strong>');
+      line('• GOV.UK Design System, WCAG 2.1 AA compliance');
+      line('• Up to £2,000 savings per child annually');
       line('');
-      line('<strong>📈 Career Evolution & Adaptability</strong>');
-      line('• <strong>20+ years</strong> of continuous adaptation across industries');
-      line('• Evolved from defense systems → SaaS → AI-first engineering');
-      line('• Self-taught AI prompt engineering, now training entire teams');
-      line('• Successfully navigated multiple technology transitions');
+      line('<strong>Recent Delivery</strong>');
+      line(`• <a href="${LINKS.neurocademy}" target="_blank" rel="noopener">Neurocademy</a> — <strong>MVP in 15 days</strong>, AI-powered learning platform`);
+      line('• FORGE Framework — Proven methodology for delivery acceleration');
+      line('• Multiple rapid builds via NeoForge Labs');
       line('');
-      line('<strong>Current Initiatives (2025):</strong>');
-      line('• Building two ventures while maintaining consulting excellence');
-      line('• Developing and refining FORGE Framework methodology');
-      line('• Creating AI-powered educational tools for neurodivergent learners');
-      line('• Sharing knowledge through public building and open documentation');
+      line('<strong>Key Metrics:</strong>');
+      line('• 100+ engineers led');
+      line('• 2x productivity gains (proven, repeatable)');
+      line('• 99.9% uptime at scale');
+      line('• 15-day MVP delivery');
+      line('• 20+ years across defence, SaaS, government, enterprise');
     },
 
     status() {
@@ -947,10 +948,10 @@
       lineAnimated('<strong class="accent">Welcome to my interactive CLI portfolio!</strong>', '', 100);
       lineAnimated('&nbsp;', '', 150);
       lineAnimated('Available commands:', '', 200);
-      lineAnimated('  <strong><a href="#" onclick="runCommand(\'whoami\'); return false;">whoami</a></strong>       - Learn about me', '', 250);
-      lineAnimated('  <strong><a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a></strong>   - Senior Engineering Consultant services', '', 300);
-      lineAnimated('  <strong><a href="#" onclick="runCommand(\'neurocademy\'); return false;">neurocademy</a></strong>  - AI learning platform', '', 350);
-      lineAnimated('  <strong><a href="#" onclick="runCommand(\'achievements\'); return false;">achievements</a></strong> - Recent impact', '', 400);
+      lineAnimated('  <strong><a href="#" onclick="runCommand(\'whoami\'); return false;">whoami</a></strong>       - Who I am and what I do', '', 250);
+      lineAnimated('  <strong><a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a></strong>   - Fractional CTO & NeoForge services', '', 300);
+      lineAnimated('  <strong><a href="#" onclick="runCommand(\'projects\'); return false;">projects</a></strong>     - Current work and past delivery', '', 350);
+      lineAnimated('  <strong><a href="#" onclick="runCommand(\'achievements\'); return false;">achievements</a></strong> - Quantified impact and results', '', 400);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'help\'); return false;">help</a></strong>         - See all commands', '', 450);
       lineAnimated('&nbsp;', '', 500);
       
@@ -992,10 +993,10 @@
       lineAnimated('<strong class="accent">Welcome to my interactive CLI portfolio!</strong>', '', 100);
       lineAnimated('&nbsp;', '', 150);
       lineAnimated('Available commands:', '', 200);
-      lineAnimated('  <strong><a href="#" onclick="runCommand(\'whoami\'); return false;">whoami</a></strong>       - Learn about me', '', 250);
-      lineAnimated('  <strong><a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a></strong>   - Senior Engineering Consultant services', '', 300);
-      lineAnimated('  <strong><a href="#" onclick="runCommand(\'neurocademy\'); return false;">neurocademy</a></strong>  - AI learning platform', '', 350);
-      lineAnimated('  <strong><a href="#" onclick="runCommand(\'achievements\'); return false;">achievements</a></strong> - Recent impact', '', 400);
+      lineAnimated('  <strong><a href="#" onclick="runCommand(\'whoami\'); return false;">whoami</a></strong>       - Who I am and what I do', '', 250);
+      lineAnimated('  <strong><a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a></strong>   - Fractional CTO & NeoForge services', '', 300);
+      lineAnimated('  <strong><a href="#" onclick="runCommand(\'projects\'); return false;">projects</a></strong>     - Current work and past delivery', '', 350);
+      lineAnimated('  <strong><a href="#" onclick="runCommand(\'achievements\'); return false;">achievements</a></strong> - Quantified impact and results', '', 400);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'help\'); return false;">help</a></strong>         - See all commands', '', 450);
       lineAnimated('&nbsp;', '', 500);
       lineAnimated('💡 <span class="muted">Try typing a command and pressing Enter. Use ↑/↓ for history, Tab for autocomplete.</span>', '', 550);
@@ -1165,6 +1166,7 @@
         if (firstLine && firstLine.innerHTML.includes('━━━')) {
           // Clear and redraw
           $output.innerHTML = '';
+          STATE.started = false;
           boot();
         }
       }

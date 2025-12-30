@@ -9,31 +9,32 @@ This is a minimal, dependency-free personal branding website for Scott Feltham. 
 ## Positioning & Messaging
 
 Scott Feltham is positioned as:
-- **Fractional CTO** — Strategic technical leadership for SMEs and enterprises
-- **Senior Engineering Leader** — 20+ years, 100+ engineers led
-- **Founder @ NeoForge Engineering** — Hands-on consulting
+- **Fractional CTO | Senior Engineering Leader** — Primary tagline (matches LinkedIn)
+- **Founder @ NeoForge Consulting** — Fractional CTO services, AI adoption, modern delivery
+- **Creator @ Neurocademy** — AI-powered learning for neurodivergent students
 
 ### Key Proof Points (use consistently)
-- 100+ engineers led (Builder.ai, Orange Bus)
-- 2x productivity in 90 days (Kahunas)
-- 99.9% uptime during rapid scaling
-- 15-day MVP delivery (Neurocademy)
-- Government scale delivery (HMRC Tax-Free Childcare)
+- 2x productivity through AI adoption (Kahunas, 2025)
+- 99.9% platform availability during growth (Kahunas)
+- 8 months from concept to production (mkodo GeoLocs)
+- 8 engineers mentored to senior roles (Builder.ai)
+- HMRC Tax-Free Childcare — government digital service (via Orange Bus)
 
-### Career Timeline
-- 2024–Present: NeoForge Engineering (Founder) + Fractional CTO
-- 2022–2024: Builder.ai — Architecture leadership, 100+ engineers
-- 2019–2022: Orange Bus — Multi-client enterprise delivery
-- 2017–2019: Kahunas — SaaS turnaround, 2x productivity
-- 2015: HMRC — Government digital service
-
-### Fractional Networks
-Available directly or via Mission+ and Boardman networks.
+### Career Timeline (Correct as of Aug 2025)
+- **Jan 2025–Present**: NeoForge Consulting (Founder) — Fractional CTO services
+- **July 2025–Present**: Neurocademy (Creator & Product Lead) — AI-powered education
+- **Feb 2025–Aug 2025**: Kahunas (VP of Engineering) — 2x productivity, 99.9% uptime
+- **Jan 2023–Feb 2025**: Builder.ai (Senior Technical Architect) — Architecture Guild, 8 mentees
+- **Apr 2022–Dec 2022**: mkodo (Head of Engineering) — GeoLocs SaaS in 8 months
+- **Sep 2019–Mar 2022**: Moltin/Elastic Path (Senior Software Engineer & Ops Manager)
+- **2015–2017**: Orange Bus (Solutions Architect) — includes HMRC Tax-Free Childcare (Jan 2015–Jan 2016)
+- **1998–2019**: Career evolution through defence, freelance, and enterprise roles
 
 ### Related Properties
 - **neoforge.co** — Company site, services, case studies
+- **neurocademy.com** — AI-powered learning platform
 - **linkedin.com/in/scottdfeltham** — Professional profile
-- Keep messaging aligned across all three properties
+- Keep messaging aligned across all properties
 
 ## Development Commands
 
@@ -71,12 +72,14 @@ The terminal functionality in `assets/script.js` follows this pattern:
 4. **State Management** — Uses localStorage for theme preference and command history
 
 ### Key Commands
-- `whoami` — Who I am and what I do (Fractional CTO focus)
+- `whoami` — Who I am and what I do
 - `about` — Full bio and career timeline
-- `consulting` — Fractional CTO & NeoForge services
+- `consulting` — NeoForge Consulting & Fractional CTO services
 - `projects` — Current work and past delivery
 - `achievements` — Quantified impact and results
 - `skills` — Technical expertise
+- `neurocademy` — AI-powered learning platform
+- `forge` — FORGE Framework methodology
 
 ### Customization Points
 When modifying content:

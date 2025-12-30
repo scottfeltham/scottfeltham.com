@@ -484,7 +484,7 @@
         { content: '   <span class="banner-glow">███████║╚██████╗╚██████╔╝   ██║      ██║       ██║     ███████╗███████╗██║   ██║  ██║██║  ██║██║ ╚═╝ ██║</span>', class: 'ascii-line', delay: 0.6 },
         { content: '   <span class="banner-glow">╚══════╝ ╚═════╝ ╚═════╝    ╚═╝      ╚═╝       ╚═╝     ╚══════╝╚══════╝╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝</span>', class: 'ascii-line', delay: 0.7 },
         { content: '', class: '', delay: 0.8 },
-        { content: '                                    <span class="accent">Fractional CTO | Senior Engineering Leader</span>', class: 'tagline', delay: 0.9 },
+        { content: '                                <span class="accent">Fractional CTO | Senior Engineering Leader</span>', class: 'tagline', delay: 0.9 },
         { content: '<span class="muted">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</span>', class: 'border-line', delay: 1.0 }
       ];
     } else if (terminalWidth >= 70) {
@@ -597,88 +597,88 @@
       // Reset counter for command output
       terminalLineCount = 0;
 
-      lineAnimated('<strong>Scott Feltham</strong> — Fractional CTO & Senior Engineering Leader', '', 0);
+      lineAnimated('<strong>Scott Feltham</strong> — Fractional CTO | Senior Engineering Leader', '', 0);
       lineAnimated('', '', 50);
-      lineAnimated('I help organisations build better products through senior engineering', '', 100);
-      lineAnimated('leadership and practical AI adoption.', '', 150);
-      lineAnimated('', '', 200);
-      lineAnimated('<strong>What I Do:</strong>', '', 250);
-      lineAnimated('• <strong>Fractional CTO:</strong> Strategic technical leadership without a full-time hire', '', 300);
-      lineAnimated('• <strong>Engineering Excellence:</strong> Strengthening systems, simplifying architecture', '', 350);
-      lineAnimated('• <strong>Practical AI Adoption:</strong> Workflows that improve speed and decisions', '', 400);
-      lineAnimated('', '', 450);
-      lineAnimated('<strong>Where I\'ve Delivered:</strong>', '', 500);
-      lineAnimated('• <strong>Builder.ai</strong> — Architecture leadership, 100+ engineers', '', 550);
-      lineAnimated('• <strong>Orange Bus</strong> — Multi-client enterprise transformation', '', 600);
-      lineAnimated('• <strong>Kahunas</strong> — SaaS turnaround, 2x productivity in 90 days', '', 650);
-      lineAnimated('• <strong>HMRC</strong> — Government digital service for millions of UK families', '', 700);
-      lineAnimated('', '', 750);
-      lineAnimated('<strong>Experience:</strong> 20+ years | <strong>Location:</strong> Dubai & Global', '', 800);
-      lineAnimated('', '', 850);
-      lineTypewriter('Available directly or via Mission+ and Boardman networks.', '', 900, true);
+      lineAnimated('I take initiative, learn fast, ask better questions, and ship.', '', 100);
+      lineAnimated('', '', 150);
+      lineAnimated('<strong>Current Focus:</strong>', '', 200);
+      lineAnimated('• <strong>NeoForge Consulting</strong> — Fractional CTO services, AI adoption, modern delivery', '', 250);
+      lineAnimated('• <strong>Neurocademy</strong> — AI-powered learning for neurodivergent students', '', 300);
+      lineAnimated('', '', 350);
+      lineAnimated('<strong>How I Create Value:</strong>', '', 400);
+      lineAnimated('• <strong>High Agency:</strong> I take initiative and own outcomes', '', 450);
+      lineAnimated('• <strong>Adaptability:</strong> Defense systems → SaaS → AI-first engineering', '', 500);
+      lineAnimated('• <strong>Curiosity:</strong> I ask better questions before building', '', 550);
+      lineAnimated('• <strong>Speed:</strong> Ship, then perfect — good today beats perfect tomorrow', '', 600);
+      lineAnimated('', '', 650);
+      lineAnimated('<strong>Recent Impact:</strong>', '', 700);
+      lineAnimated('• <strong>Kahunas (2025)</strong> — 2x productivity through AI, 99.9% uptime', '', 750);
+      lineAnimated('• <strong>Builder.ai</strong> — Architecture Guild, 8 engineers mentored to senior', '', 800);
+      lineAnimated('• <strong>mkodo</strong> — First SaaS product (GeoLocs) in 8 months', '', 850);
+      lineAnimated('', '', 900);
+      lineTypewriter('<strong>Location:</strong> Dubai (Global) | <strong>Experience:</strong> 20+ years', '', 950, true);
     },
 
     about() {
       const lines = [
-        'I help organisations build better products through senior engineering leadership',
-        'and practical AI adoption.',
-        '',
-        '20+ years leading engineering at scale — from early-stage startups to 100+ engineer',
-        'enterprises. I\'ve doubled delivery output, maintained 99.9% uptime during rapid',
-        'scaling, and shipped MVPs in 15 days.',
+        'Senior Engineering Leader with 20+ years of continuous adaptation.',
+        'From defense systems to SaaS to AI-first engineering.',
         '',
         '<strong>Career Timeline:</strong>',
-        '• <strong>2024-Present:</strong> NeoForge Engineering (Founder) + Fractional CTO',
-        '• <strong>2022-2024:</strong> Builder.ai — Architecture leadership, 100+ engineers',
-        '• <strong>2019-2022:</strong> Orange Bus — Multi-client enterprise delivery',
-        '• <strong>2017-2019:</strong> Kahunas — SaaS turnaround, 2x productivity',
-        '• <strong>2015:</strong> HMRC — Government digital service at scale',
+        '• <strong>Jan 2025–Present:</strong> NeoForge Consulting (Founder) — Fractional CTO services',
+        '• <strong>Jul 2025–Present:</strong> Neurocademy (Creator) — AI-powered education',
+        '• <strong>Feb–Aug 2025:</strong> Kahunas (VP Engineering) — 2x productivity, 99.9% uptime',
+        '• <strong>Jan 2023–Feb 2025:</strong> Builder.ai (Senior Technical Architect)',
+        '• <strong>Apr–Dec 2022:</strong> mkodo (Head of Engineering) — GeoLocs SaaS in 8 months',
+        '• <strong>Sep 2019–Mar 2022:</strong> Moltin/Elastic Path — SaaS ops through acquisition',
+        '• <strong>2015–2017:</strong> Orange Bus — Solutions Architect (incl. HMRC Tax-Free Childcare)',
+        '• <strong>1998–2019:</strong> Career evolution: General Dynamics → Freelance → Enterprise',
         '',
-        '<strong>Three Focus Areas:</strong>',
-        '• <strong>Engineering Excellence:</strong> Strengthening systems, simplifying architecture',
-        '• <strong>Practical AI Adoption:</strong> Workflows that improve speed and decisions',
-        '• <strong>Hands-on Leadership:</strong> Working directly with founders, CTOs, and teams',
+        '<strong>How I Create Value:</strong>',
+        '• <strong>High Agency:</strong> I take initiative without needing permission',
+        '• <strong>Adaptability:</strong> I learn and apply fast to new domains',
+        '• <strong>Curiosity:</strong> I ask better questions before building',
+        '• <strong>Speed of Execution:</strong> I ship, then perfect',
         '',
         '<strong>Philosophy:</strong>',
-        'After years in broader leadership, I realised my value comes from staying close',
-        'enough to understand the details, constraints, and trade-offs inside a system.',
-        '',
-        'When engineering is healthy, the whole organisation moves faster.',
-        'When it weakens, everything slows.'
+        'Shipping good today beats perfect tomorrow.',
+        'I excel at taking ownership, adapting quickly, and building teams that think like owners.'
       ];
       lines.forEach(line);
     },
 
     projects() {
-      line('<strong>What I\'m Doing Now:</strong>');
+      line('<strong>Current Focus:</strong>');
       line('');
-      line('• <strong>Fractional CTO</strong>');
-      line('  Strategic technical leadership for SMEs and enterprises.');
-      line('  Available directly or via Mission+ and Boardman networks.');
+      line(`• <strong><a href="${LINKS.neoforge}" target="_blank" rel="noopener">NeoForge Consulting</a></strong> (Founder) — Jan 2025–Present`);
+      line('  Fractional CTO services focused on AI adoption and modern delivery.');
+      line('  Created FORGE Framework — testing with real projects.');
       line('');
-      line(`• <strong><a href="${LINKS.neoforge}" target="_blank" rel="noopener">NeoForge Engineering</a></strong> (Founder)`);
-      line('  Hands-on consulting for organisations that want to move faster.');
-      line('  Engineering excellence, practical AI adoption, delivery acceleration.');
+      line(`• <strong><a href="${LINKS.neurocademy}" target="_blank" rel="noopener">Neurocademy</a></strong> (Creator) — Jul 2025–Present`);
+      line('  AI-powered learning for neurodivergent students.');
+      line('  Built during 30-day Bolt.new hackathon (joined final 15 days).');
       line('');
-      line(`• <strong><a href="${LINKS.neurocademy}" target="_blank" rel="noopener">Neurocademy</a></strong>`);
-      line('  AI-powered learning platform for neurodivergent learners.');
-      line('  Inspired by supporting my own neurodivergent child. We build what we teach.');
+      line('<strong>Proven Track Record:</strong>');
       line('');
-      line('<strong>Where I\'ve Delivered:</strong>');
+      line('• <strong>Kahunas</strong> (VP Engineering) — Feb–Aug 2025');
+      line('  2x developer productivity through AI-first practices.');
+      line('  99.9% platform availability during scale-up phase.');
       line('');
-      line('• <strong>Builder.ai</strong> (2022-2024)');
-      line('  Architecture leadership across 100+ partner engineers.');
-      line('  Mentored 8 engineers to senior roles.');
+      line('• <strong>Builder.ai</strong> (Senior Technical Architect) — Jan 2023–Feb 2025');
+      line('  Led Architecture Guild, creating automation and scalable patterns.');
+      line('  Mentored 8 direct reports to senior technical roles.');
       line('');
-      line('• <strong>Orange Bus</strong> (2019-2022)');
-      line('  Multi-client enterprise digital transformation.');
-      line('  100+ engineers across simultaneous delivery programmes.');
+      line('• <strong>mkodo</strong> (Head of Engineering) — Apr–Dec 2022');
+      line('  Delivered GeoLocs (first SaaS product) in 8 months.');
+      line('  Built for regulated markets with compliance requirements.');
       line('');
-      line('• <strong>Kahunas</strong> (2017-2019)');
-      line('  SaaS turnaround: 2x productivity, 99.9% uptime.');
+      line('• <strong>Moltin/Elastic Path</strong> — Sep 2019–Mar 2022');
+      line('  Maintained SaaS operations through company acquisition.');
+      line('  Zero downtime during organizational changes.');
       line('');
-      line('• <strong>HMRC</strong> (2015)');
-      line('  Tax-Free Childcare — government service for millions.');
+      line('• <strong>Orange Bus</strong> (Solutions Architect) — 2015–2017');
+      line('  Includes HMRC Tax-Free Childcare (Jan 2015–Jan 2016).');
+      line('  Government digital service for millions of UK families.');
       line('');
       line(`• <strong><a href="${LINKS.github}" target="_blank" rel="noopener">GitHub</a></strong> — Open source tools and experiments`);
     },
@@ -792,39 +792,37 @@
     echo(...rest) { line(rest.join(' ')); },
 
     consulting() {
-      line('<strong>How I Work With Organisations</strong>');
+      line('<strong>NeoForge Consulting</strong> — Jan 2025–Present');
       line('');
-      line('<strong>FRACTIONAL CTO</strong>');
-      line('Strategic technical leadership for companies that need senior engineering');
-      line('expertise without a full-time hire.');
+      line('Building a new approach to technical leadership.');
+      line('');
+      line('<strong>FRACTIONAL CTO SERVICES</strong>');
+      line('Developing Fractional CTO services focused on AI adoption and modern delivery.');
       line('');
       line('  • Architecture decisions and technology strategy');
       line('  • Team structure, hiring, and leadership development');
       line('  • Delivery processes and engineering culture');
-      line('  • Practical AI adoption and workflow improvement');
+      line('  • AI-first practices that actually work');
       line('');
-      line('  Available directly or via <strong>Mission+</strong> and <strong>Boardman</strong> networks.');
+      line('<strong>FORGE FRAMEWORK</strong>');
+      line('Focus, Orchestrate, Refine, Generate, Evaluate — testing with real projects.');
       line('');
-      line('<strong>NEOFORGE ENGINEERING</strong>');
-      line('Hands-on consulting for organisations that want to move faster and build');
-      line('better systems.');
-      line('');
-      line('  • Engineering excellence — Strengthening systems, simplifying architecture');
-      line('  • Practical AI adoption — Workflows that improve speed and decisions');
-      line('  • Hands-on leadership — Working directly with founders, CTOs, and teams');
+      line('  • Helping organizations understand AI-first engineering');
+      line('  • Building the practice systematically');
+      line('  • Maintaining quality engagements');
       line('');
       line('<strong>Results I\'ve Delivered:</strong>');
-      line('• 2x developer productivity in 90 days (Kahunas)');
-      line('• 99.9% uptime during rapid scaling');
-      line('• 15-day MVP delivery (Neurocademy)');
-      line('• 100+ engineers led across Builder.ai, Orange Bus');
-      line('• Government digital service for millions (HMRC)');
+      line('• 2x developer productivity through AI (Kahunas 2025)');
+      line('• 99.9% platform availability during growth');
+      line('• 8 months from concept to production (mkodo)');
+      line('• 8 engineers mentored to senior roles (Builder.ai)');
+      line('• Zero downtime during company acquisition (Moltin)');
       line('');
-      line('<strong>Let\'s Talk If:</strong>');
-      line('• Your organisation is stuck and you\'re not sure why');
-      line('• You need senior technical leadership without a full-time hire');
-      line('• You want to adopt AI practically — results, not hype');
-      line('• You\'re scaling and need systems that won\'t break');
+      line('<strong>I Work Best With:</strong>');
+      line('• Organizations that value speed and iteration');
+      line('• Teams ready to embrace AI and modern practices');
+      line('• Companies that measure results, not hours');
+      line('• Leaders who encourage experimentation');
       line('');
       line(`📧 <a href="${LINKS.email}">scott@neoforge.co</a>`);
       line(`🌐 <a href="${LINKS.neoforge}" target="_blank" rel="noopener">${LINKS.neoforge}</a>`);
@@ -860,41 +858,44 @@
     },
 
     achievements() {
-      line('<strong>Quantified Impact & Results</strong>');
+      line('<strong>Measurable Impact</strong>');
       line('');
-      line('<strong>Builder.ai (2022-2024)</strong>');
-      line('• Architecture leadership across <strong>100+ partner engineers</strong>');
-      line('• Mentored <strong>8 engineers</strong> to senior technical roles');
+      line('<strong>Kahunas (Feb–Aug 2025)</strong>');
+      line('• <strong>2x developer productivity</strong> through AI adoption');
+      line('• <strong>99.9% platform availability</strong> during growth phase');
+      line('• Led transformation of 20+ person engineering organization');
+      line('• Mentored teams to become more autonomous and solution-focused');
+      line('');
+      line('<strong>Builder.ai (Jan 2023–Feb 2025)</strong>');
       line('• Led Architecture Guild — automation and scalable patterns');
-      line('• Enterprise architecture for dozens of simultaneous projects');
+      line('• Mentored <strong>8 direct reports</strong> to senior technical roles');
+      line('• Supported GCC region clients with technical pre-sales');
+      line('• Built systems for reliability and future growth');
       line('');
-      line('<strong>Orange Bus (2019-2022)</strong>');
-      line('• <strong>Multi-client enterprise</strong> digital transformation');
-      line('• Technical delivery leadership across <strong>100+ engineers</strong>');
-      line('• Created repeatable design patterns for distributed teams');
-      line('• Enterprise clients across multiple industries');
+      line('<strong>mkodo (Apr–Dec 2022)</strong>');
+      line('• Delivered GeoLocs — <strong>first SaaS product in 8 months</strong>');
+      line('• Managed complete lifecycle from concept to production');
+      line('• Built for regulated markets with compliance requirements');
       line('');
-      line('<strong>Kahunas (2017-2019)</strong>');
-      line('• <strong>2x developer productivity</strong> in 90 days');
-      line('• <strong>99.9% platform availability</strong> during rapid scale-up');
-      line('• SaaS turnaround — from technical debt to autonomous teams');
-      line('• Led 20+ person engineering organization');
+      line('<strong>Moltin/Elastic Path (Sep 2019–Mar 2022)</strong>');
+      line('• <strong>Zero downtime</strong> during company acquisition');
+      line('• Led distributed teams across multiple time zones');
+      line('• Balanced stability with continued feature delivery');
       line('');
-      line('<strong>HMRC Tax-Free Childcare (2015)</strong>');
-      line('• UK government digital service for <strong>millions of families</strong>');
+      line('<strong>Orange Bus + HMRC (2015–2017)</strong>');
+      line('• HMRC Tax-Free Childcare — service for <strong>millions of UK families</strong>');
       line('• GOV.UK Design System, WCAG 2.1 AA compliance');
-      line('• Up to £2,000 savings per child annually');
       line('');
-      line('<strong>Recent Delivery</strong>');
-      line(`• <a href="${LINKS.neurocademy}" target="_blank" rel="noopener">Neurocademy</a> — <strong>MVP in 15 days</strong>, AI-powered learning platform`);
-      line('• FORGE Framework — Proven methodology for delivery acceleration');
-      line('• Multiple rapid builds via NeoForge Labs');
+      line('<strong>Current Initiatives:</strong>');
+      line(`• <a href="${LINKS.neurocademy}" target="_blank" rel="noopener">Neurocademy</a> — AI-powered learning platform`);
+      line('• FORGE Framework — delivery acceleration methodology');
+      line('• Building two ventures while consulting');
       line('');
       line('<strong>Key Metrics:</strong>');
-      line('• 100+ engineers led');
-      line('• 2x productivity gains (proven, repeatable)');
-      line('• 99.9% uptime at scale');
-      line('• 15-day MVP delivery');
+      line('• 2x productivity gains (Kahunas 2025)');
+      line('• 99.9% uptime during growth');
+      line('• 8 months concept to production (mkodo)');
+      line('• 8 engineers mentored to senior (Builder.ai)');
       line('• 20+ years across defence, SaaS, government, enterprise');
     },
 

@@ -1,0 +1,10 @@
+# robots.txt for scottfeltham.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://scottfeltham.com/sitemap.xml
+
+# Crawl-delay (optional, be nice to servers)
+Crawl-delay: 1

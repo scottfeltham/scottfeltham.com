@@ -10,7 +10,8 @@ This is a minimal, dependency-free personal branding website for Scott Feltham. 
 
 Scott Feltham is positioned as:
 - **Fractional CTO | Senior Engineering Leader** — Primary tagline (matches LinkedIn)
-- **Founder @ NeoForge Consulting** — Fractional CTO services, AI adoption, modern delivery
+- **Intent Driven Developer** — Methodology tagline (matches neoforge.co)
+- **Founder @ NeoForge Consulting** — Fractional CTO services, intent-driven delivery
 - **Creator @ Neurocademy** — AI-powered learning for neurodivergent students
 
 ### Key Proof Points (use consistently)

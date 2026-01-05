@@ -564,7 +564,7 @@
     '  <a href="#" onclick="runCommand(\'banner\'); return false;">banner</a>              Show the site banner',
     '  <a href="#" onclick="runCommand(\'whoami\'); return false;">whoami</a>              Who I am and what I do',
     '  <a href="#" onclick="runCommand(\'about\'); return false;">about</a>               Full bio and career timeline',
-    '  <a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a>          Fractional CTO & NeoForge services',
+    '  <a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a>          NeoForge Engineering programmes',
     '  <a href="#" onclick="runCommand(\'projects\'); return false;">projects</a>            Current work and past delivery',
     '  <a href="#" onclick="runCommand(\'achievements\'); return false;">achievements</a>        Quantified impact and results',
     '  <a href="#" onclick="runCommand(\'skills\'); return false;">skills</a>              Technical expertise',
@@ -602,7 +602,7 @@
       lineAnimated('I take initiative, learn fast, ask better questions, and ship.', '', 100);
       lineAnimated('', '', 150);
       lineAnimated('<strong>Current Focus:</strong>', '', 200);
-      lineAnimated('• <strong>NeoForge Consulting</strong> — Fractional CTO services, AI adoption, modern delivery', '', 250);
+      lineAnimated('• <strong>NeoForge Consulting</strong> — NeoForge Engineering: outcome-owned programmes', '', 250);
       lineAnimated('• <strong>Neurocademy</strong> — AI-powered learning for neurodivergent students', '', 300);
       lineAnimated('', '', 350);
       lineAnimated('<strong>How I Create Value:</strong>', '', 400);
@@ -625,7 +625,7 @@
         'From defense systems to SaaS to AI-first engineering.',
         '',
         '<strong>Career Timeline:</strong>',
-        '• <strong>Jan 2025–Present:</strong> NeoForge Consulting (Founder) — Fractional CTO services',
+        '• <strong>Jan 2025–Present:</strong> NeoForge Consulting (Founder) — NeoForge Engineering',
         '• <strong>Jul 2025–Present:</strong> Neurocademy (Creator) — AI-powered education',
         '• <strong>Feb–Aug 2025:</strong> Kahunas (VP Engineering) — 2x productivity, 99.9% uptime',
         '• <strong>Jan 2023–Feb 2025:</strong> Builder.ai (Senior Technical Architect)',
@@ -651,8 +651,8 @@
       line('<strong>Current Focus:</strong>');
       line('');
       line(`• <strong><a href="${LINKS.neoforge}" target="_blank" rel="noopener">NeoForge Consulting</a></strong> (Founder) — Jan 2025–Present`);
-      line('  Fractional CTO services focused on AI adoption and modern delivery.');
-      line('  Created FORGE Framework — testing with real projects.');
+      line('  NeoForge Engineering: outcome-owned programmes for high-stakes delivery.');
+      line('  We own outcomes, not hours — £250k–£1m+ engagements.');
       line('');
       line(`• <strong><a href="${LINKS.neurocademy}" target="_blank" rel="noopener">Neurocademy</a></strong> (Creator) — Jul 2025–Present`);
       line('  AI-powered learning for neurodivergent students.');
@@ -792,39 +792,54 @@
     echo(...rest) { line(rest.join(' ')); },
 
     consulting() {
-      line('<strong>NeoForge Consulting</strong> — Jan 2025–Present');
+      line('<strong>NeoForge Engineering</strong>');
+      line('<span class="accent">We deliver critical engineering outcomes where failure is expensive.</span>');
       line('');
-      line('Building a new approach to technical leadership.');
+      line('We own high-stakes engineering programmes for organisations');
+      line('that need certainty, not experimentation.');
       line('');
-      line('<strong>FRACTIONAL CTO SERVICES</strong>');
-      line('Developing Fractional CTO services focused on AI adoption and modern delivery.');
+      line('<strong>WHEN TO ENGAGE NEOFORGE</strong>');
+      line('• A platform or product has become business-critical');
+      line('• Delivery risk is increasing as the organisation scales');
+      line('• Multiple suppliers exist, but no one owns the outcome');
+      line('• A modernisation or rebuild cannot afford failure');
+      line('• Senior technical leadership is required without over-hiring');
       line('');
-      line('  • Architecture decisions and technology strategy');
-      line('  • Team structure, hiring, and leadership development');
-      line('  • Delivery processes and engineering culture');
-      line('  • AI-first practices that actually work');
+      line('<strong>WHAT WE DO</strong>');
+      line('<em>Outcome-Owned Engineering Programmes</em>');
+      line('We lead and deliver complex engineering initiatives with');
+      line('single-threaded accountability:');
       line('');
-      line('<strong>FORGE FRAMEWORK</strong>');
-      line('Focus, Orchestrate, Refine, Generate, Evaluate — testing with real projects.');
+      line('  • Platform and product delivery');
+      line('  • Modernisation and stabilisation programmes');
+      line('  • High-risk migrations and rebuilds');
+      line('  • Multi-team delivery coordination');
+      line('  • Engineering governance and quality control');
       line('');
-      line('  • Helping organizations understand AI-first engineering');
-      line('  • Building the practice systematically');
-      line('  • Maintaining quality engagements');
+      line('<span class="muted">We do not sell hours, teams, or tools. We own outcomes.</span>');
       line('');
-      line('<strong>Results I\'ve Delivered:</strong>');
-      line('• 2x developer productivity through AI (Kahunas 2025)');
-      line('• 99.9% platform availability during growth');
-      line('• 8 months from concept to production (mkodo)');
-      line('• 8 engineers mentored to senior roles (Builder.ai)');
-      line('• Zero downtime during company acquisition (Moltin)');
+      line('<strong>HOW WE DELIVER</strong>');
+      line('<em>Senior-Led. Outcome-Driven. Controlled at Scale.</em>');
       line('');
-      line('<strong>I Work Best With:</strong>');
-      line('• Organizations that value speed and iteration');
-      line('• Teams ready to embrace AI and modern practices');
-      line('• Companies that measure results, not hours');
-      line('• Leaders who encourage experimentation');
+      line('  • Clear intent and success criteria');
+      line('  • Defined delivery constraints');
+      line('  • Disciplined execution systems');
+      line('  • Single, named delivery owner per engagement');
+      line('  • Milestone-based delivery with quality gates');
       line('');
-      line(`📧 <a href="${LINKS.email}">scott@neoforge.co</a>`);
+      line('<strong>WHO WE WORK WITH</strong>');
+      line('• CEOs, COOs, CIOs, and Heads of Product or Technology');
+      line('• Established SMEs, scale-ups, and enterprise units');
+      line('• Organisations with real traction and real risk');
+      line('');
+      line('<span class="muted">Not a fit: early-stage experimentation, staff augmentation,</span>');
+      line('<span class="muted">low-cost delivery, or tool-led transformation initiatives.</span>');
+      line('');
+      line('<strong>ENGAGEMENTS</strong>');
+      line('Programmes typically range from <strong>£250k to £1m+</strong>');
+      line('depending on scope and outcomes.');
+      line('');
+      line(`📧 <a href="${LINKS.email}">scott@neoforge.co</a> — Request a strategic conversation`);
       line(`🌐 <a href="${LINKS.neoforge}" target="_blank" rel="noopener">${LINKS.neoforge}</a>`);
     },
 
@@ -919,8 +934,6 @@
       // Create and display detailed status in pane 2
       showSystemStatus();
     },
-
-    echo(...rest) { line(rest.join(' ')); },
   };
 
   function parse(input) {
@@ -950,7 +963,7 @@
       lineAnimated('&nbsp;', '', 150);
       lineAnimated('Available commands:', '', 200);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'whoami\'); return false;">whoami</a></strong>       - Who I am and what I do', '', 250);
-      lineAnimated('  <strong><a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a></strong>   - Fractional CTO & NeoForge services', '', 300);
+      lineAnimated('  <strong><a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a></strong>   - NeoForge Engineering programmes', '', 300);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'projects\'); return false;">projects</a></strong>     - Current work and past delivery', '', 350);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'achievements\'); return false;">achievements</a></strong> - Quantified impact and results', '', 400);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'help\'); return false;">help</a></strong>         - See all commands', '', 450);
@@ -995,7 +1008,7 @@
       lineAnimated('&nbsp;', '', 150);
       lineAnimated('Available commands:', '', 200);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'whoami\'); return false;">whoami</a></strong>       - Who I am and what I do', '', 250);
-      lineAnimated('  <strong><a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a></strong>   - Fractional CTO & NeoForge services', '', 300);
+      lineAnimated('  <strong><a href="#" onclick="runCommand(\'consulting\'); return false;">consulting</a></strong>   - NeoForge Engineering programmes', '', 300);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'projects\'); return false;">projects</a></strong>     - Current work and past delivery', '', 350);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'achievements\'); return false;">achievements</a></strong> - Quantified impact and results', '', 400);
       lineAnimated('  <strong><a href="#" onclick="runCommand(\'help\'); return false;">help</a></strong>         - See all commands', '', 450);

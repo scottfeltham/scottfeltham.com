@@ -11,7 +11,7 @@ This is a minimal, dependency-free personal branding website for Scott Feltham. 
 Scott Feltham is positioned as:
 - **Fractional CTO | Senior Engineering Leader** — Primary tagline (matches LinkedIn)
 - **Intent Driven Developer** — Methodology tagline (matches neoforge.co)
-- **Founder @ NeoForge Consulting** — Fractional CTO services, intent-driven delivery
+- **Founder @ NeoForge Consulting** — NeoForge Engineering: outcome-owned programmes (£250k–£1m+)
 - **Creator @ Neurocademy** — AI-powered learning for neurodivergent students
 
 ### Key Proof Points (use consistently)
@@ -32,10 +32,18 @@ Scott Feltham is positioned as:
 - **1998–2019**: Career evolution through defence, freelance, and enterprise roles
 
 ### Related Properties
-- **neoforge.co** — Company site, services, case studies
+- **neoforge.co** — NeoForge Consulting: engineering programmes, case studies
 - **neurocademy.com** — AI-powered learning platform
 - **linkedin.com/in/scottdfeltham** — Professional profile
 - Keep messaging aligned across all properties
+
+### NeoForge Engineering Positioning
+NeoForge Engineering is a service offering within NeoForge Consulting:
+- **Tagline**: "We deliver critical engineering outcomes where failure is expensive"
+- **Model**: Outcome-owned programmes, not hourly consulting
+- **Engagements**: £250k–£1m+
+- **Target**: CEOs, COOs, CIOs, Heads of Product/Technology at SMEs, scale-ups, enterprise
+- **Not a fit**: Early-stage experimentation, staff augmentation, low-cost delivery
 
 ## Development Commands
 
@@ -75,7 +83,7 @@ The terminal functionality in `assets/script.js` follows this pattern:
 ### Key Commands
 - `whoami` — Who I am and what I do
 - `about` — Full bio and career timeline
-- `consulting` — NeoForge Consulting & Fractional CTO services
+- `consulting` — NeoForge Engineering: outcome-owned programmes
 - `projects` — Current work and past delivery
 - `achievements` — Quantified impact and results
 - `skills` — Technical expertise

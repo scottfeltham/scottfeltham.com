@@ -1187,18 +1187,21 @@
     }, 250); // Debounce resize events
   });
 
+  // Skip side-pane work on mobile (panes are hidden via CSS)
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
   // Initialize timers
-  setInterval(updateStatusPane, 1000);
   setInterval(updateStatusBar, 1000);
+  if (!isMobile) {
+    setInterval(updateStatusPane, 1000);
+    updateStatusPane();
+    setTimeout(startCRTRefresh, 1000);
+  }
 
   // Start
   boot();
-  setActivePane(0); // Start with main pane active
-  updateStatusPane();
+  setActivePane(0);
   updateStatusBar();
   $input.focus();
-  
-  // Start CRT refresh animation for info pane after a short delay
-  setTimeout(startCRTRefresh, 1000); // Fast start - 1 second
 })();
 

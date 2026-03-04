@@ -692,48 +692,46 @@ body {
 /* Selection */
 ::selection { background: rgba(119,183,255,0.28); }
 
-/* Mobile responsive */
+/* Mobile: single-column terminal, hide side panes (content accessible via commands) */
 @media (max-width: 768px) {
   .tmux-container {
     grid-template-columns: 1fr;
-    grid-template-rows: 2fr 1fr 1fr auto;
   }
-  
+
   .tmux-left {
-    grid-column: 1;
-    grid-row: 1 / 2;
     border-right: none;
-    border-bottom: 2px solid var(--pane-border);
   }
-  
+
   .tmux-right {
-    grid-column: 1;
-    grid-row: 2 / 4;
-    grid-template-rows: 1fr 1fr;
+    display: none;
   }
-  
-  .tmux-right-top {
-    grid-row: 1;
-  }
-  
-  .tmux-right-bottom {
-    grid-row: 2;
-  }
-  
+
   .tmux-status-bar {
-    grid-row: 4;
+    font-size: 12px;
+    padding: 4px 8px;
   }
-  
-  .pane-number {
-    font-size: 11px;
-    padding: 0 4px;
+
+  .tmux-status-bar .status-center {
+    display: none;
   }
-  
-  .tmux-pane-header {
-    padding: 3px 6px;
-  }
-  
+
   body {
     font-size: 13px;
+  }
+
+  .output {
+    padding: 10px;
+  }
+
+  .input-form {
+    padding: 6px 10px;
+  }
+
+  .prompt-line {
+    gap: 6px;
+  }
+
+  .prompt {
+    font-size: 12px;
   }
 }

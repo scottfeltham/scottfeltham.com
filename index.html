@@ -162,6 +162,13 @@
     .ledger li b{font-weight:600;color:var(--ivory);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
     .dropcap::first-letter{font-family:var(--display);font-weight:600;font-size:3.4em;float:left;line-height:.8;padding:.07em .13em 0 0;color:var(--ember)}
 
+    /* ---------- INTENT particle interlude ---------- */
+    .intent-moment{height:200vh;position:relative;border-bottom:1px solid var(--line)}
+    .intent-pin{position:sticky;top:0;height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem}
+    .intent-pin canvas{width:min(100%,1100px);height:auto;display:block}
+    .intent-cap{font-family:var(--mono);font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;color:var(--dim);text-align:center;min-height:1.2em}
+    .intent-cap.two{color:var(--ember);opacity:0}
+
     /* ---------- FORGE pinned sequence ---------- */
     #forge{border-bottom:1px solid var(--line)}
     .forge-stage{position:relative}
@@ -302,6 +309,14 @@
             </ul>
           </aside>
         </div>
+      </div>
+    </section>
+
+    <section class="intent-moment" id="intent" aria-label="Intent, visualised">
+      <div class="intent-pin">
+        <p class="intent-cap one" data-cap1>most AI failures are intent failures</p>
+        <canvas id="intentCanvas" width="1200" height="520" aria-hidden="true"></canvas>
+        <p class="intent-cap two" data-cap2>— so make intent the artifact</p>
       </div>
     </section>
 
@@ -467,6 +482,31 @@
       if(!hasGsap || reduced){
         /* graceful static fallback: everything already visible */
         if(!reduced) document.querySelectorAll('.count').forEach(countUp);
+        /* intent interlude: draw the resolved word, shrink the pin runway */
+        (function(){
+          var cv = document.getElementById('intentCanvas');
+          if(!cv) return;
+          var sec = document.querySelector('.intent-moment');
+          if(sec) sec.style.height = 'auto';
+          var pin = document.querySelector('.intent-pin');
+          if(pin){ pin.style.position = 'static'; pin.style.height = 'auto'; pin.style.padding = '90px 0'; }
+          var cap2 = document.querySelector('[data-cap2]');
+          if(cap2) cap2.style.opacity = '1';
+          function paint(){
+            var ctx = cv.getContext('2d'), W = cv.width, H = cv.height;
+            var t = document.createElement('canvas'); t.width = W; t.height = H;
+            var tc = t.getContext('2d');
+            tc.fillStyle = '#fff'; tc.font = '600 210px Fraunces, Georgia, serif';
+            tc.textAlign = 'center'; tc.textBaseline = 'middle';
+            tc.fillText('INTENT', W/2, H/2 + 10);
+            var data = tc.getImageData(0,0,W,H).data;
+            ctx.clearRect(0,0,W,H);
+            ctx.fillStyle = 'rgba(255,122,47,.9)';
+            for(var y=0;y<H;y+=5) for(var x=0;x<W;x+=5)
+              if(data[(y*W+x)*4+3] > 128) ctx.fillRect(x,y,2.5,2.5);
+          }
+          if(document.fonts && document.fonts.ready) document.fonts.ready.then(paint); else paint();
+        })();
         return;
       }
 
@@ -519,7 +559,7 @@
         gsap.set(phases, {opacity:.28});
         var tl = gsap.timeline({
           scrollTrigger:{
-            trigger:'[data-forge-stage]', start:'top 18%', end:'+=1400',
+            trigger:'[data-forge-stage]', start:'top 18%', end:'+=1000',
             pin:true, scrub:.6,
             onUpdate:function(self){
               var lit = Math.floor(self.progress * 5 + .0001);
@@ -545,6 +585,64 @@
         gsap.to('[data-forgerail]', {scaleX:1, ease:'none',
           scrollTrigger:{trigger:'.phases-shell', start:'top 90%', end:'bottom 40%', scrub:true}});
       });
+
+      /* ---- INTENT particle interlude: noise converges into the word ---- */
+      (function(){
+        var cv = document.getElementById('intentCanvas');
+        if(!cv) return;
+        var ctx = cv.getContext('2d');
+        var W = cv.width, H = cv.height, N = 1100, pts = [];
+        function build(){
+          pts.length = 0;
+          var t = document.createElement('canvas'); t.width = W; t.height = H;
+          var tc = t.getContext('2d');
+          tc.fillStyle = '#fff';
+          tc.font = '600 210px Fraunces, Georgia, serif';
+          tc.textAlign = 'center'; tc.textBaseline = 'middle';
+          tc.fillText('INTENT', W/2, H/2 + 10);
+          var data = tc.getImageData(0,0,W,H).data, targets = [];
+          for(var y=0;y<H;y+=5) for(var x=0;x<W;x+=5)
+            if(data[(y*W+x)*4+3] > 128) targets.push([x,y]);
+          if(!targets.length) return;
+          for(var i=0;i<N;i++){
+            var seed = (i*2654435761) % 4294967296;
+            var rx = ((seed % 9973)/9973)*W, ry = (((seed>>7) % 9973)/9973)*H;
+            var tg = targets[(i*13) % targets.length];
+            pts.push({x0:rx, y0:ry, tx:tg[0], ty:tg[1], ph:(i%628)/100});
+          }
+        }
+        function draw(p){
+          ctx.clearRect(0,0,W,H);
+          var e = 1 - Math.pow(1-p, 3);
+          for(var i=0;i<pts.length;i++){
+            var pt = pts[i];
+            var wob = (1-e) * 30;
+            var x = pt.x0 + (pt.tx - pt.x0)*e + Math.sin(pt.ph + p*9 + i)*wob;
+            var y = pt.y0 + (pt.ty - pt.y0)*e + Math.cos(pt.ph + p*7 + i)*wob;
+            var a = .22 + e*.78;
+            ctx.fillStyle = 'rgba(255,122,47,'+a.toFixed(2)+')';
+            ctx.fillRect(x, y, 2.5, 2.5);
+          }
+        }
+        function init(){
+          build();
+          draw(reduced ? 1 : 0);
+          if(reduced){ gsap.set('[data-cap2]',{opacity:1}); return; }
+          var prog = 0, shown = 0;
+          ScrollTrigger.create({
+            trigger:'.intent-moment', start:'top top', end:'bottom bottom',
+            onUpdate:function(self){ prog = self.progress; }
+          });
+          gsap.ticker.add(function(){
+            shown += (prog - shown) * 0.14;
+            draw(shown);
+            gsap.set('[data-cap1]', {opacity: Math.max(0, 1 - shown*2.4)});
+            gsap.set('[data-cap2]', {opacity: Math.max(0, (shown - .72) * 3.8)});
+          });
+        }
+        if(document.fonts && document.fonts.ready) document.fonts.ready.then(init);
+        else init();
+      })();
 
       /* ---- record spine draws with scroll ---- */
       gsap.to('[data-spine]', {

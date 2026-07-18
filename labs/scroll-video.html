@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lab — Scroll-Driven Video Techniques</title>
+  <meta name="robots" content="noindex" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --void:#0D0B08; --coal:#14110C; --ivory:#EFE7D8; --dim:#9A8F7C; --faint:#5C5344;
+      --line:rgba(239,231,216,.12); --ember:#FF7A2F; --ember-deep:#C7500F;
+      --mono:'IBM Plex Mono',ui-monospace,monospace; --display:'Fraunces',Georgia,serif;
+      --ease:cubic-bezier(.32,.72,0,1);
+    }
+    *{box-sizing:border-box;margin:0}
+    body{background:var(--void);color:var(--ivory);font-family:var(--mono);font-size:.95rem;line-height:1.7;overflow-x:hidden}
+    .wrap{max-width:980px;margin:0 auto;padding:0 24px}
+    header{padding:60px 0 40px;border-bottom:1px solid var(--line)}
+    .kicker{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ember)}
+    h1{font-family:var(--display);font-weight:300;font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-.01em;margin:.3em 0}
+    header p{color:var(--dim);max-width:64ch;font-size:.85rem}
+    section{padding:90px 0;border-bottom:1px solid var(--line)}
+    h2{font-family:var(--display);font-weight:600;font-size:1.5rem;margin-bottom:.4rem}
+    h2 b{color:var(--ember)}
+    .meta{font-size:.72rem;color:var(--faint);letter-spacing:.06em;margin-bottom:1.6rem}
+    .note{color:var(--dim);font-size:.82rem;max-width:66ch;margin-top:1.6rem}
+    .note strong{color:var(--ivory)}
+    .stage{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--coal);position:relative}
+    .stage video,.stage canvas{display:block;width:100%;height:auto}
+    .hud{position:absolute;top:12px;right:14px;font-size:.68rem;color:var(--ember);background:rgba(13,11,8,.65);padding:4px 10px;border-radius:999px;border:1px solid var(--line);font-variant-numeric:tabular-nums}
+    .tall{height:220vh;position:relative}
+    .tall .pinme{position:sticky;top:10vh}
+    /* demo 3 */
+    .cine{height:240vh;position:relative}
+    .cine .pinme{position:sticky;top:0;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+    .cine .frame{width:38vw;max-width:520px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--line);will-change:transform;position:relative}
+    .cine .frame video{width:100%;height:100%;object-fit:cover}
+    .cine .caption{position:absolute;bottom:12vh;left:50%;transform:translateX(-50%);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);white-space:nowrap}
+    footer{padding:50px 0 70px;font-size:.72rem;color:var(--faint)}
+    a{color:var(--ember)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="kicker">labs / exploration · not linked publicly</p>
+      <h1>Scroll-driven video, three ways</h1>
+      <p>Same on-brand generated clip (960×540, 6s, <b>all-keyframe encoded</b>, 277 KB) exercised through the three production techniques. Scroll slowly, then fast; try reversing. Verdicts at the bottom of each.</p>
+    </header>
+
+    <!-- ============ 1. video.currentTime scrub ============ -->
+    <section>
+      <h2><b>01</b> · currentTime scrub</h2>
+      <p class="meta">scroll position → video.currentTime, with lerp smoothing · the "Apple AirPods" feel with a real &lt;video&gt;</p>
+      <div class="tall" id="d1">
+        <div class="pinme">
+          <div class="stage">
+            <video id="v1" src="assets/scrub-demo.mp4" muted playsinline preload="auto"></video>
+            <div class="hud" id="hud1">t = 0.00s</div>
+          </div>
+        </div>
+      </div>
+      <p class="note"><strong>How:</strong> ScrollTrigger maps section progress to a target time; a per-frame lerp eases currentTime toward it (never set it raw — it stutters). <strong>The catch:</strong> seeking smoothness depends entirely on encoding — this clip is encoded with <strong>keyframe interval 1</strong> (<code>-g 1</code>), which makes every frame seekable but ~3× the file size. Default-encoded video will judder badly. iOS needs <code>muted playsinline</code> and can still hiccup on long clips. <strong>Verdict:</strong> best effort-to-wow ratio for clips under ~10s.</p>
+    </section>
+
+    <!-- ============ 2. canvas image-sequence (procedural) ============ -->
+    <section>
+      <h2><b>02</b> · canvas frame scrub</h2>
+      <p class="meta">scroll → frame index drawn to canvas · what Apple actually ships (image sequences) — here rendered procedurally, zero assets</p>
+      <div class="tall" id="d2">
+        <div class="pinme">
+          <div class="stage">
+            <canvas id="c2" width="960" height="540"></canvas>
+            <div class="hud" id="hud2">frame 0</div>
+          </div>
+        </div>
+      </div>
+      <p class="note"><strong>How:</strong> scroll progress selects a frame; the frame is painted to canvas. Production sites pre-export 60–150 JPEG/WebP frames and blit them — perfectly smooth in both directions, no codec seeking at all. This demo goes one further: the "video" is <strong>computed live</strong> (a flow-field of agents converging from noise into the word INTENT — the site's thesis as motion), so there are no assets and it's resolution-independent. <strong>Verdict:</strong> the most reliable scrub; the choice when the motion must be flawless or generative.</p>
+    </section>
+
+    <!-- ============ 3. cinematic reveal over playing video ============ -->
+    <section>
+      <h2><b>03</b> · cinematic reveal</h2>
+      <p class="meta">video plays itself; scroll drives scale/radius/parallax of the frame · cheap, robust, still feels expensive</p>
+      <div class="cine" id="d3">
+        <div class="pinme">
+          <div class="frame" id="frame3">
+            <video src="assets/scrub-demo.mp4" muted playsinline loop autoplay preload="auto"></video>
+          </div>
+          <p class="caption" id="cap3">a small window —</p>
+        </div>
+      </div>
+      <p class="note"><strong>How:</strong> the video just loops; ScrollTrigger scrubs the <em>container</em> — scale from 38vw to full-bleed, corner radius to 0, caption crossfade. No seeking, so encoding doesn't matter and iOS is happy. <strong>Verdict:</strong> the pragmatic default — 90% of the perceived value at 10% of the risk. Ideal wrapper for a real hero film later (e.g. a generated abstract or a screen-capture of the agentic pipeline at work).</p>
+    </section>
+
+    <footer>
+      back to <a href="/">the front page</a> · assets/scrub-demo.mp4 generated with ffmpeg <code>gradients</code> filter in brand colors, <code>-g 1</code> all-keyframe
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script>
+    (function(){
+      if (typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ---- 1. currentTime scrub with lerp ---- */
+      var v1 = document.getElementById('v1'), hud1 = document.getElementById('hud1');
+      var target1 = 0, current1 = 0;
+      ScrollTrigger.create({
+        trigger:'#d1', start:'top 60%', end:'bottom 40%',
+        onUpdate:function(self){ target1 = self.progress; }
+      });
+      v1.addEventListener('loadedmetadata', function(){
+        if(reduced){ v1.currentTime = 0; return; }
+        gsap.ticker.add(function(){
+          current1 += (target1 - current1) * 0.12;
+          var t = current1 * (v1.duration - 0.05);
+          if (Math.abs(v1.currentTime - t) > 0.01) v1.currentTime = t;
+          hud1.textContent = 't = ' + t.toFixed(2) + 's';
+        });
+      });
+
+      /* ---- 2. procedural canvas scrub: noise → INTENT ---- */
+      var c = document.getElementById('c2'), ctx = c.getContext('2d'), hud2 = document.getElementById('hud2');
+      var W = c.width, H = c.height, N = 900, pts = [];
+      /* sample target points from text */
+      (function(){
+        var t = document.createElement('canvas'); t.width = W; t.height = H;
+        var tc = t.getContext('2d');
+        tc.fillStyle = '#fff'; tc.font = '600 150px Georgia, serif';
+        tc.textAlign = 'center'; tc.textBaseline = 'middle';
+        tc.fillText('INTENT', W/2, H/2);
+        var data = tc.getImageData(0,0,W,H).data, targets = [];
+        for(var y=0;y<H;y+=5) for(var x=0;x<W;x+=5)
+          if(data[(y*W+x)*4+3] > 128) targets.push([x,y]);
+        for(var i=0;i<N;i++){
+          var seed = i*2654435761 % 4294967296;
+          var rx = ((seed % 9973)/9973)*W, ry = (((seed>>8) % 9973)/9973)*H;
+          var tg = targets[i % targets.length];
+          pts.push({x0:rx, y0:ry, tx:tg[0], ty:tg[1], ph:(i%628)/100});
+        }
+      })();
+      var prog2 = 0, frame2 = 0;
+      function draw2(p){
+        ctx.fillStyle = '#14110C'; ctx.fillRect(0,0,W,H);
+        var e = 1 - Math.pow(1-p, 3);
+        for(var i=0;i<N;i++){
+          var pt = pts[i];
+          var wob = (1-e) * 26;
+          var x = pt.x0 + (pt.tx - pt.x0)*e + Math.sin(pt.ph + p*9 + i)*wob;
+          var y = pt.y0 + (pt.ty - pt.y0)*e + Math.cos(pt.ph + p*7 + i)*wob;
+          var a = .25 + e*.75;
+          ctx.fillStyle = 'rgba(255,122,47,'+a.toFixed(2)+')';
+          ctx.fillRect(x, y, 2.4, 2.4);
+        }
+        hud2.textContent = 'frame ' + Math.round(p*120);
+      }
+      draw2(0);
+      ScrollTrigger.create({
+        trigger:'#d2', start:'top 60%', end:'bottom 40%',
+        onUpdate:function(self){ prog2 = self.progress; }
+      });
+      if(!reduced) gsap.ticker.add(function(){
+        frame2 += (prog2 - frame2) * 0.14;
+        draw2(frame2);
+      });
+
+      /* ---- 3. cinematic reveal ---- */
+      if(!reduced){
+        gsap.timeline({
+          scrollTrigger:{trigger:'#d3', start:'top top', end:'bottom bottom', scrub:.5}
+        })
+        .to('#frame3', {width:'96vw', maxWidth:'96vw', borderRadius:4, ease:'none'}, 0)
+        .to('#cap3', {opacity:0, ease:'none'}, 0)
+        .fromTo('#frame3 video', {scale:1.25}, {scale:1, ease:'none'}, 0);
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,271 +1,350 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Scott Feltham — Fractional CTO | Senior Engineering Leader</title>
-    <meta name="description" content="Fractional CTO & Senior Engineering Leader with 20+ years experience. Founder of NeoForge Consulting. 2x productivity through AI adoption, 99.9% uptime at scale. Based in Dubai, working globally." />
-    <meta name="author" content="Scott Feltham" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://scottfeltham.com" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Scott Feltham — Fractional CTO | Senior Engineering Leader" />
-    <meta property="og:description" content="Fractional CTO & Senior Engineering Leader with 20+ years experience. Founder of NeoForge Consulting. 2x productivity through AI adoption, 99.9% uptime at scale." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://scottfeltham.com" />
-    <meta property="og:image" content="https://scottfeltham.com/assets/og-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:site_name" content="Scott Feltham" />
-    <meta property="og:locale" content="en_US" />
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@scottfeltham" />
-    <meta name="twitter:creator" content="@scottfeltham" />
-    <meta name="twitter:title" content="Scott Feltham — Fractional CTO | Senior Engineering Leader" />
-    <meta name="twitter:description" content="Fractional CTO & Senior Engineering Leader with 20+ years experience. Founder of NeoForge Consulting. 2x productivity through AI adoption." />
-    <meta name="twitter:image" content="https://scottfeltham.com/assets/og-image.png" />
-
-    <meta name="theme-color" content="#0b0f15" />
-
-    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/assets/styles.css" />
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Scott Feltham",
-      "url": "https://scottfeltham.com",
-      "image": "https://scottfeltham.com/assets/og-image.png",
-      "jobTitle": "Fractional CTO",
-      "description": "Senior Engineering Leader with 20+ years experience. Specializing in AI adoption, team scaling, and delivery acceleration.",
-      "email": "scott@neoforge.co",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Dubai",
-        "addressCountry": "AE"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/in/scottdfeltham",
-        "https://github.com/scottfeltham",
-        "https://x.com/scottfeltham"
-      ],
-      "worksFor": {
-        "@type": "Organization",
-        "name": "NeoForge Consulting",
-        "url": "https://neoforge.co"
-      },
-      "founder": [
-        {
-          "@type": "Organization",
-          "name": "NeoForge Consulting",
-          "url": "https://neoforge.co",
-          "foundingDate": "2025-01"
-        },
-        {
-          "@type": "Organization",
-          "name": "Neurocademy",
-          "url": "https://neurocademy.com",
-          "foundingDate": "2025-07"
-        }
-      ],
-      "knowsAbout": [
-        "Fractional CTO Services",
-        "AI Adoption",
-        "Engineering Leadership",
-        "Team Scaling",
-        "Software Architecture",
-        "FORGE Framework",
-        "DevOps",
-        "Cloud Architecture",
-        "AWS",
-        "Python",
-        "TypeScript",
-        "React"
-      ],
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "Northumbria University"
-      },
-      "hasCredential": {
-        "@type": "EducationalOccupationalCredential",
-        "name": "BSc (Hons) Computing - First Class",
-        "credentialCategory": "degree"
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scott Feltham — Creator of FORGE · Intent-Driven Development</title>
+  <meta name="description" content="Scott Feltham: engineering leader, creator of FORGE and Intent-Driven Development. Currently CTO running a 12-service production AI platform as a one-person engineering org." />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <meta property="og:title" content="Scott Feltham — Intent-Driven Development" />
+  <meta property="og:description" content="The quality of AI output is determined by the quality of the intent you express. Creator of FORGE. One engineer, twelve production services." />
+  <meta property="og:url" content="https://scottfeltham.com/" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --paper:#F6F1E7; --paper-deep:#EFE7D7; --ink:#191510; --ink-soft:#5E5546;
+      --rule:#D9CFBC; --accent:#C7500F; --accent-deep:#8F3A0C;
+      --mono:'IBM Plex Mono',ui-monospace,monospace;
+      --display:'Fraunces',Georgia,serif;
+      --body:'Newsreader',Georgia,serif;
+      --measure:64ch;
     }
-    </script>
-  </head>
-  <body class="theme-dark">
-    <a class="skip-link" href="#input">Skip to command input</a>
-    <main id="app" class="terminal tmux-container" aria-label="AI Agent CLI">
-      <!-- Left pane (main terminal) -->
-      <div class="tmux-pane tmux-left" data-pane="0">
-        <div class="tmux-pane-header">
-          <span class="pane-number">0</span>
-          <span class="pane-title">main</span>
-        </div>
-        <section id="output" class="output" aria-live="polite" aria-atomic="false"></section>
-        <form id="input-form" class="input-form" autocomplete="off">
-          <label class="sr-only" for="input">Command input</label>
-          <div class="prompt-line">
-            <span id="prompt" class="prompt" aria-hidden="true">guest@scottfeltham.com:~$</span>
-            <input id="input" name="input" class="input" type="text" spellcheck="false" autofocus placeholder="type 'help' to get started" />
-          </div>
-        </form>
+    *{box-sizing:border-box;margin:0}
+    html{scroll-behavior:smooth}
+    body{
+      background:var(--paper); color:var(--ink);
+      font-family:var(--body); font-size:1.06rem; line-height:1.72;
+      -webkit-font-smoothing:antialiased;
+    }
+    body::after{ /* print grain */
+      content:""; position:fixed; inset:0; pointer-events:none; z-index:1; opacity:.35;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.03 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    a{color:inherit}
+    ::selection{background:var(--accent);color:var(--paper)}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 24px;position:relative;z-index:2}
+
+    /* ---------- masthead ---------- */
+    header.masthead{
+      display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;
+      padding:26px 0 18px;border-bottom:2px solid var(--ink);
+    }
+    .brand{font-family:var(--mono);font-weight:600;font-size:.82rem;letter-spacing:.22em;text-transform:uppercase;text-decoration:none}
+    .brand em{font-style:normal;color:var(--accent)}
+    nav.toc{display:flex;gap:22px;flex-wrap:wrap}
+    nav.toc a{
+      font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+      text-decoration:none;color:var(--ink-soft);padding-bottom:2px;
+      background:linear-gradient(var(--accent),var(--accent)) left bottom / 0 1px no-repeat;
+      transition:background-size .25s ease,color .25s ease;
+    }
+    nav.toc a:hover,nav.toc a:focus-visible{color:var(--ink);background-size:100% 1px}
+    a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+    /* ---------- hero ---------- */
+    .hero{padding:9vh 0 7vh;border-bottom:1px solid var(--rule)}
+    .hero .folio{font-family:var(--mono);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:2.6rem}
+    .hero h1{
+      font-family:var(--display);font-weight:300;font-size:clamp(2.5rem,6.4vw,4.9rem);
+      line-height:1.06;letter-spacing:-.015em;max-width:19ch;text-wrap:balance;
+    }
+    .hero h1 em{font-style:italic;font-weight:400;color:var(--accent-deep)}
+    .hero .attrib{
+      margin-top:2.6rem;display:flex;gap:14px;align-items:baseline;flex-wrap:wrap;
+      font-family:var(--mono);font-size:.8rem;color:var(--ink-soft)
+    }
+    .hero .attrib b{color:var(--ink);font-weight:600}
+    .hero .rulewrap{display:inline-block;width:44px;height:1px;background:var(--accent);vertical-align:middle}
+
+    /* staged reveal */
+    @media (prefers-reduced-motion:no-preference){
+      .rise{opacity:0;transform:translateY(14px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+      .rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.22s}.rise.d3{animation-delay:.38s}.rise.d4{animation-delay:.54s}
+      @keyframes rise{to{opacity:1;transform:none}}
+      .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+      .reveal.in{opacity:1;transform:none}
+    }
+
+    /* ---------- stat band ---------- */
+    .stats{border-bottom:1px solid var(--rule);background:var(--paper-deep)}
+    .stats .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));}
+    .stat{padding:26px 18px 22px;border-left:1px solid var(--rule)}
+    .stat:first-child{border-left:none}
+    .stat b{display:block;font-family:var(--display);font-weight:600;font-size:2.1rem;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+    .stat b sup{font-size:.9rem;color:var(--accent);font-weight:400}
+    .stat span{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+    @media(max-width:760px){.stat{border-left:none;border-top:1px solid var(--rule)}.stat:first-child{border-top:none}}
+
+    /* ---------- sections ---------- */
+    section{padding:7rem 0 6rem;border-bottom:1px solid var(--rule)}
+    .sec-head{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:baseline;margin-bottom:3rem}
+    .sec-no{
+      font-family:var(--display);font-weight:300;font-size:4.6rem;line-height:.8;
+      color:transparent;-webkit-text-stroke:1px var(--accent);
+    }
+    .sec-title{font-family:var(--mono);font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft)}
+    .sec-title b{display:block;font-family:var(--display);font-size:clamp(1.6rem,3vw,2.3rem);font-weight:400;letter-spacing:-.01em;text-transform:none;color:var(--ink);margin-top:.5rem}
+    .lede{max-width:var(--measure);font-size:1.16rem}
+    .lede + p{max-width:var(--measure);margin-top:1.1rem}
+    p a{text-decoration-color:var(--accent);text-underline-offset:3px}
+    p a:hover{color:var(--accent-deep)}
+    .marginalia{font-family:var(--mono);font-size:.72rem;color:var(--ink-soft);letter-spacing:.06em}
+
+    /* now section: split */
+    .split{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:56px;align-items:start}
+    @media(max-width:860px){.split{grid-template-columns:1fr}}
+    .ledger{
+      border:1px solid var(--ink);background:var(--paper);
+      box-shadow:6px 6px 0 var(--paper-deep),6px 6px 0 1px var(--rule);
+    }
+    .ledger h3{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;padding:12px 16px;border-bottom:1px solid var(--ink);display:flex;justify-content:space-between}
+    .ledger h3 span{color:var(--accent)}
+    .ledger ul{list-style:none;padding:8px 0}
+    .ledger li{display:flex;justify-content:space-between;gap:12px;padding:7px 16px;font-family:var(--mono);font-size:.78rem}
+    .ledger li em{font-style:normal;color:var(--ink-soft)}
+    .ledger li b{font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+    .dropcap::first-letter{
+      font-family:var(--display);font-weight:600;font-size:3.3em;float:left;
+      line-height:.82;padding:.06em .12em 0 0;color:var(--accent-deep);
+    }
+
+    /* FORGE phases */
+    .phases{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--ink)}
+    @media(max-width:900px){.phases{grid-template-columns:1fr}}
+    .phase{padding:20px 16px 24px;border-left:1px solid var(--rule)}
+    .phase:first-child{border-left:none}
+    @media(max-width:900px){.phase{border-left:none;border-top:1px solid var(--rule)}.phase:first-child{border-top:none}}
+    .phase b{font-family:var(--display);font-size:2.2rem;font-weight:600;color:var(--accent);display:block;line-height:1}
+    .phase h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;margin:.6rem 0 .5rem}
+    .phase p{font-size:.9rem;line-height:1.55;color:var(--ink-soft)}
+    .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;margin-top:3.4rem}
+    @media(max-width:860px){.pillars{grid-template-columns:1fr}}
+    .pillar h4{font-family:var(--display);font-style:italic;font-weight:400;font-size:1.5rem;margin-bottom:.5rem}
+    .pillar h4::before{content:"— ";color:var(--accent)}
+    .pillar p{font-size:.95rem;color:var(--ink-soft)}
+    .book-note{
+      margin-top:3.4rem;padding:22px 26px;border-left:3px solid var(--accent);
+      background:var(--paper-deep);max-width:var(--measure);
+    }
+    .book-note .marginalia{color:var(--accent-deep)}
+
+    /* record timeline */
+    .record{list-style:none}
+    .record li{
+      display:grid;grid-template-columns:130px minmax(0,1fr);gap:26px;
+      padding:20px 0;border-top:1px solid var(--rule);
+    }
+    .record li:first-child{border-top:2px solid var(--ink)}
+    .record time{font-family:var(--mono);font-size:.74rem;letter-spacing:.06em;color:var(--ink-soft);padding-top:.35rem;font-variant-numeric:tabular-nums}
+    .record h4{font-family:var(--display);font-weight:600;font-size:1.12rem;letter-spacing:-.01em}
+    .record h4 span{font-weight:400;color:var(--ink-soft)}
+    .record p{font-size:.94rem;color:var(--ink-soft);max-width:var(--measure)}
+    .record .metric{font-family:var(--mono);font-size:.74rem;color:var(--accent-deep);letter-spacing:.04em}
+    @media(max-width:640px){.record li{grid-template-columns:1fr;gap:4px}}
+
+    /* contact */
+    .contact h2{font-family:var(--display);font-weight:300;font-size:clamp(2rem,5vw,3.4rem);letter-spacing:-.015em;max-width:22ch;text-wrap:balance}
+    .contact h2 em{font-style:italic;color:var(--accent-deep)}
+    .cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:2.4rem}
+    .btn{
+      font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;
+      text-decoration:none;padding:13px 22px;border:1px solid var(--ink);
+      transition:transform .18s ease,box-shadow .18s ease,background .18s ease,color .18s ease;
+    }
+    .btn.primary{background:var(--ink);color:var(--paper)}
+    .btn:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--accent)}
+    .btn.primary:hover{background:var(--accent);border-color:var(--accent)}
+    .contact .fine{margin-top:2rem;font-family:var(--mono);font-size:.76rem;color:var(--ink-soft)}
+
+    footer{padding:34px 0 46px;font-family:var(--mono);font-size:.72rem;color:var(--ink-soft)}
+    footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    footer a{color:var(--ink-soft)}
+    footer a:hover{color:var(--accent-deep)}
+    .blink{animation:blink 1.1s steps(1) infinite}
+    @media (prefers-reduced-motion:reduce){.blink{animation:none}}
+    @keyframes blink{50%{opacity:0}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead">
+      <a class="brand" href="/">Scott<em>·</em>Feltham</a>
+      <nav class="toc" aria-label="Sections">
+        <a href="#now">Now</a><a href="#forge">FORGE</a><a href="#record">Record</a><a href="#contact">Contact</a>
+      </nav>
+    </header>
+  </div>
+
+  <div class="wrap">
+    <section class="hero" aria-label="Thesis" style="border-bottom:none">
+      <p class="folio rise d1">Intent-Driven Development · founding axiom</p>
+      <h1 class="rise d2">The quality of AI output is determined by the quality of the <em>intent</em> you express.</h1>
+      <p class="attrib rise d3">
+        <span class="rulewrap" aria-hidden="true"></span>
+        <span><b>Scott Feltham</b> — creator of FORGE · 25 years of engineering leadership · CTO, currently proving it daily</span>
+      </p>
+    </section>
+  </div>
+
+  <div class="stats" role="group" aria-label="Proof in numbers">
+    <div class="wrap">
+      <div class="stat rise d3"><b>1<sup>×</sup></b><span>engineer</span></div>
+      <div class="stat rise d3"><b>1,780<sup>+</sup></b><span>commits · 4 months</span></div>
+      <div class="stat rise d3"><b>215<sup>+</sup></b><span>tagged releases</span></div>
+      <div class="stat rise d4"><b>150<sup>K</sup></b><span>messages / day in prod</span></div>
+      <div class="stat rise d4"><b>3.3<sup>×</sup></b><span>AI cost per unit, down</span></div>
+      <div class="stat rise d4"><b>$148<sup>K</sup></b><span>monthly ai spend avoided</span></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section id="now" aria-label="Current work">
+      <div class="sec-head reveal">
+        <span class="sec-no" aria-hidden="true">01</span>
+        <h2 class="sec-title">The working proof<b>One engineer. Twenty repositories. No heroics.</b></h2>
       </div>
-
-      <!-- Right column with 2 rows -->
-      <div class="tmux-right">
-        <!-- Top right pane -->
-        <div class="tmux-pane tmux-right-top" data-pane="1">
-          <div class="tmux-pane-header">
-            <span class="pane-number">1</span>
-            <span class="pane-title">info</span>
-          </div>
-          <section id="info-output" class="output pane-content">
-            <div class="neofetch-section">
-              <div class="line"><span class="accent">************************</span>  <span class="accent">scott</span>@<span class="host">scottfeltham.com</span></div>
-              <div class="line"><span class="accent">*                      *</span>  <span class="muted">---------------------------</span></div>
-              <div class="line"><span class="accent">*  ________  ________  *</span>  <span class="info-label">OS:</span> <span class="accent">Fractional CTO v2025.8</span></div>
-              <div class="line"><span class="accent">* |\   ____\|\  _____\ *</span>  <span class="info-label">Shell:</span> <span class="accent">Senior Engineering Leader</span></div>
-              <div class="line"><span class="accent">* \ \  \___|\ \  \__/  *</span>  <span class="info-label">WM:</span> <span class="accent">FORGE Framework</span></div>
-              <div class="line"><span class="accent">*  \ \_____  \ \   __\ *</span>  <span class="info-label">Theme:</span> <span class="accent">High Agency</span></div>
-              <div class="line"><span class="accent">*   \|____|\  \ \  \_| *</span>  <span class="info-label">CPU:</span> <span class="accent">Ship, Then Perfect</span></div>
-              <div class="line"><span class="accent">*     ____\_\  \ \__\  *</span>  <span class="info-label">GPU:</span> <span class="accent">AI Adoption</span></div>
-              <div class="line"><span class="accent">*    |\_________\|__|  *</span>  <span class="info-label">Memory:</span> <span class="accent">20+ Years Experience</span></div>
-              <div class="line"><span class="accent">*    \|_________|      *</span>  <span class="info-label">Location:</span> <span class="accent">Dubai (Global)</span></div>
-              <div class="line"><span class="accent">*                      *</span>  </div>
-              <div class="line"><span class="accent">************************</span>  <span class="info-label">Uptime:</span> <span class="accent">NeoForge Consulting</span></div>
-              <div class="line">                          <span class="info-label">Packages:</span> <span class="accent">2x Productivity</span></div>
-              <div class="line">                          <span class="info-label">Resolution:</span> <span class="accent">Ship & Scale</span></div>
-            </div>
-          </section>
+      <div class="split">
+        <div class="reveal">
+          <p class="lede dropcap">As CTO of a PR-technology company, I am the entire engineering department: a multi-product AI platform — LLM conversation agents at 150,000 messages a day, a data lake stood up from zero, a security-first integration gateway, dashboards, a realtime voice agent — run in production by one person. Eleven new services born in four months.</p>
+          <p>Not by working nights. By working differently: agentic AI systems carry the execution, and my job is expressing intent precisely enough to trust them — then verifying they delivered it. The same discipline re-engineered the platform's AI economics on evidence: cost per message down 3.3×, roughly $148K a month avoided, while volume doubled. Trunk-based delivery, infrastructure entirely as code, agentic monitors on cost and health. It is <a href="#forge">Intent-Driven Development</a>, practiced at its logical limit.</p>
+          <p style="margin-top:1.1rem" class="marginalia">Previously the same platform took a ten-person distributed team.</p>
         </div>
-
-        <!-- Bottom right pane -->
-        <div class="tmux-pane tmux-right-bottom" data-pane="2">
-          <div class="tmux-pane-header">
-            <span class="pane-number">2</span>
-            <span class="pane-title">status</span>
-          </div>
-          <section id="status-output" class="output pane-content">
-            <div class="status-section">
-              <div class="line"><span class="muted">// System Status</span></div>
-              <div class="line">Theme: <span id="current-theme" class="accent">dark</span></div>
-              <div class="line">Commands: <span id="cmd-count" class="accent">0</span> executed</div>
-              <div class="line">Session: <span id="session-time" class="accent">00:00</span></div>
-            </div>
-          </section>
-        </div>
+        <aside class="ledger reveal" aria-label="Platform ledger">
+          <h3>platform ledger <span>live</span></h3>
+          <ul>
+            <li><em>role</em><b>Chief Technology Officer</b></li>
+            <li><em>engineering headcount</em><b>1</b></li>
+            <li><em>repositories · new services</em><b>20 · 11 born</b></li>
+            <li><em>commits · releases, 4 mo</em><b>1,780+ · 215+</b></li>
+            <li><em>outbound volume</em><b>150K msgs/day</b></li>
+            <li><em>ai cost engineering</em><b>÷3.3 per unit</b></li>
+            <li><em>delivery</em><b>trunk-based · Terraform · GCP</b></li>
+            <li><em>ops</em><b>agentic detector/actuator</b></li>
+          </ul>
+        </aside>
       </div>
+    </section>
 
-      <!-- Tmux status bar -->
-      <div class="tmux-status-bar">
-        <div class="status-left">
-          <span class="status-item">[0]</span>
-          <span class="status-item">scottfeltham.com</span>
-        </div>
-        <div class="status-center">
-          <span class="status-item">Ctrl-B ? for help</span>
-        </div>
-        <div class="status-right">
-          <span id="status-time" class="status-item"></span>
-        </div>
+    <section id="forge" aria-label="FORGE methodology">
+      <div class="sec-head reveal">
+        <span class="sec-no" aria-hidden="true">02</span>
+        <h2 class="sec-title">The methodology<b>FORGE — Intent-Driven Development</b></h2>
       </div>
-    </main>
-
-    <!-- Hidden semantic content for search engines and AI crawlers -->
-    <article class="sr-only" aria-hidden="true" itemscope itemtype="https://schema.org/Person">
-      <h1 itemprop="name">Scott Feltham</h1>
-      <p itemprop="jobTitle">Fractional CTO | Senior Engineering Leader</p>
-
-      <section>
-        <h2>About</h2>
-        <p itemprop="description">Senior Engineering Leader with 20+ years of continuous adaptation. From defense systems to SaaS to AI-first engineering. I take initiative, learn fast, ask better questions, and ship.</p>
-      </section>
-
-      <section>
-        <h2>Current Focus</h2>
-        <p><strong>NeoForge Consulting</strong> (Founder, January 2025–Present): Fractional CTO services focused on AI adoption and modern delivery. Created FORGE Framework for delivery acceleration.</p>
-        <p><strong>Neurocademy</strong> (Creator, July 2025–Present): AI-powered learning platform for neurodivergent students. Built during 30-day Bolt.new hackathon.</p>
-      </section>
-
-      <section>
-        <h2>Career History</h2>
-        <p><strong>Kahunas</strong> (VP of Engineering, February–August 2025): Led transformation of 20+ person engineering organization. Achieved 2x developer productivity through AI-first practices. 99.9% platform availability during scale-up.</p>
-        <p><strong>Builder.ai</strong> (Senior Technical Architect, January 2023–February 2025): Led Architecture Guild creating automation and scalable patterns. Mentored 8 direct reports to senior technical roles.</p>
-        <p><strong>mkodo</strong> (Head of Engineering, April–December 2022): Delivered GeoLocs, first SaaS product, in 8 months. Built for regulated markets with compliance requirements.</p>
-        <p><strong>Moltin/Elastic Path</strong> (Senior Software Engineer & Operations Manager, September 2019–March 2022): Maintained SaaS operations through company acquisition. Zero downtime during organizational changes.</p>
-        <p><strong>Orange Bus</strong> (Solutions Architect, 2015–2017): Including HMRC Tax-Free Childcare engagement (January 2015–January 2016). Government digital service for millions of UK families.</p>
-        <p><strong>Earlier Career</strong> (1998–2019): Condeco, Nutshell Software, Foster Findlay, Ferrograph, Freelance Development, General Dynamics (defense systems).</p>
-      </section>
-
-      <section>
-        <h2>Key Achievements</h2>
-        <ul>
-          <li>2x developer productivity through AI adoption (Kahunas, 2025)</li>
-          <li>99.9% platform availability during rapid growth</li>
-          <li>8 months from concept to production (mkodo GeoLocs)</li>
-          <li>8 engineers mentored to senior roles (Builder.ai)</li>
-          <li>Zero downtime during company acquisition (Moltin)</li>
-          <li>HMRC Tax-Free Childcare — government service for millions</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Technical Skills</h2>
-        <p><strong>Leadership:</strong> Fractional CTO, Team Scaling, Architecture Reviews, Technical Due Diligence</p>
-        <p><strong>Cloud:</strong> AWS (expert), GCP, Azure, Terraform</p>
-        <p><strong>Languages:</strong> Python, Go, TypeScript, Ruby, C#, Kotlin</p>
-        <p><strong>AI/ML:</strong> Claude, GPT-4, GitHub Copilot, Prompt Engineering</p>
-        <p><strong>Frameworks:</strong> React, React Native, Next.js, .NET, Rails</p>
-        <p><strong>Practices:</strong> FORGE Framework, Agile, TDD/BDD, DevOps, CI/CD</p>
-      </section>
-
-      <section>
-        <h2>Education</h2>
-        <p itemprop="alumniOf">BSc (Hons) Computing - First Class, Northumbria University, 2009-2013</p>
-        <p>HNC Computer Systems, Hastings College, 1998-2000</p>
-      </section>
-
-      <section>
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:scott@neoforge.co" itemprop="email">scott@neoforge.co</a></p>
-        <p>Location: <span itemprop="address">Dubai (working globally)</span></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/scottdfeltham" itemprop="sameAs">linkedin.com/in/scottdfeltham</a></p>
-        <p>GitHub: <a href="https://github.com/scottfeltham" itemprop="sameAs">github.com/scottfeltham</a></p>
-        <p>Website: <a href="https://neoforge.co">neoforge.co</a></p>
-      </section>
-    </article>
-
-    <noscript>
-      <div class="no-js">
-        <h1>Scott Feltham — Fractional CTO | Senior Engineering Leader</h1>
-        <p>This site features an interactive CLI interface that requires JavaScript.</p>
-        <h2>About</h2>
-        <p>Senior Engineering Leader with 20+ years experience. Founder of NeoForge Consulting, creator of Neurocademy. Specializing in AI adoption, team scaling, and delivery acceleration.</p>
-        <h2>Key Achievements</h2>
-        <ul>
-          <li>2x developer productivity through AI adoption (Kahunas, 2025)</li>
-          <li>99.9% platform availability during growth</li>
-          <li>8 months concept to production (mkodo)</li>
-          <li>8 engineers mentored to senior roles (Builder.ai)</li>
-        </ul>
-        <h2>Contact</h2>
-        <ul>
-          <li>Email: <a href="mailto:scott@neoforge.co">scott@neoforge.co</a></li>
-          <li>LinkedIn: <a href="https://www.linkedin.com/in/scottdfeltham">linkedin.com/in/scottdfeltham</a></li>
-          <li>GitHub: <a href="https://github.com/scottfeltham">github.com/scottfeltham</a></li>
-          <li>Company: <a href="https://neoforge.co">neoforge.co</a></li>
-        </ul>
+      <p class="lede reveal">Most failed AI-assisted development isn't a model-capability problem — it's an intent-clarity problem. FORGE makes intent expression a first-class engineering activity, with phases, deliverables, and quality gates. You don't earn the right to generate code until you can describe what <em>done</em> looks like.</p>
+      <div class="phases reveal" style="margin-top:3rem" role="list">
+        <div class="phase" role="listitem"><b>F</b><h4>Focus</h4><p>Capture intent: what, why, and success in testable terms.</p></div>
+        <div class="phase" role="listitem"><b>O</b><h4>Orchestrate</h4><p>Decompose intent into work AI and humans can carry.</p></div>
+        <div class="phase" role="listitem"><b>R</b><h4>Refine</h4><p>Make it verifiable: acceptance criteria, given-when-then.</p></div>
+        <div class="phase" role="listitem"><b>G</b><h4>Generate</h4><p>Now the code — by agent, pair, or hand — traced to intent.</p></div>
+        <div class="phase" role="listitem"><b>E</b><h4>Evaluate</h4><p>Prove outcomes match intent, with evidence on record.</p></div>
       </div>
-    </noscript>
+      <div class="pillars reveal">
+        <div class="pillar"><h4>Intent</h4><p>The precise articulation of what you're building and why it matters — sharp enough for an agent with no intuition, only instructions.</p></div>
+        <div class="pillar"><h4>Outcome</h4><p>Intent without a measurable outcome is a wish. Every line of code traces to an outcome; every outcome traces to an intent.</p></div>
+        <div class="pillar"><h4>Accountability</h4><p>The verifiable chain from intent through outcome to evidence — what makes autonomous development trustworthy.</p></div>
+      </div>
+      <div class="book-note reveal">
+        <p class="marginalia">forthcoming</p>
+        <p style="margin-top:.4rem"><strong style="font-family:var(--display)">Intent-Driven Development</strong> — the book. The complete methodology, from founding axiom to autonomous delivery, written from production experience. <span class="marginalia">v1.0 complete · publication imminent</span></p>
+      </div>
+    </section>
 
-    <script src="/assets/script.js" defer></script>
-  </body>
+    <section id="record" aria-label="Track record">
+      <div class="sec-head reveal">
+        <span class="sec-no" aria-hidden="true">03</span>
+        <h2 class="sec-title">The record<b>Twenty-five years, measured in outcomes</b></h2>
+      </div>
+      <ul class="record reveal">
+        <li>
+          <time>2026 —</time>
+          <div><h4>Chief Technology Officer <span>· Pathos Communications</span></h4>
+          <p>Sole engineer for a multi-product production AI platform, operated through agentic systems.</p>
+          <p class="metric">1,780+ commits · 215+ releases · 150K msgs/day · ~$148K/mo AI cost avoided · replaced a ~10-person team</p></div>
+        </li>
+        <li>
+          <time>2025 —</time>
+          <div><h4>Founder <span>· NeoForge Consulting &amp; Neurocademy</span></h4>
+          <p>Outcome-owned AI adoption programs for technology leaders; an AI lesson-planning platform for neurodivergent learners shipped 0→1.</p>
+          <p class="metric">concept → working product in 15 days of a 30-day hackathon</p></div>
+        </li>
+        <li>
+          <time>2025</time>
+          <div><h4>VP of Engineering <span>· Kahunas</span></h4>
+          <p>Led a 20+ person organization through an AI-first delivery transformation.</p>
+          <p class="metric">2× developer productivity · 99.9% availability during scale-up</p></div>
+        </li>
+        <li>
+          <time>2023 – 25</time>
+          <div><h4>Senior Technical Architect <span>· Builder.ai</span></h4>
+          <p>Founded and led the Architecture Guild; technical lead on GCC-region pre-sales.</p>
+          <p class="metric">8 engineers mentored to senior roles</p></div>
+        </li>
+        <li>
+          <time>2022</time>
+          <div><h4>Head of Engineering <span>· mkodo</span></h4>
+          <p>First SaaS product for regulated gaming markets, concept to production.</p>
+          <p class="metric">0 → 1 in 8 months</p></div>
+        </li>
+        <li>
+          <time>2019 – 22</time>
+          <div><h4>Senior Engineer &amp; Ops Manager <span>· Moltin / Elastic Path</span></h4>
+          <p>Distributed SaaS operations held steady through acquisition.</p>
+          <p class="metric">zero downtime through the transition</p></div>
+        </li>
+        <li>
+          <time>1998 – 19</time>
+          <div><h4>The long apprenticeship <span>· defense systems → gov digital → mobile → SaaS</span></h4>
+          <p>General Dynamics, freelance, Foster Findlay, Orange Bus (HMRC Tax-Free Childcare), Nutshell, Condeco.</p></div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contact" class="contact" aria-label="Contact" style="border-bottom:none">
+      <div class="reveal">
+        <p class="marginalia" style="color:var(--accent);margin-bottom:1.6rem">04 · correspondence</p>
+        <h2>Building an AI-era engineering org? <em>I've already run one — population: one.</em></h2>
+        <div class="cta-row">
+          <a class="btn primary" href="mailto:scott@neoforge.co">scott@neoforge.co</a>
+          <a class="btn" href="/assets/resume.pdf">Résumé</a>
+          <a class="btn" href="https://www.linkedin.com/in/scottdfeltham" rel="me">LinkedIn</a>
+          <a class="btn" href="https://github.com/scottfeltham" rel="me">GitHub</a>
+        </div>
+        <p class="fine">Open to CTO · VP Engineering · Director conversations — New York · Miami · Boston · Bay Area.</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <span>© Scott Feltham · set in Fraunces &amp; Newsreader · no trackers</span>
+      <span>prefer a shell? the previous era is preserved at <a href="/terminal/">/terminal</a> <span class="blink">▌</span></span>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+        document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});return;
+      }
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+      },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+      document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+    })();
+  </script>
+</body>
 </html>
-

@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lab — Art Directions & Palettes</title>
+<meta name="robots" content="noindex" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=Familjen+Grotesk:wght@400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Syne:wght@400;600;800&family=Archivo:wght@400;600;900&display=swap" rel="stylesheet" />
+<style>
+  *{box-sizing:border-box;margin:0}
+  body{font-family:'IBM Plex Mono',monospace;background:#111;color:#eee;line-height:1.6}
+  .intro{padding:70px 24px 50px;max-width:900px;margin:0 auto}
+  .intro h1{font-family:Fraunces,serif;font-weight:300;font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:.4rem}
+  .intro p{color:#999;font-size:.82rem;max-width:66ch}
+  .dir{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:90px 24px;position:relative;overflow:hidden}
+  .in{max-width:1000px;margin:0 auto;width:100%;position:relative;z-index:2}
+  .tag{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:.6rem;display:flex;gap:14px;align-items:center}
+  .tag i{font-style:normal;opacity:.55}
+  .dir h2{font-size:clamp(2rem,5.6vw,4rem);line-height:1.06;letter-spacing:-.015em;max-width:20ch;text-wrap:balance;margin:1.2rem 0 2.4rem}
+  .demo-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:2.6rem}
+  .chip{padding:16px 20px;border-radius:12px;min-width:150px}
+  .chip b{display:block;font-size:1.7rem;line-height:1.1;font-variant-numeric:tabular-nums}
+  .chip span{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+  .pill{display:inline-flex;align-items:center;gap:10px;padding:12px 12px 12px 22px;border-radius:999px;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:transform .4s cubic-bezier(.32,.72,0,1)}
+  .pill:hover{transform:translateY(-2px)}
+  .pill .orb{width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center}
+  .swatches{display:flex;gap:0;border-radius:10px;overflow:hidden;max-width:640px}
+  .sw{flex:1;padding:34px 0 8px;text-align:center;font-size:.6rem;letter-spacing:.05em}
+  .why{margin-top:2rem;font-size:.78rem;opacity:.75;max-width:64ch}
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.32,.72,0,1)}
+  .rv.in-view{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+  /* ---------- 1 GALLIUM — liquid metal light ---------- */
+  .gallium{background:#F3F4F6;color:#16181D;font-family:'Familjen Grotesk',sans-serif}
+  .gallium .tag{color:#2B4BF2}
+  .gallium h2{font-weight:700;letter-spacing:-.03em}
+  .gallium h2 em{font-style:normal;background:linear-gradient(100deg,#9BA3B2,#3E4552 35%,#C7CDD8 60%,#5A6270);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .gallium .chip{background:#fff;box-shadow:0 1px 2px rgba(22,24,29,.05),0 12px 34px rgba(22,24,29,.08);position:relative;overflow:hidden}
+  .gallium .chip::after{content:"";position:absolute;top:0;bottom:0;width:44%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.9),transparent);transform:skewX(-18deg);transition:left 1s cubic-bezier(.32,.72,0,1)}
+  .gallium .chip:hover::after{left:130%}
+  .gallium .chip b{color:#2B4BF2}
+  .gallium .pill{background:#16181D;color:#F3F4F6}
+  .gallium .pill .orb{background:#2B4BF2;color:#fff}
+  .gallium .why{color:#5A6270}
+
+  /* ---------- 2 VERDIGRIS — pine & brass ---------- */
+  .verdigris{background:#0A1410;color:#EDE8DA;font-family:'Cormorant Garamond',serif}
+  .verdigris::before{content:"";position:absolute;inset:-20%;background:radial-gradient(40% 34% at 82% 16%,rgba(201,169,97,.10),transparent 60%),radial-gradient(44% 40% at 10% 88%,rgba(38,84,62,.35),transparent 60%);filter:blur(30px)}
+  .verdigris .tag{color:#C9A961;font-family:'IBM Plex Mono',monospace}
+  .verdigris h2{font-weight:400;font-size:clamp(2.2rem,6vw,4.4rem)}
+  .verdigris h2 em{font-style:italic;font-weight:600;color:#C9A961}
+  .verdigris .chip{background:rgba(237,232,218,.04);border:1px solid rgba(201,169,97,.28)}
+  .verdigris .chip b{font-family:'Cormorant Garamond',serif;color:#C9A961;font-weight:600}
+  .verdigris .chip span{font-family:'IBM Plex Mono',monospace}
+  .verdigris .pill{border:1px solid #C9A961;color:#EDE8DA;font-family:'IBM Plex Mono',monospace;position:relative;overflow:hidden}
+  .verdigris .pill::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(201,169,97,.35),transparent);left:-100%;transition:left .9s ease}
+  .verdigris .pill:hover::before{left:100%}
+  .verdigris .pill .orb{background:#C9A961;color:#0A1410}
+  .verdigris .why{font-family:'IBM Plex Mono',monospace;color:#8FA294}
+
+  /* ---------- 3 RISO — two-ink overprint ---------- */
+  .riso{background:#FAF6EF;color:#181818;font-family:'Syne',sans-serif}
+  .riso .tag{color:#2440D0;font-family:'IBM Plex Mono',monospace}
+  .riso h2{font-weight:800;text-transform:uppercase;letter-spacing:-.01em;position:relative;display:inline-block}
+  .riso h2 .layer{position:relative;display:inline-block}
+  .riso h2 .layer::before,.riso h2 .layer::after{content:attr(data-t);position:absolute;left:0;top:0;mix-blend-mode:multiply;transition:transform .45s cubic-bezier(.32,.72,0,1)}
+  .riso h2 .layer::before{color:#2440D0;z-index:-1}
+  .riso h2 .layer::after{color:#FF4D36;z-index:-2}
+  .riso h2:hover .layer::before{transform:translate(-5px,3px)}
+  .riso h2:hover .layer::after{transform:translate(5px,-3px)}
+  .riso h2 .layer{color:#181818}
+  .riso .chip{background:transparent;border:2px solid #181818;border-radius:0;box-shadow:5px 5px 0 #2440D0}
+  .riso .chip b{color:#FF4D36}
+  .riso .chip span{font-family:'IBM Plex Mono',monospace}
+  .riso .pill{background:#2440D0;color:#FAF6EF;border-radius:0;font-family:'IBM Plex Mono',monospace}
+  .riso .pill .orb{background:#FF4D36;color:#FAF6EF;border-radius:0}
+  .riso .why{font-family:'IBM Plex Mono',monospace;color:#6b6b6b}
+
+  /* ---------- 4 SIGNAL — Swiss red ---------- */
+  .signal{background:#FFFFFF;color:#0B0B0B;font-family:'Archivo',sans-serif}
+  .signal .tag{color:#E63321}
+  .signal h2{font-weight:900;letter-spacing:-.035em;font-size:clamp(2.4rem,6.4vw,4.6rem);text-transform:none}
+  .signal h2 em{font-style:normal;color:#E63321}
+  .signal .ticker{overflow:hidden;border-top:2px solid #0B0B0B;border-bottom:2px solid #0B0B0B;margin:0 0 2.4rem;white-space:nowrap}
+  .signal .ticker div{display:inline-block;padding:10px 0;font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;animation:tick 18s linear infinite}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){.signal .ticker div{animation:none}}
+  .signal .chip{background:#0B0B0B;color:#fff;border-radius:0}
+  .signal .chip b{color:#E63321}
+  .signal .pill{background:#E63321;color:#fff;border-radius:0}
+  .signal .pill .orb{background:#0B0B0B;color:#fff;border-radius:0}
+  .signal .why{font-family:'IBM Plex Mono',monospace;color:#666}
+
+  /* ---------- 5 PHOSPHOR — CRT heritage, luxury cut ---------- */
+  .phosphor{background:#050907;color:#D8E5DC;font-family:'IBM Plex Mono',monospace}
+  .phosphor::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(74,255,143,.028) 0 1px,transparent 1px 3px);pointer-events:none}
+  .phosphor .tag{color:#4AFF8F}
+  .phosphor h2{font-family:Fraunces,serif;font-weight:300;color:#F2F7F3}
+  .phosphor h2 em{font-style:italic;font-weight:600;color:#4AFF8F;text-shadow:0 0 26px rgba(74,255,143,.45)}
+  .phosphor .chip{background:rgba(74,255,143,.05);border:1px solid rgba(74,255,143,.25);border-radius:8px}
+  .phosphor .chip b{color:#4AFF8F}
+  .phosphor .pill{border:1px solid rgba(74,255,143,.5);color:#D8E5DC}
+  .phosphor .pill .orb{background:#4AFF8F;color:#050907}
+  .phosphor .cursor{animation:blink 1.1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  @media (prefers-reduced-motion:reduce){.phosphor .cursor{animation:none}}
+  .phosphor .why{color:#7E9587}
+
+  footer{padding:60px 24px;text-align:center;font-size:.7rem;color:#777}
+  footer a{color:#bbb}
+</style>
+</head>
+<body>
+  <div class="intro">
+    <p style="color:#E63321;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase">labs / art direction · not linked publicly</p>
+    <h1>Five directions, rendered</h1>
+    <p>Each section is the same content — the axiom, the stats, a CTA — art-directed five different ways with its own palette, type voice, and one signature motion. Scroll, hover everything, pick a lane (or a hybrid).</p>
+  </div>
+
+  <!-- 1 · GALLIUM -->
+  <section class="dir gallium">
+    <div class="in">
+      <p class="tag rv">01 · Gallium <i>— liquid-metal light · electric cobalt</i></p>
+      <h2 class="rv">The quality of AI output is determined by the quality of the <em>intent</em> you express.</h2>
+      <div class="demo-row rv">
+        <div class="chip"><b>1,780+</b><span>commits · 4 mo</span></div>
+        <div class="chip"><b>215+</b><span>releases</span></div>
+        <div class="chip"><b>3.3×</b><span>ai cost ÷</span></div>
+        <a class="pill" href="#">Correspond <span class="orb">↗</span></a>
+      </div>
+      <div class="swatches rv">
+        <div class="sw" style="background:#F3F4F6;color:#555">#F3F4F6</div>
+        <div class="sw" style="background:#FFFFFF;color:#777">#FFFFFF</div>
+        <div class="sw" style="background:#C7CDD8;color:#333">#C7CDD8</div>
+        <div class="sw" style="background:#16181D;color:#eee">#16181D</div>
+        <div class="sw" style="background:#2B4BF2;color:#fff">#2B4BF2</div>
+      </div>
+      <p class="why rv">Silvered daylight and machine precision — the metallic gradient headline and specular sheen (hover the chips) read "engineered instrument." Light themes are rarer in this space, so it stands out among the sea of dark AI sites. Cool, credible, expensive.</p>
+    </div>
+  </section>
+
+  <!-- 2 · VERDIGRIS -->
+  <section class="dir verdigris">
+    <div class="in">
+      <p class="tag rv">02 · Verdigris <i>— deep pine &amp; aged brass</i></p>
+      <h2 class="rv">The quality of AI output is determined by the quality of the <em>intent</em> you express.</h2>
+      <div class="demo-row rv">
+        <div class="chip"><b>1,780+</b><span>commits · 4 mo</span></div>
+        <div class="chip"><b>215+</b><span>releases</span></div>
+        <div class="chip"><b>3.3×</b><span>ai cost ÷</span></div>
+        <a class="pill" href="#">Correspond <span class="orb">↗</span></a>
+      </div>
+      <div class="swatches rv">
+        <div class="sw" style="background:#0A1410;color:#8FA294">#0A1410</div>
+        <div class="sw" style="background:#122019;color:#8FA294">#122019</div>
+        <div class="sw" style="background:#26543E;color:#EDE8DA">#26543E</div>
+        <div class="sw" style="background:#EDE8DA;color:#333">#EDE8DA</div>
+        <div class="sw" style="background:#C9A961;color:#0A1410">#C9A961</div>
+      </div>
+      <p class="why rv">Old-money engineering: a private library at midnight rather than a startup dashboard. Garamond italics against brass on pine reads senior, literary, unhurried — right for a methodology author. The brass sweep on the button (hover) is the one glint of theatre.</p>
+    </div>
+  </section>
+
+  <!-- 3 · RISO -->
+  <section class="dir riso">
+    <div class="in">
+      <p class="tag rv">03 · Riso <i>— two-ink overprint · cobalt × fluoro red</i></p>
+      <h2 class="rv"><span class="layer" data-t="INTENT IS THE ARTIFACT.">INTENT IS THE ARTIFACT.</span></h2>
+      <div class="demo-row rv">
+        <div class="chip"><b>1,780+</b><span>commits · 4 mo</span></div>
+        <div class="chip"><b>215+</b><span>releases</span></div>
+        <div class="chip"><b>3.3×</b><span>ai cost ÷</span></div>
+        <a class="pill" href="#">Correspond <span class="orb">↗</span></a>
+      </div>
+      <div class="swatches rv">
+        <div class="sw" style="background:#FAF6EF;color:#555">#FAF6EF</div>
+        <div class="sw" style="background:#181818;color:#eee">#181818</div>
+        <div class="sw" style="background:#2440D0;color:#fff">#2440D0</div>
+        <div class="sw" style="background:#FF4D36;color:#fff">#FF4D36</div>
+      </div>
+      <p class="why rv">Risograph print energy — two inks deliberately misregistering (hover the headline). Loudest of the five: zine-meets-manifesto, unmistakably human and hand-made in a sea of glossy AI sites. Highest memorability, most polarizing; best if the brand leans provocateur.</p>
+    </div>
+  </section>
+
+  <!-- 4 · SIGNAL -->
+  <section class="dir signal">
+    <div class="in">
+      <p class="tag rv">04 · Signal <i>— Swiss international · one red</i></p>
+      <h2 class="rv">Vague intent produces <em>vague code.</em></h2>
+      <div class="ticker rv" aria-hidden="true"><div>intent · outcome · accountability · focus · orchestrate · refine · generate · evaluate ·&nbsp;intent · outcome · accountability · focus · orchestrate · refine · generate · evaluate ·&nbsp;</div></div>
+      <div class="demo-row rv">
+        <div class="chip"><b>1,780+</b><span>commits · 4 mo</span></div>
+        <div class="chip"><b>215+</b><span>releases</span></div>
+        <div class="chip"><b>3.3×</b><span>ai cost ÷</span></div>
+        <a class="pill" href="#">Correspond <span class="orb">↗</span></a>
+      </div>
+      <div class="swatches rv">
+        <div class="sw" style="background:#FFFFFF;color:#555;border:1px solid #eee">#FFFFFF</div>
+        <div class="sw" style="background:#0B0B0B;color:#eee">#0B0B0B</div>
+        <div class="sw" style="background:#E63321;color:#fff">#E63321</div>
+      </div>
+      <p class="why rv">Three colors, heavy grotesk, hard rules, a kinetic ticker. The discipline IS the aesthetic — nothing decorates, everything asserts. Reads like a manifesto set by a Zurich studio; ages the slowest of the five.</p>
+    </div>
+  </section>
+
+  <!-- 5 · PHOSPHOR -->
+  <section class="dir phosphor">
+    <div class="in">
+      <p class="tag rv">05 · Phosphor <i>— CRT heritage, luxury cut</i></p>
+      <h2 class="rv">The quality of AI output is determined by the quality of the <em>intent</em> you express.<span class="cursor">▌</span></h2>
+      <div class="demo-row rv">
+        <div class="chip"><b>1,780+</b><span>commits · 4 mo</span></div>
+        <div class="chip"><b>215+</b><span>releases</span></div>
+        <div class="chip"><b>3.3×</b><span>ai cost ÷</span></div>
+        <a class="pill" href="#">Correspond <span class="orb">↗</span></a>
+      </div>
+      <div class="swatches rv">
+        <div class="sw" style="background:#050907;color:#7E9587">#050907</div>
+        <div class="sw" style="background:#0B120E;color:#7E9587">#0B120E</div>
+        <div class="sw" style="background:#D8E5DC;color:#333">#D8E5DC</div>
+        <div class="sw" style="background:#4AFF8F;color:#050907">#4AFF8F</div>
+      </div>
+      <p class="why rv">Your terminal heritage, promoted to gallery lighting: phosphor green on true black with faint scanlines, but set in Fraunces — the tension between CRT and literary serif is the idea. Continuity with the archived era; risks reading "hacker theme" if pushed too hard.</p>
+    </div>
+  </section>
+
+  <footer>back to <a href="/">the front page</a> · <a href="/labs/scroll-video.html">scroll-video lab</a> · swap the chosen palette into index.html's token block</footer>
+
+  <script>
+    (function(){
+      if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+        document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in-view')});return;
+      }
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(e.isIntersecting){
+            var kids=[].slice.call(e.target.querySelectorAll('.rv'));
+            kids.forEach(function(k,i){setTimeout(function(){k.classList.add('in-view')}, i*110)});
+            io.unobserve(e.target);
+          }
+        });
+      },{threshold:.25});
+      document.querySelectorAll('.dir').forEach(function(s){io.observe(s)});
+    })();
+  </script>
+</body>
+</html>

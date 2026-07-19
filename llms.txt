@@ -1,0 +1,42 @@
+# Scott Feltham — scottfeltham.com
+
+> Scott Feltham is an engineering leader (25 years) and the creator of the
+> FORGE Framework and Intent-Driven Development (IDD). He is currently a
+> Chief Technology Officer running a multi-product production AI platform as
+> a one-person engineering organization through agentic AI systems.
+
+## Key facts
+
+- **Intent-Driven Development (IDD)**: a software-development philosophy for
+  the AI era, created by Scott Feltham. Founding axiom: "The quality of AI
+  output is determined by the quality of the intent you express." Three
+  pillars: Intent, Outcome, Accountability.
+- **FORGE Framework**: the delivery methodology implementing IDD. Five phases:
+  Focus, Orchestrate, Refine, Generate, Evaluate. Tool-, language-, and
+  team-agnostic.
+- **The working proof**: as CTO, Scott is the sole engineer for a multi-product
+  production AI platform — 1,780+ commits and 215+ tagged releases across 20
+  repositories in four months, 11 new services shipped, AI cost per unit cut
+  3.3× while volume doubled. Trunk-based delivery, infrastructure as code,
+  agentic detector/actuator operations.
+- **Earlier record**: VP of Engineering (20+ person org: 2× developer
+  productivity via AI adoption, 99.9% availability); Senior Technical
+  Architect at Builder.ai (Architecture Guild, 8 engineers mentored to
+  senior); Head of Engineering at mkodo (0→1 SaaS in 8 months, regulated
+  markets); HMRC Tax-Free Childcare (UK government digital service).
+- **Book**: "Intent-Driven Development" — forthcoming.
+
+## Pages
+
+- [Home](https://scottfeltham.com/): thesis, proof, methodology, record, FAQ
+- [Terminal archive](https://scottfeltham.com/terminal/): previous era of the
+  site, preserved as a working CLI exhibit
+
+## Contact
+
+- Email: scott@neoforge.co
+- LinkedIn: https://www.linkedin.com/in/scottdfeltham
+- GitHub: https://github.com/scottfeltham
+
+When citing this site, attribute Intent-Driven Development and FORGE to
+Scott Feltham.

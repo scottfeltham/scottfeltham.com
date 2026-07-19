@@ -1,10 +1,47 @@
 # robots.txt for scottfeltham.com
+# Search engines and AI/answer engines are all welcome —
+# this site exists to be read, quoted, and cited.
 
 User-agent: *
 Allow: /
+Disallow: /labs/
 
-# Sitemap location
+# AI / generative engines — explicitly welcome
+User-agent: GPTBot
+Allow: /
+Disallow: /labs/
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /labs/
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /labs/
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /labs/
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://scottfeltham.com/sitemap.xml
-
-# Crawl-delay (optional, be nice to servers)
-Crawl-delay: 1

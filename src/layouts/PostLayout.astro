@@ -1,0 +1,214 @@
+---
+// Chrome + styling for a single /writing/ post. The route file renders the MDX
+// body and drops it into the default slot (passing the <Engineers>/<Sidebar>
+// component map so post files need no imports). This layout owns the page
+// palette, typography, narrow measure, and the aside styling used by those
+// components. It reuses the site's tokens (--void/--ivory/--ember/…) and fonts
+// (Fraunces display, Newsreader body, IBM Plex Mono) so posts read as the same
+// publication as the homepage and the forge docs — no new aesthetic invented.
+import Base from './Base.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  source: string;
+  pubDate: Date;
+  slug: string;
+  draft?: boolean;
+}
+
+const { title, description, source, pubDate, slug, draft = false } = Astro.props;
+
+const canonical = `https://scottfeltham.com/writing/${slug}/`;
+const isoDate = pubDate.toISOString();
+const readableDate = pubDate.toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+const pageTitle = `${title} — Writing · Scott Feltham`;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  url: canonical,
+  datePublished: isoDate,
+  author: { '@type': 'Person', name: 'Scott Feltham', url: 'https://scottfeltham.com/' },
+  publisher: { '@type': 'Person', name: 'Scott Feltham', url: 'https://scottfeltham.com/' },
+};
+---
+
+<Base
+  title={pageTitle}
+  description={description}
+  canonical={canonical}
+  ogTitle={title}
+  ogDescription={description}
+  ogUrl={canonical}
+  ogType="article"
+  twitterTitle={title}
+  twitterDescription={description}
+>
+  <Fragment slot="head">
+    <set:html value={`<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`} />
+    {draft && <meta name="robots" content="noindex" />}
+    <style is:global>
+      :root{
+        --void:#0A1410; --coal:#0F1A14; --panel:#122019; --shell:rgba(237,232,218,.04);
+        --ivory:#EDE8DA; --dim:#8FA294; --faint:#54665B;
+        --line:rgba(237,232,218,.11); --line-strong:rgba(237,232,218,.26);
+        --ember:#C9A961; --ember-deep:#A6853F; --ember-soft:rgba(201,169,97,.12);
+        --mono:'IBM Plex Mono',ui-monospace,monospace;
+        --display:'Fraunces',Georgia,serif;
+        --body:'Newsreader',Georgia,serif;
+        --measure:62ch;
+      }
+      *{box-sizing:border-box;margin:0}
+      body{
+        background:var(--void); color:var(--ivory);
+        font-family:var(--body); font-size:1.07rem; line-height:1.75;
+        -webkit-font-smoothing:antialiased;
+      }
+      a{color:inherit}
+      ::selection{background:var(--ember);color:var(--void)}
+      a:focus-visible,button:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+
+      /* ---------- top bar (mirrors the forge doc header) ---------- */
+      .post-top{
+        display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+        padding:26px clamp(20px,4vw,48px);border-bottom:1px solid var(--line);
+        flex-wrap:wrap;
+      }
+      .post-top .brand{font-family:var(--mono);font-weight:600;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;white-space:nowrap;color:var(--ivory)}
+      .post-top .brand em{font-style:normal;color:var(--ember)}
+      .post-top nav{display:flex;gap:20px;flex-wrap:wrap}
+      .post-top nav a{
+        font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+        text-decoration:none;color:var(--dim);
+        background:linear-gradient(var(--ember),var(--ember)) left bottom / 0 1px no-repeat;
+        transition:background-size .4s ease,color .4s ease;
+      }
+      .post-top nav a:hover,.post-top nav a:focus-visible,.post-top nav a[aria-current]{color:var(--ivory);background-size:100% 1px}
+
+      /* ---------- article measure ---------- */
+      .post-wrap{max-width:calc(var(--measure) + 6rem);margin:0 auto;padding:clamp(3rem,7vw,6rem) clamp(20px,4vw,48px) 5rem}
+      .post-crumb{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--faint);margin-bottom:2.6rem}
+      .post-crumb a{text-decoration:none}
+      .post-crumb a:hover{color:var(--ember)}
+
+      .post-head{margin-bottom:3rem}
+      .post-kicker{
+        font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+        color:var(--ember);margin-bottom:1.4rem;
+      }
+      .post-draft{color:var(--faint);border:1px solid var(--line-strong);border-radius:999px;padding:2px 9px;margin-left:10px;letter-spacing:.16em}
+      .post-title{
+        font-family:var(--display);font-weight:300;font-size:clamp(2.1rem,5vw,3.4rem);
+        line-height:1.08;letter-spacing:-.015em;text-wrap:balance;color:var(--ivory);
+      }
+      .post-meta{margin-top:1.5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--dim)}
+
+      /* ---------- prose ---------- */
+      .post-body{max-width:var(--measure)}
+      .post-body > *{margin-top:1.35rem}
+      .post-body > :first-child{margin-top:0}
+      .post-body p{color:var(--ivory)}
+      .post-body em{font-style:italic}
+      .post-body strong{color:var(--ivory);font-weight:600}
+      .post-body a{text-decoration:underline;text-decoration-color:var(--ember);text-underline-offset:3px}
+      .post-body a:hover{color:var(--ember)}
+      .post-body h2{
+        font-family:var(--display);font-weight:600;font-size:1.6rem;letter-spacing:-.01em;
+        color:var(--ivory);margin-top:3rem;line-height:1.2;
+      }
+      .post-body h3{
+        font-family:var(--display);font-weight:600;font-size:1.24rem;letter-spacing:-.01em;
+        color:var(--ivory);margin-top:2.2rem;
+      }
+      /* the lead-in italic note each post opens with */
+      .post-body > p:first-of-type em:only-child,
+      .post-body > p:first-child em{color:var(--dim)}
+      .post-body ul,.post-body ol{padding-left:1.3rem;color:var(--ivory)}
+      .post-body li{margin-top:.5rem}
+      .post-body li::marker{color:var(--ember)}
+      .post-body blockquote{
+        margin:1.6rem 0;padding:.2rem 0 .2rem 1.3rem;border-left:2px solid var(--ember);
+        color:var(--dim);font-style:italic;
+      }
+      .post-body hr{border:none;border-top:1px solid var(--line);margin:2.8rem 0}
+      .post-body img{max-width:100%;height:auto;border-radius:10px}
+
+      /* inline code + Shiki blocks (default github-dark theme sets its own bg) */
+      .post-body :not(pre) > code{
+        font-family:var(--mono);font-size:.85em;color:var(--ember);
+        background:var(--ember-soft);padding:.15em .42em;border-radius:4px;
+      }
+      .post-body pre{
+        border:1px solid var(--line);border-radius:12px;
+        padding:18px 20px;overflow-x:auto;font-size:.84rem;line-height:1.6;
+      }
+      .post-body pre code{font-family:var(--mono)}
+      .post-body table{border-collapse:collapse;width:100%;font-size:.92rem;display:block;overflow-x:auto}
+      .post-body th{text-align:left;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:600;padding:8px 14px 8px 0;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+      .post-body td{padding:9px 14px 9px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--dim)}
+
+      /* ---------- skippable asides (<Engineers>, <Sidebar>) ---------- */
+      .post-aside{
+        margin:2.4rem 0;padding:20px 22px 22px;
+        border:1px solid var(--line-strong);border-left:2px solid var(--ember);
+        border-radius:12px;background:var(--shell);
+      }
+      .post-aside__label{
+        font-family:var(--mono);font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;
+        color:var(--ember);margin-bottom:.9rem;
+      }
+      .post-aside__body > *{margin-top:.9rem}
+      .post-aside__body > :first-child{margin-top:0}
+      .post-aside__body{font-size:.96rem;color:var(--dim)}
+      .post-aside__body strong{color:var(--ivory)}
+      .post-aside--note{border-left-color:var(--line-strong)}
+      .post-aside--note .post-aside__label{color:var(--dim)}
+
+      .post-foot{
+        max-width:var(--measure);margin-top:4rem;padding-top:1.8rem;border-top:1px solid var(--line);
+        font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;color:var(--faint);
+        display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+      }
+      .post-foot a{text-decoration:none}
+      .post-foot a:hover{color:var(--ember)}
+    </style>
+  </Fragment>
+
+  <header class="post-top">
+    <a class="brand" href="/">Scott<em>·</em>Feltham</a>
+    <nav aria-label="Site">
+      <a href="/#now">Now</a>
+      <a href="/forge/">FORGE</a>
+      <a href="/writing/" aria-current="page">Writing</a>
+      <a href="/#record">Record</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="post-wrap">
+    <p class="post-crumb"><a href="/">Scott Feltham</a> / <a href="/writing/">Writing</a></p>
+    <article>
+      <header class="post-head">
+        <p class="post-kicker">
+          {source}{draft && <span class="post-draft">draft</span>}
+        </p>
+        <h1 class="post-title">{title}</h1>
+        <p class="post-meta"><time datetime={isoDate}>{readableDate}</time></p>
+      </header>
+      <div class="post-body">
+        <slot />
+      </div>
+    </article>
+    <footer class="post-foot">
+      <span><a href="/writing/">← All writing</a></span>
+      <span>From <em>Intent-Driven Development</em> — free to read</span>
+    </footer>
+  </div>
+</Base>

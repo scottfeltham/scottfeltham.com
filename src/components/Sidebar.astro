@@ -1,0 +1,16 @@
+---
+// Generic skippable aside — same visual family as <Engineers> but neutral. Use
+// for tangents, notes, or tool-specific examples that aren't engineer-only. An
+// optional `label` overrides the default "Aside" kicker; pass label="" to drop
+// the kicker entirely for an unlabelled box.
+interface Props {
+  label?: string;
+}
+const { label = 'Aside' } = Astro.props;
+---
+<aside class="post-aside post-aside--note" role="note" aria-label={label || 'Aside'}>
+  {label && <p class="post-aside__label">{label}</p>}
+  <div class="post-aside__body">
+    <slot />
+  </div>
+</aside>

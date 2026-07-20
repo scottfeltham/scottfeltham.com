@@ -11,6 +11,8 @@
     "sync-static": "rm -rf public && mkdir -p public && cp -R assets public/assets && cp -R terminal public/terminal && cp assets/favicon.svg public/favicon.svg"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/rss": "^4.0.19",
     "astro": "^5.0.0",
     "github-slugger": "^2.0.0",
     "js-yaml": "^4.1.0"

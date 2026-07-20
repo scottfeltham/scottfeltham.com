@@ -1,0 +1,32 @@
+---
+// One page per writing post. Every post is emitted — drafts included — so a
+// draft is previewable at its own URL; it's only kept off the /writing/ index
+// and the RSS feed. The <Engineers>/<Sidebar> components are injected here via
+// the MDX component map, so the post files themselves carry no import lines.
+import { getCollection, render } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+import Engineers from '../../components/Engineers.astro';
+import Sidebar from '../../components/Sidebar.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('writing');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<PostLayout
+  title={post.data.title}
+  description={post.data.description}
+  source={post.data.source}
+  pubDate={post.data.pubDate}
+  slug={post.id}
+  draft={post.data.draft}
+>
+  <Content components={{ Engineers, Sidebar }} />
+</PostLayout>

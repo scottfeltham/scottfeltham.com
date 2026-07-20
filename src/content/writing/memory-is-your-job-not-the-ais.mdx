@@ -1,0 +1,209 @@
+---
+title: Memory Is Your Job, Not the AI's
+description: AI does not remember your project. That is your job. How to build a memory system so every session builds on the last instead of starting from scratch.
+pubDate: 2026-07-20
+source: Chapter 12 of Intent-Driven Development
+draft: true
+---
+
+*This is a chapter from the free book Intent-Driven Development, on why memory is a discipline you own rather than a feature you wait for.*
+
+The biggest lie about AI development is that memory is the tool's job.
+
+It isn't. It's yours.
+
+## The Context Problem
+
+Left to itself, an AI session knows only what's in front of it. The brilliant solution you developed yesterday? Not in front of it. The architectural decisions you made last week? Not in front of it. The quirks of your codebase that took hours to explain? You'll explain them again.
+
+Modern tools have chipped away at this. Most agentic tools now read a project context file automatically at the start of every session, keep persistent notes between conversations, and can pick up where a previous session left off. The blank slate is no longer inevitable.
+
+But every one of those mechanisms has the same limitation: it can only replay what somebody captured. A context file nobody maintains is a blank slate with a filename. This is why projects still fall apart. Not because the AI can't generate good code, but because nobody built the memory it needs to accumulate understanding. You're perpetually re-teaching instead of building on what came before.
+
+## What Memory Actually Means
+
+Memory in IDD isn't about the AI magically remembering everything. It's about systematically capturing and re-providing context so that each conversation builds on previous ones.
+
+This happens at three levels:
+
+**Project memory.** The Focus document, Orchestration plan, and key decisions that define the project. This rarely changes once established.
+
+**Session memory.** What happened in recent work sessions. What was built, what problems were encountered, what's pending.
+
+**Implementation memory.** The actual code, interfaces, and documentation that have been created. The source of truth about what exists.
+
+## Building Project Memory
+
+At the start of any project, create a project context file:
+
+```
+PROJECT: [Name]
+
+Focus:
+[Summary of Focus document]
+
+Architecture:
+[High-level technical decisions]
+[Key patterns and conventions]
+[Integration points]
+
+Decisions Log:
+- [Date]: [Decision and rationale]
+- [Date]: [Decision and rationale]
+
+Vocabulary:
+- [Term]: [What it means in this project]
+- [Term]: [What it means in this project]
+```
+
+Put this where your tool loads it automatically. Most agentic tools look for a project context file by convention and read it at the start of every session, so the AI always knows what project it's working on and what decisions have been made without you pasting anything. If your tool has no such convention, include the file (in full or relevant parts) in every generation prompt.
+
+<Engineers>
+
+**For engineers — the context file convention**
+
+The industry has converged on named context files at the repo root: CLAUDE.md (Claude Code), AGENTS.md (the cross-tool convention most agentic CLIs and IDEs now read), plus per-directory variants that load when the agent works in that part of the tree. Treat them like code: version them, review changes, keep them lean. Many tools also maintain a persistent memory directory the agent writes to across sessions; that's where session summaries and learned conventions accumulate without bloating the context file.
+
+</Engineers>
+
+## Maintaining Session Memory
+
+At the end of each work session, write a brief summary:
+
+```
+SESSION: [Date]
+
+Completed:
+- [Task]: [Brief outcome]
+- [Task]: [Brief outcome]
+
+In Progress:
+- [Task]: [Current state]
+
+Issues Encountered:
+- [Issue]: [Resolution or status]
+
+Next Session:
+- [What to work on next]
+```
+
+You don't have to write these yourself. Ending a session by asking the AI to summarise what happened, into a file the next session will read, takes seconds and is more accurate than your recollection. Most agentic tools can also resume a previous session directly, or carry a compacted summary forward when a conversation grows too long. Use those features, but keep the written summary too: a resumed session helps you tomorrow, a written one helps you in three weeks.
+
+## The Memory File Pattern
+
+Some IDD practitioners maintain a single "memory file" that evolves throughout the project:
+
+```
+MEMORY.md
+
+## Current State
+[What exists now]
+
+## Recent Changes
+[What happened in last few sessions]
+
+## Active Decisions
+[Technical choices that affect current work]
+
+## Known Issues
+[Problems to keep in mind]
+
+## Upcoming Work
+[What's planned next]
+```
+
+Update this file at natural breakpoints. Include it in prompts. The AI stays oriented.
+
+## Memory as Regenerative Source of Truth
+
+Here's where memory in IDD becomes fundamentally different from ordinary documentation.
+
+Think about a recipe and a cake. You can throw away the cake and bake it again from the recipe, and you'll get the same cake. The recipe is the real thing, the source of truth; any particular cake is just one baking of it. What you'd never want is the reverse: a cake with no recipe, where the only way to find out how it was made is to take it apart and guess.
+
+Your memory in IDD should be the recipe, not the cake. Your Focus documents, your definitions of done, your decisions, all of it should be complete enough that you could delete every line of generated code and recreate the whole thing from a fresh AI session. The code is just one baking of your intent.
+
+This isn't theoretical. It's the standard to hold your memory to.
+
+<Engineers>
+
+**For engineers — tests as the regenerative source of truth**
+
+This is the same property TDD gives you: tests are regenerative, delete the implementation and recreate it through red-green-refactor, because the tests, not the code, are the source of truth. IDD generalises that from tests to the whole specification set (Focus, criteria, decisions, interfaces).
+
+</Engineers>
+
+If your Focus document says "users can book appointments" but doesn't specify what happens when slots conflict, you can't regenerate that behaviour. Some AI session made a choice. That choice lives only in code. You've lost the intent.
+
+If your Refine criteria specify exactly how conflicts are handled, which user sees what message, what state changes occur, you can regenerate that behaviour. Any AI session with those criteria will produce functionally equivalent code.
+
+Think of your memory files like an expanding test suite. Early in the project, they're sparse. You fill in details as you discover edge cases, make decisions, and refine understanding. Each addition makes the specification more complete. Over time, your memory becomes comprehensive enough to regenerate the entire system.
+
+This property has practical implications:
+
+**Switching AI models.** When a better model comes out, you can regenerate components using the same specifications. New model, same intent, potentially better implementation.
+
+**Refactoring with confidence.** Delete the messy code and regenerate from clean specifications. The behaviour remains because the intent is preserved.
+
+**Onboarding new team members.** Point them at the memory files. They can understand what the system should do without archaeologically excavating the implementation.
+
+**Recovering from bad sessions.** AI generated something broken? Roll back the code, keep the specs, regenerate.
+
+The code is ephemeral. The intent is permanent. Build your memory system to preserve intent with that level of precision.
+
+## Context Windows and Prioritisation
+
+Even with careful memory management, you can't include everything. Context windows are large but not infinite.
+
+Prioritise:
+1. The specific task and its acceptance criteria
+2. Interfaces the task must work with
+3. Relevant recent decisions
+4. Project-level conventions
+
+Deprioritise:
+1. Historical decisions that don't affect current work
+2. Implementation details of unrelated components
+3. Session notes from weeks ago
+4. Verbose documentation that can be summarised
+
+When in doubt, summarise rather than include in full. A one-paragraph summary of a decision is often more useful than the full discussion that led to it.
+
+## Retrieval-Based Context
+
+For larger projects, manually assembling context becomes impractical. This is where tooling helps.
+
+The idea is to let the computer find the relevant notes for you, the way a search box surfaces the right email without you remembering where you filed it. Keep your documentation somewhere searchable, store related information together so it travels as a unit, and, if your tools support it, let the AI pull in what's relevant automatically rather than you pasting it in every time.
+
+<Engineers>
+
+**For engineers — automated context assembly**
+
+Modern coding agents assemble context by searching, the same way you would: grep, file reads, following imports. That beats embedding pipelines for code because the structure is already there. Practically: keep docs in the repo so the agent's search reaches them, co-locate related context, and wire external knowledge (tickets, wikis, APIs) through MCP servers so the agent can pull it on demand. Reserve embeddings and vector search for large unstructured corpora where plain search genuinely fails.
+
+</Engineers>
+
+The goal is to get the right information into the AI's context without manual effort every time.
+
+## Memory Anti-Patterns
+
+**Total amnesia.** Starting every session from scratch because memory management feels like overhead. You'll spend more time re-explaining than you save.
+
+**Complete hoarding.** Including everything in every prompt. The AI gets confused by irrelevant information and you hit context limits.
+
+**Stale context.** Including outdated information that contradicts what's actually been built. The AI will reference old decisions instead of current reality.
+
+**Missing vocabulary.** Failing to establish project-specific terms. The AI uses generic language that doesn't match your codebase.
+
+## Memory as Competitive Advantage
+
+The teams that excel at AI-assisted development aren't the ones with the best prompts. They're the ones with the best memory systems.
+
+When you can drop into a project and immediately give the AI full context on what exists, what decisions have been made, and what patterns to follow, you move at a different speed than teams that start every conversation from scratch.
+
+Memory is leverage. Build the systems that create it.
+
+---
+
+## Read the rest
+
+This is one chapter of Intent-Driven Development, a free book on turning ideas into software that actually works. Memory is one discipline of several the book lays out, and it costs nothing to read. [Get the book](/book/).

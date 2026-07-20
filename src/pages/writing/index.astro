@@ -1,0 +1,130 @@
+---
+// The /writing/ index. Lists published posts only (drafts are excluded here but
+// still reachable at their own URL). When every post is a draft the list is
+// empty, so the page renders an honest empty state rather than a bare heading.
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const posts = (await getCollection('writing'))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const canonical = 'https://scottfeltham.com/writing/';
+---
+
+<Base
+  title="Writing — Scott Feltham"
+  description="Essays and chapters on Intent-Driven Development by Scott Feltham, creator of FORGE."
+  canonical={canonical}
+  ogTitle="Writing — Scott Feltham"
+  ogDescription="Essays and chapters on Intent-Driven Development by Scott Feltham, creator of FORGE."
+  ogUrl={canonical}
+  ogType="website"
+  twitterTitle="Writing — Scott Feltham"
+  twitterDescription="Essays and chapters on Intent-Driven Development by Scott Feltham, creator of FORGE."
+>
+  <style is:global slot="head">
+    :root{
+      --void:#0A1410; --coal:#0F1A14; --shell:rgba(237,232,218,.04);
+      --ivory:#EDE8DA; --dim:#8FA294; --faint:#54665B;
+      --line:rgba(237,232,218,.11); --line-strong:rgba(237,232,218,.26);
+      --ember:#C9A961; --ember-soft:rgba(201,169,97,.12);
+      --mono:'IBM Plex Mono',ui-monospace,monospace;
+      --display:'Fraunces',Georgia,serif;
+      --body:'Newsreader',Georgia,serif;
+      --measure:62ch;
+    }
+    *{box-sizing:border-box;margin:0}
+    body{
+      background:var(--void); color:var(--ivory);
+      font-family:var(--body); font-size:1.07rem; line-height:1.75;
+      -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit}
+    ::selection{background:var(--ember);color:var(--void)}
+    a:focus-visible{outline:2px solid var(--ember);outline-offset:3px}
+
+    .post-top{
+      display:flex;align-items:baseline;justify-content:space-between;gap:20px;
+      padding:26px clamp(20px,4vw,48px);border-bottom:1px solid var(--line);flex-wrap:wrap;
+    }
+    .post-top .brand{font-family:var(--mono);font-weight:600;font-size:.74rem;letter-spacing:.24em;text-transform:uppercase;text-decoration:none;color:var(--ivory)}
+    .post-top .brand em{font-style:normal;color:var(--ember)}
+    .post-top nav{display:flex;gap:20px;flex-wrap:wrap}
+    .post-top nav a{
+      font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--dim);
+      background:linear-gradient(var(--ember),var(--ember)) left bottom / 0 1px no-repeat;
+      transition:background-size .4s ease,color .4s ease;
+    }
+    .post-top nav a:hover,.post-top nav a[aria-current]{color:var(--ivory);background-size:100% 1px}
+
+    .list-wrap{max-width:calc(var(--measure) + 8rem);margin:0 auto;padding:clamp(3rem,7vw,6rem) clamp(20px,4vw,48px) 6rem}
+    .list-kicker{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ember);margin-bottom:1.3rem}
+    .list-title{font-family:var(--display);font-weight:300;font-size:clamp(2.4rem,6vw,4rem);letter-spacing:-.015em;line-height:1.05;color:var(--ivory)}
+    .list-lede{max-width:var(--measure);margin-top:1.5rem;color:var(--dim);font-size:1.12rem}
+
+    .postlist{list-style:none;margin-top:3.6rem}
+    .postlist li{padding:2.2rem 0;border-top:1px solid var(--line)}
+    .postlist li:first-child{border-top:none}
+    .post-src{font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ember);margin-bottom:.7rem}
+    .postlist h2{font-family:var(--display);font-weight:600;font-size:1.5rem;letter-spacing:-.01em;line-height:1.15}
+    .postlist h2 a{text-decoration:none}
+    .postlist h2 a:hover{color:var(--ember)}
+    .postlist p{max-width:var(--measure);margin-top:.6rem;color:var(--dim);font-size:.98rem}
+    .post-date{display:block;margin-top:.8rem;font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--faint)}
+
+    .empty{
+      margin-top:3.6rem;padding:34px 30px;border:1px solid var(--line-strong);border-left:2px solid var(--ember);
+      border-radius:14px;background:var(--shell);max-width:var(--measure);
+    }
+    .empty p{color:var(--dim)}
+    .empty p + p{margin-top:1rem}
+    .empty a{text-decoration-color:var(--ember);text-underline-offset:3px}
+    .empty a:hover{color:var(--ember)}
+
+    .list-foot{max-width:calc(var(--measure) + 8rem);margin:0 auto;padding:0 clamp(20px,4vw,48px) 4rem;font-family:var(--mono);font-size:.7rem;color:var(--faint)}
+    .list-foot a:hover{color:var(--ember)}
+  </style>
+
+  <header class="post-top">
+    <a class="brand" href="/">Scott<em>·</em>Feltham</a>
+    <nav aria-label="Site">
+      <a href="/#now">Now</a>
+      <a href="/forge/">FORGE</a>
+      <a href="/writing/" aria-current="page">Writing</a>
+      <a href="/#record">Record</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="list-wrap">
+    <p class="list-kicker">Writing</p>
+    <h1 class="list-title">Notes on building through intent</h1>
+    <p class="list-lede">Essays and chapters on Intent-Driven Development — the discipline of turning ideas into software that actually works. Drawn from the free book of the same name.</p>
+
+    {posts.length > 0 ? (
+      <ul class="postlist">
+        {posts.map((post) => (
+          <li>
+            <p class="post-src">{post.data.source}</p>
+            <h2><a href={`/writing/${post.id}/`}>{post.data.title}</a></h2>
+            <p>{post.data.description}</p>
+            <time class="post-date" datetime={post.data.pubDate.toISOString()}>{fmt(post.data.pubDate)}</time>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <div class="empty">
+        <p>Nothing published here just yet. The first pieces are being drafted.</p>
+        <p>In the meantime, the full <a href="/forge/">FORGE Framework documentation</a> is free to read.</p>
+      </div>
+    )}
+  </div>
+
+  <footer class="list-foot">
+    <a href="/writing/rss.xml">RSS feed</a>
+  </footer>
+</Base>

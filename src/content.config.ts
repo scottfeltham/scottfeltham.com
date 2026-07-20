@@ -18,4 +18,19 @@ const forge = defineCollection({
   }),
 });
 
-export const collections = { forge };
+// The /writing/ blog. Posts are MDX so their prose can embed the <Engineers>
+// and <Sidebar> aside components. `pubDate` is coerced from the YAML date to a
+// JS Date so templates and the RSS feed can sort and format it; `draft`
+// defaults to false so a post is only hidden when it explicitly opts in.
+const writing = defineCollection({
+  loader: glob({ pattern: '*.mdx', base: './src/content/writing' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.coerce.date(),
+    source: z.string(),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { forge, writing };

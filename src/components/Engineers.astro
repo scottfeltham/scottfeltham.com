@@ -1,0 +1,13 @@
+---
+// A marked-off aside carrying engineer-audience material: the book's convention
+// is that the main prose speaks to the primary (non-engineering) reader and the
+// named-technique / industry-vocabulary detail lives in a skippable box. The
+// mono "For engineers" label and thin ember-tinted rule signal "safe to skip"
+// without shouting. Styling lives in PostLayout's <style> under `.post-aside`.
+---
+<aside class="post-aside post-aside--engineers" role="note" aria-label="For engineers">
+  <p class="post-aside__label">For engineers</p>
+  <div class="post-aside__body">
+    <slot />
+  </div>
+</aside>

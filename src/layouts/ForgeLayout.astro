@@ -1,0 +1,128 @@
+---
+// Astro port of Jekyll's `_layouts/forge.html`. Same markup structure and
+// class names so `assets/forge.css` styles it identically, and the same head
+// meta / JSON-LD so the docs section keeps parity at cutover. The sidebar nav
+// is read at build time from the shared `_data/forge_nav.yml`, so the Jekyll
+// and Astro builds stay in lockstep from one source.
+import fs from 'node:fs';
+import yaml from 'js-yaml';
+import Base from './Base.astro';
+
+export interface Props {
+  url: string; // the page permalink, e.g. "/forge/implementations/"
+  title: string;
+  description?: string;
+  parent?: string;
+}
+
+const { url, title, description, parent } = Astro.props;
+
+const navPath = new URL('../../_data/forge_nav.yml', import.meta.url);
+const nav = yaml.load(fs.readFileSync(navPath, 'utf-8')) as {
+  sections: { title: string; url: string; children?: { title: string; url: string }[] }[];
+};
+
+const isIndex = url === '/forge/';
+
+// Titles / meta mirror the Liquid conditionals in forge.html exactly.
+const pageTitle = isIndex
+  ? 'FORGE Framework — Intent-Driven Development · Scott Feltham'
+  : `${title} — FORGE Framework · Scott Feltham`;
+const metaDescription =
+  description ||
+  `${title} — documentation for the FORGE Framework, the delivery methodology implementing Intent-Driven Development, created by Scott Feltham.`;
+const canonical = `https://scottfeltham.com${url}`;
+const ogTitle = `${title} — FORGE Framework`;
+const ogDescription =
+  description || 'Documentation for the FORGE Framework — Intent-Driven Development, created by Scott Feltham.';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'TechArticle',
+  headline: title,
+  url: canonical,
+  author: { '@type': 'Person', name: 'Scott Feltham', url: 'https://scottfeltham.com/' },
+  publisher: { '@type': 'Person', name: 'Scott Feltham', url: 'https://scottfeltham.com/' },
+  about: {
+    '@type': 'DefinedTerm',
+    name: 'FORGE Framework',
+    description:
+      'The delivery methodology implementing Intent-Driven Development, created by Scott Feltham. Five phases: Focus, Orchestrate, Refine, Generate, Evaluate.',
+    url: 'https://scottfeltham.com/forge/',
+  },
+  isPartOf: {
+    '@type': 'TechArticle',
+    name: 'FORGE Framework documentation',
+    url: 'https://scottfeltham.com/forge/',
+  },
+};
+---
+
+<Base
+  title={pageTitle}
+  description={metaDescription}
+  canonical={canonical}
+  ogTitle={ogTitle}
+  ogDescription={ogDescription}
+  ogUrl={canonical}
+  ogType="article"
+  twitterTitle={ogTitle}
+  twitterDescription={ogDescription}
+>
+  <Fragment slot="head">
+    <set:html value={`<script type="application/ld+json">${JSON.stringify(jsonLd)}</script>`} />
+    <link rel="stylesheet" href="/assets/forge.css" />
+  </Fragment>
+
+  <header class="doc-top">
+    <a class="brand" href="/">Scott<em>·</em>Feltham</a>
+    <nav aria-label="Site">
+      <a href="/#now">Now</a>
+      <a href="/forge/" aria-current="page">FORGE</a>
+      <a href="/#record">Record</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="doc-shell">
+    <aside class="doc-side" aria-label="Documentation">
+      <p class="eyebrow">FORGE · documentation</p>
+      <ul>
+        {nav.sections.map((sec) => (
+          <li>
+            <a class={`sec${url === sec.url ? ' current' : ''}`} href={sec.url}>{sec.title}</a>
+            {sec.children && (
+              <ul class="kids">
+                {sec.children.map((kid) => (
+                  <li>
+                    <a href={kid.url} class={url === kid.url ? 'current' : undefined} aria-current={url === kid.url ? 'page' : undefined}>
+                      {kid.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </aside>
+
+    <main class="doc-main">
+      {!isIndex && (
+        <p class="doc-crumb">
+          <a href="/">Scott Feltham</a> / <a href="/forge/">FORGE</a>{parent ? ` / ${parent}` : ''}
+        </p>
+      )}
+      <article class="doc-body">
+        <slot />
+      </article>
+      <footer class="doc-foot">
+        <span>FORGE &amp; Intent-Driven Development — Scott Feltham · MIT licensed</span>
+        <span>
+          <a href="https://github.com/scottfeltham/forge-framework">source on GitHub</a> · <a href="/">home</a>
+        </span>
+      </footer>
+    </main>
+  </div>
+</Base>

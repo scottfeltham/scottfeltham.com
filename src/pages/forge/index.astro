@@ -1,0 +1,13 @@
+---
+import { getCollection, render } from 'astro:content';
+import ForgeLayout from '../../layouts/ForgeLayout.astro';
+
+const entries = await getCollection('forge');
+const entry = entries.find((e) => e.data.permalink === '/forge/');
+if (!entry) throw new Error('forge collection: missing entry with permalink /forge/');
+const { Content } = await render(entry);
+---
+
+<ForgeLayout url={entry.data.permalink} title={entry.data.title} description={entry.data.description} parent={entry.data.parent}>
+  <Content />
+</ForgeLayout>

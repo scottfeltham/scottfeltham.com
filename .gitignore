@@ -13,3 +13,9 @@ dist/
 .build/
 build/
 
+# Astro
+.astro/
+# public/ is generated from the root static dirs by `npm run sync-static`
+# until the Jekyll -> Astro cutover moves them in for real.
+public/
+

@@ -30,6 +30,16 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor/
+  # Astro migration tooling (dark-launched; Pages still serves this Jekyll build)
+  - src/
+  - public/
+  - dist/
+  - node_modules/
+  - package.json
+  - package-lock.json
+  - astro.config.mjs
+  - tsconfig.json
+  - .astro/
 
 defaults:
   - scope:

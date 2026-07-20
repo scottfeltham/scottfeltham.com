@@ -19,7 +19,7 @@ permalink: /forge/agent-customization/
 
 ## Overview
 
-FORGE automatically configures 6 Claude Code subagents during installation, and provides documentation templates that can be specialized for your project's specific needs. This guide explains both systems.
+The standalone **forge-framework** CLI automatically configures 6 Claude Code subagents during installation, and provides documentation templates that can be specialized for your project's specific needs. This guide explains both systems.
 
 ## Claude Code Subagents (Automatic)
 

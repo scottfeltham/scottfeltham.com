@@ -31,6 +31,8 @@ Before phase validation, developers could:
 
 The validation system addresses these issues while maintaining flexibility.
 
+On Claude Code, **forge-kit** hardens this further: its phase-guard hook blocks phase-skipping outright rather than reporting it. See [Choosing an Implementation](/forge/implementations/).
+
 ## How It Works
 
 ### Automatic Progress Tracking

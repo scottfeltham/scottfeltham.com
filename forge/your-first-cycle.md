@@ -19,11 +19,13 @@ permalink: /forge/your-first-cycle/
 
 A complete walkthrough of building your first feature with FORGE, from initialization to completion.
 
+> This walkthrough uses the standalone **forge-framework** CLI. The canonical implementation for Claude Code is [forge-skill](/forge/implementations/#forge-skill--the-canonical-implementation), which runs the same five phases through `/forge` commands. See [Choosing an Implementation](/forge/implementations/).
+
 ## Prerequisites
 
 Before starting, ensure you have:
 - Node.js 14+ installed
-- FORGE installed globally: `npm install -g forge-framework`
+- The forge-framework CLI installed globally: `npm install -g forge-framework`
 - Claude Code or another AI assistant ready
 - A project directory (we'll create a simple Todo app)
 

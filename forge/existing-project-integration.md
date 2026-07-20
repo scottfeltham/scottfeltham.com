@@ -19,7 +19,7 @@ permalink: /forge/existing-project-integration/
 
 ## Overview
 
-FORGE seamlessly integrates into any existing project. The `forge init` command automatically detects your setup and configures itself appropriately.
+FORGE integrates into any existing project. This page uses the standalone **forge-framework** CLI, whose `forge init` command detects your setup and configures itself appropriately. On Claude Code, the canonical route is [forge-skill](/forge/implementations/#forge-skill--the-canonical-implementation) — see [Choosing an Implementation](/forge/implementations/).
 
 ## Quick Integration
 

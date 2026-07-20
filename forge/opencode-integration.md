@@ -45,7 +45,7 @@ The skill's tool commands automatically resolve the install location at runtime 
 
 ### 2. Configure the MCP Server (Optional)
 
-If using `forge-mcp`, add it to `opencode.json` in your project root:
+The MCP server ([`scottfeltham/forge-mcp`](https://github.com/scottfeltham/forge-mcp)) is in maintenance mode — fixes only, no new capability. Skip it unless you need MCP tool calls; see [Choosing an implementation](/forge/implementations/). If using it, add it to `opencode.json` in your project root:
 
 ```json
 {

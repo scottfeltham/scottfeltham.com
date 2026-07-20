@@ -21,6 +21,8 @@ permalink: /forge/team-collaboration/
 
 FORGE supports parallel development with multiple team members working on different phases or features simultaneously. The framework's markdown-based approach makes collaboration natural through standard version control.
 
+Across a team, "we'll follow the phases" needs to be structural rather than aspirational. Commit **forge-kit** — a drop-in `CLAUDE.md` plus a phase-guard hook — to the repo alongside [forge-skill](/forge/implementations/#forge-skill--the-canonical-implementation): the guard prevents phase-skipping and the `CLAUDE.md` sets the team's default collaboration level. See [Choosing an Implementation](/forge/implementations/).
+
 ## Collaboration Patterns
 
 ### 1. Multi-Feature Development

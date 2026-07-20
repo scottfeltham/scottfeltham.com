@@ -17,6 +17,8 @@ permalink: /forge/ai-driven-workflow/
 
 ---
 
+> The commands on this page are the standalone **forge-framework** CLI. The same workflow runs under the canonical [forge-skill](/forge/implementations/#forge-skill--the-canonical-implementation) via `/forge` — see [Choosing an Implementation](/forge/implementations/).
+
 ## Philosophy
 
 FORGE is radically simple by design. The CLI just creates files - all intelligence lives in the AI. This means:

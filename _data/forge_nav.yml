@@ -1,0 +1,47 @@
+sections:
+  - title: Overview
+    url: /forge/
+  - title: Getting Started
+    url: /forge/getting-started/
+    children:
+      - title: Quick Start
+        url: /forge/quick-start/
+      - title: Your First FORGE Cycle
+        url: /forge/your-first-cycle/
+      - title: AI-Driven Workflow
+        url: /forge/ai-driven-workflow/
+  - title: Core Concepts
+    url: /forge/core-concepts/
+    children:
+      - title: Agent Customization
+        url: /forge/agent-customization/
+      - title: Dynamic Agents
+        url: /forge/dynamic-agents/
+      - title: Learning Process
+        url: /forge/learning-process/
+      - title: Phase Validation
+        url: /forge/phase-validation/
+      - title: Memory Integration
+        url: /forge/memory-integration/
+  - title: Advanced Topics
+    url: /forge/advanced/
+    children:
+      - title: Team Collaboration
+        url: /forge/team-collaboration/
+      - title: MCP Integration
+        url: /forge/mcp-integration/
+      - title: Existing Project Integration
+        url: /forge/existing-project-integration/
+      - title: Claude Code Integration
+        url: /forge/claude-code-integration/
+      - title: OpenCode Integration
+        url: /forge/opencode-integration/
+  - title: Reference
+    url: /forge/reference/
+    children:
+      - title: CLI Reference
+        url: /forge/cli-reference/
+      - title: PRD Guide
+        url: /forge/prd-guide/
+      - title: Troubleshooting
+        url: /forge/troubleshooting/

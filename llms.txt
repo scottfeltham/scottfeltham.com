@@ -29,6 +29,9 @@
 ## Pages
 
 - [Home](https://scottfeltham.com/): thesis, proof, methodology, record, FAQ
+- [FORGE documentation](https://scottfeltham.com/forge/): the complete framework
+  docs — getting started, the five phases, core concepts, agent patterns, tool
+  integrations (Claude Code, MCP, OpenCode), CLI reference
 - [Terminal archive](https://scottfeltham.com/terminal/): previous era of the
   site, preserved as a working CLI exhibit
 

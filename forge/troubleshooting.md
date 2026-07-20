@@ -17,7 +17,7 @@ permalink: /forge/troubleshooting/
 
 ---
 
-Common issues and solutions for FORGE Framework v2.0.0.
+Common issues and solutions for the standalone **forge-framework** CLI (v2.0.0). If you are running the canonical [forge-skill](/forge/implementations/#forge-skill--the-canonical-implementation) instead, the npm-specific sections below do not apply — see [Choosing an Implementation](/forge/implementations/).
 
 ## Installation Issues
 

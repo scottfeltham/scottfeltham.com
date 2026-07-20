@@ -17,15 +17,17 @@ permalink: /forge/claude-code-integration/
 
 ---
 
+> On Claude Code, the canonical implementation is **forge-skill** — see [FORGE Skill](#forge-skill--the-canonical-claude-code-implementation) below and [Choosing an Implementation](/forge/implementations/). The subagent configuration described first on this page ships with the standalone forge-framework CLI.
+
 ## Overview
 
-FORGE automatically configures Claude Code subagents during installation, providing specialized AI assistants with isolated contexts and domain expertise.
+The forge-framework CLI automatically configures Claude Code subagents during installation, providing specialized AI assistants with isolated contexts and domain expertise.
 
 ## Automatic Subagent Configuration
 
 ### Installation Process
 ```bash
-# Global installation (recommended)
+# Global installation of the standalone CLI
 npm install -g forge-framework
 
 # Output:
@@ -331,27 +333,28 @@ Subagents complement your IDE:
 - forge-architect creates system documentation
 - All subagents contribute to learning capture
 
-## FORGE Skill (Alternative Integration)
+## FORGE Skill — the canonical Claude Code implementation
 
-For users who prefer not to use MCP, FORGE provides a **Claude Code Skill** that enables the same IDD workflow through natural conversation.
+**forge-skill (v2.0.0) is the canonical implementation of FORGE.** It runs the full IDD workflow through natural conversation in Claude Code, and it owns the `.forge/cycles/` state format that the wider tooling — the observatory, the TUI, and the MCP server — reads and writes.
 
 ### What is the FORGE Skill?
 
-The FORGE Skill is a lightweight alternative to the MCP server that:
-- Requires no MCP configuration
+The FORGE Skill:
+- Requires no MCP configuration and no server
 - Works through natural language commands
 - Auto-invokes when you mention FORGE or development cycles
 - Uses Python tools (via uv) under the hood
 
+Requires Python 3.11+, [Astral UV](https://docs.astral.sh/uv/), and the Claude Code CLI.
+
 ### Installation
 
 ```bash
-# Clone the forge-skill repository
-git clone https://github.com/scottfeltham/forge-skill.git
-
-# The skill auto-configures when placed in your Claude Code skills directory
-cp -r forge-skill/.claude/skills/forge ~/.claude/skills/
+mkdir -p ~/.claude/skills
+git clone https://github.com/scottfeltham/forge-skill.git ~/.claude/skills/forge
 ```
+
+Pair it with **forge-kit** — a drop-in `CLAUDE.md` plus a phase-guard hook — when you want the methodology enforced rather than merely available. See [Choosing an Implementation](/forge/implementations/).
 
 ### Usage
 
@@ -369,24 +372,25 @@ The skill automatically detects FORGE-related requests and executes the appropri
 
 ### Skill vs MCP Comparison
 
-| Feature | FORGE Skill | FORGE MCP |
+| Feature | FORGE Skill | FORGE MCP server |
 |---------|-------------|-----------|
-| Installation | Copy skill directory | Configure MCP server |
+| Status | Canonical | Maintenance mode (fixes only) |
+| Installation | Clone into `~/.claude/skills/` | Configure MCP server |
 | Invocation | Natural language | MCP tool calls |
-| Dependencies | Python + uv | Node.js |
-| Best for | Quick setup, single user | Team environments, automation |
+| Dependencies | Python 3.11+ + uv | Node.js |
+| State format | Owns `.forge/cycles/` | Shares the skill's `.forge/` format |
+| Best for | Claude Code | MCP-only tools (Cursor, VS Code) |
 
 ### When to Use Each
 
 **Use the Skill when:**
-- You want the simplest possible setup
-- You're working solo on a project
-- You prefer natural language over explicit commands
+- You are on Claude Code — this is the default answer
+- You want the state format the rest of the FORGE tooling reads
+- You want to layer forge-kit's enforcement on top
 
-**Use MCP when:**
-- You need programmatic access to FORGE state
-- You're building automation around FORGE
-- You want integration with other MCP tools
+**Use the MCP server when:**
+- Your editor speaks MCP but is not Claude Code
+- You accept that it receives fixes but no new capability
 
 Both implement the same IDD methodology and produce compatible `.forge/` state files.
 

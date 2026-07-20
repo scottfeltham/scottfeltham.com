@@ -17,6 +17,10 @@ permalink: /forge/mcp-integration/
 
 ---
 
+> **forge-mcp-server is in maintenance mode.** It receives fixes, not new capability. It is recommended only if you work in an MCP-only tool such as Cursor or VS Code. If you use Claude Code, install [forge-skill](/forge/implementations/#forge-skill--the-canonical-implementation) instead — it is the canonical implementation. See [Choosing an Implementation](/forge/implementations/).
+>
+> The rest of this page covers a separate topic: how FORGE uses *other* MCP servers (filesystem, GitHub, Postgres) to do its work.
+
 ## Overview
 
 FORGE can leverage MCP (Model Context Protocol) servers when available to provide enhanced capabilities for file access, database connections, API integrations, and more. MCP provides a standardized way for AI assistants to interact with external systems.

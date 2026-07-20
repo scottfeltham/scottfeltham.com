@@ -17,9 +17,11 @@ permalink: /forge/cli-reference/
 
 ---
 
+> This page documents the standalone **forge-framework** CLI (v2.0.0), installed with `npx forge-framework install` or `npm install -g forge-framework`. It keeps its own state (`forge.yaml` + `.forge/current.md`) and is not the canonical implementation — that is [forge-skill](/forge/implementations/#forge-skill--the-canonical-implementation). See [Choosing an Implementation](/forge/implementations/).
+
 ## Overview
 
-The FORGE CLI (v2.0.0) provides a minimal yet powerful interface for AI-driven development with built-in phase validation, progress tracking, and automatic Claude Code subagent configuration.
+The forge-framework CLI (v2.0.0) provides a minimal yet powerful interface for AI-driven development with built-in phase validation, progress tracking, and automatic Claude Code subagent configuration.
 
 ## Core Commands
 
@@ -315,6 +317,6 @@ project/
 
 ## Version Information
 
-Current Version: 2.0.0
+Current forge-framework version: 2.0.0
 
 For updates: [GitHub Repository](https://github.com/scottfeltham/forge-framework)

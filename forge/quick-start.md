@@ -21,19 +21,49 @@ Get up and running with FORGE in under 5 minutes.
 
 ## Installation
 
-### Global Installation (Recommended)
+FORGE has more than one implementation. Pick the one that matches your tooling — see [Choosing an Implementation](/forge/implementations/) for the full comparison.
+
+### forge-skill — canonical (recommended for Claude Code)
+
+The Claude Code skill is the canonical implementation. It owns the `.forge/cycles/` state format that the rest of the FORGE tooling reads and writes.
+
+Requires Python 3.11+, [Astral UV](https://docs.astral.sh/uv/), and the Claude Code CLI.
 
 ```bash
-# Install FORGE globally with auto-configured Claude Code subagents
+mkdir -p ~/.claude/skills
+git clone https://github.com/scottfeltham/forge-skill.git ~/.claude/skills/forge
+```
+
+Then drive it from Claude Code:
+
+```
+/forge new "user authentication"
+/forge status
+/forge phase next
+```
+
+To have the methodology *enforced* rather than merely available, add [forge-kit](/forge/implementations/#forge-kit--enforcement) — a drop-in `CLAUDE.md` plus a phase-guard hook that prevents phase-skipping and sets your default collaboration level.
+
+### forge-framework CLI — standalone
+
+If you work outside Claude Code, or want a lightweight conversational CLI, install the standalone `forge-framework` package. It is a separate product with its own state format (`forge.yaml` + `.forge/current.md`) and does not share `.forge/cycles/` with the skill.
+
+```bash
+# Local install
+npx forge-framework install
+
+# Or globally
 npm install -g forge-framework
 
 # Verify installation
 forge --version  # Should output: 2.0.0
 ```
 
+The remainder of this page documents the `forge` CLI from this package.
+
 ### What Gets Installed
 
-The global installation automatically:
+The global CLI installation automatically:
 - Installs the `forge` CLI command globally
 - Configures 6 specialized Claude Code subagents
 - Sets up the FORGE framework for immediate use
@@ -48,6 +78,8 @@ This installs FORGE globally and automatically configures 6 specialized Claude C
 - **forge-analyzer** - Codebase analysis and insights
 
 ## Initialize Your Project
+
+The `forge` shell commands below belong to the standalone forge-framework CLI. If you installed the skill, use the `/forge ...` equivalents inside Claude Code instead.
 
 ```bash
 cd your-project
@@ -83,7 +115,7 @@ forge complete --force    # Force completion (use sparingly)
 
 **Important**: You cannot skip phases or complete prematurely. Each phase has mandatory requirements (e.g., test scenarios in Focus phase).
 
-## Core Commands
+## Core Commands (forge-framework CLI)
 
 - `forge init` - Initialize FORGE in your project
 - `forge new <feature>` - Start a new development cycle
@@ -152,6 +184,7 @@ https://github.com/scottfeltham/forge-framework/issues
 See our comprehensive [Your First FORGE Cycle](/forge/getting-started/#your-first-forge-cycle) walkthrough for a complete end-to-end example.
 
 ### Learn More
+- [Choosing an Implementation](/forge/implementations/) - Skill, kit, CLI, or MCP server
 - [Core Concepts](/forge/core-concepts/) - Understand the 5-phase methodology
 - [Claude Code Integration](/forge/claude-code-integration/) - Leverage specialized AI agents
 - [Phase Validation](/forge/phase-validation/) - Master the validation system

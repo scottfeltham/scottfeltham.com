@@ -3,173 +3,119 @@ layout: forge
 title: FORGE Framework
 nav_order: 1
 permalink: /forge/
-description: Intent-Driven Development - Express intent clearly, let AI implement correctly
+description: FORGE and Intent-Driven Development — the methodology, the five phases, and the implementations. Created by Scott Feltham.
 ---
 
 # Intent-Driven Development
 {: .fs-9 }
 
-Express your intent clearly. Let AI implement it correctly.
+The quality of AI output is determined by the quality of the intent you express.
 {: .fs-6 .fw-300 }
 
-[Get started now](#getting-started){: .forge-btn .forge-btn--large }
-[View on GitHub](https://github.com/scottfeltham/forge-framework){: .forge-btn .forge-btn--secondary .forge-btn--large }
+[Start here](/forge/quick-start/){: .forge-btn .forge-btn--large }
+[Choose an implementation](/forge/implementations/){: .forge-btn .forge-btn--secondary .forge-btn--large }
 
 ---
 
-## What is Intent-Driven Development?
+FORGE is a **methodology, not a tool**. It provides the discipline that turns AI from a code generator into a development partner. Vague intent produces vague code; precise intent, expressed through structured phases, produces code that matches what you actually need.
 
-**Intent-Driven Development (IDD)** is a methodology where you focus on expressing *what* you want and *why*, while AI handles the *how*. Instead of writing code line by line, you define clear intent through structured phases, and AI implements it correctly.
-
-The key insight: **AI can write code. Humans should define intent.**
+It works with any AI tool, any language, any team structure. The phases are the same whether you are pair-programming with Claude Code, directing an autonomous agent swarm, or sketching on a whiteboard before opening your editor.
 
 ---
 
-## The FORGE Cycle
+## The three pillars of IDD
 
-FORGE guides you through 5 validated phases:
+Intent-Driven Development rests on three pillars. Remove any one and the methodology collapses.
 
-| Phase | Purpose | Output |
-|-------|---------|--------|
-| **Focus** 🎯 | Define what & why | Problem statement, success criteria |
-| **Orchestrate** 📋 | Plan the architecture | C4 diagrams, task breakdown |
-| **Refine** ✏️ | Specify "done" before code | Acceptance criteria, interfaces |
-| **Generate** ⚡ | AI writes code via TDD | Tested, working implementation |
-| **Evaluate** ✅ | Verify intent was met | Accepted or revision needed |
+**Intent** — the precise articulation of *what* you are building, *why* it matters, and *what success looks like* in testable terms. Not a feature request; not a user story. Sharp enough to be implemented by an agent that has no intuition, only instructions.
 
-Each phase has validation gates. You can't skip ahead without completing the requirements.
+**Outcome** — intent without a measurable outcome is a wish. Outcomes are the testable, observable results that prove intent was realised. Every line of code traces to an outcome; every outcome traces to an intent.
+
+**Accountability** — intent and outcome without accountability is hope. Every decision is traceable, every phase transition justified, every disposition recorded with evidence. Accountability is what makes autonomous development trustworthy — not the model's capability, but the verifiable chain from intent through outcome to evidence.
+
+| Missing pillar | Result |
+|---|---|
+| Intent without Outcome | Unclear goals, no way to verify success |
+| Outcome without Accountability | Results with no traceability, no trust |
+| Accountability without Intent | Process theatre, measuring the wrong things |
+| **All three** | **Development you can trust, verify, and improve** |
 
 ---
 
-## Getting Started
+## The five working principles
 
-Choose your preferred integration:
+1. **Clarity before code.** *(Intent)* Every line of code should trace back to a stated intent. If you can't explain the problem, the users, and what success looks like to someone unfamiliar with it, you aren't ready to build it.
+2. **Specs are the contract.** *(Intent → Outcome)* Acceptance criteria in Given-When-Then form are the handshake between intent and implementation. The spec is what the human commits to; the implementation is what the AI delivers against.
+3. **Tests prove the contract.** *(Outcome)* TDD is the verification mechanism. A failing test encodes the spec; passing code proves the contract is met.
+4. **Phases prevent drift.** *(Accountability)* Without structure, development drifts toward "just start coding." Phases are forcing functions with concrete deliverables that must exist before advancing.
+5. **Evaluate against intent, not intuition.** *(Outcome + Accountability)* "Does it work?" is the wrong question. "Does it match the acceptance criteria from Refine?" is the right one.
 
-### Option 1: Claude Code Skill (Recommended)
-{: .fs-5 }
+---
 
-The simplest way to use FORGE. No server required - works directly in Claude Code.
+## The FORGE cycle
+
+Five sequential phases, each with validation gates. You cannot skip ahead without completing the requirements.
+
+| Phase | Purpose | Key question | Output |
+|---|---|---|---|
+| **Focus** | Clarity | What are you actually building, and why? | Problem statement, success criteria |
+| **Orchestrate** | Planning | How does it break down? | Architecture, task breakdown |
+| **Refine** | Precision | What does "done" mean — before any code? | Acceptance criteria, interfaces |
+| **Generate** | Creation | Does the code satisfy the spec? | Tested, working implementation |
+| **Evaluate** | Verification | Does the output match the intent? | Accepted, or revision required |
+
+Read the phases in practice: [Quick Start](/forge/quick-start/) · [Your First Cycle](/forge/your-first-cycle/) · [Phase Validation](/forge/phase-validation/)
+
+---
+
+## The collaboration spectrum
+
+The same methodology applies across five levels of human-machine collaboration. The phases, deliverables, and quality gates stay constant — what changes is **who leads, who supports, and who reviews**.
+
+| Level | Human | Machine | When |
+|---|---|---|---|
+| All Human | Everything | None | Regulated or classified work |
+| Human Led | Leader | Oversight | New domains, high risk |
+| **Machine Assisted** | **Collaborator** | **Collaborator** | **Established projects, moderate risk** |
+| Machine Led | Oversight | Leader | Clear patterns, low risk |
+| All Machine | None | Everything | Automated maintenance, pre-specified work |
+
+**Escalation rule:** when confidence drops, escalate up one level. Machine Led unsure? Become Collaborator. Collaborator stuck? Switch to Human Led.
+
+**Trust is earned per domain, not globally.** Proven on CRUD endpoints ≠ trusted for auth flows.
+
+---
+
+## Getting started
+
+FORGE has several implementations sharing one methodology. The **[FORGE skill for Claude Code](/forge/implementations/) is canonical** — it owns the `.forge/cycles/` state format that the wider tooling reads and writes.
 
 ```bash
-# Clone the skill to your Claude skills directory
+# Canonical: the Claude Code skill
+mkdir -p ~/.claude/skills
 git clone https://github.com/scottfeltham/forge-skill.git ~/.claude/skills/forge
 ```
 
-Then in Claude Code:
+Then, in Claude Code:
+
 ```
 /forge new "user authentication"
 /forge status
 /forge phase next
 ```
 
-[View forge-skill on GitHub](https://github.com/scottfeltham/forge-skill){: .forge-btn .forge-btn--secondary }
+Pair it with **forge-kit** — a drop-in `CLAUDE.md` plus a phase-guard hook — when you want the methodology enforced rather than merely available.
 
-### Option 2: MCP Server
-{: .fs-5 }
-
-For IDE integrations (VS Code, Cursor) and multi-tool workflows.
-
-```json
-// Add to claude_desktop_config.json
-{
-  "mcpServers": {
-    "forge": {
-      "command": "npx",
-      "args": ["-y", "@neoforge/forge-mcp"]
-    }
-  }
-}
-```
-
-[View forge-mcp on GitHub](https://github.com/scottfeltham/forge-mcp){: .forge-btn .forge-btn--secondary }
-
-### Option 3: CLI (Legacy)
-{: .fs-5 }
-
-Standalone CLI for non-Claude workflows. Consider using the skill or MCP server instead.
-
-```bash
-npm install -g @neoforge/forge-framework
-```
-
-[View forge-framework on GitHub](https://github.com/scottfeltham/forge-framework){: .forge-btn .forge-btn--secondary }
+Prefer a lightweight conversational CLI, or working outside Claude Code? See [Choosing an implementation](/forge/implementations/) for the full family and when each one fits.
 
 ---
 
-## Why Intent-Driven Development?
+## Where to go next
 
-### 🎯 Clarity Before Code
-Define success criteria *before* implementation. Know exactly what "done" looks like.
+- **[Quick Start](/forge/quick-start/)** — install and run your first cycle
+- **[Choosing an implementation](/forge/implementations/)** — skill, kit, CLI, or MCP
+- **[Core Concepts](/forge/core-concepts/)** — agents, memory, validation, learning
+- **[Advanced Topics](/forge/advanced/)** — teams, MCP, existing projects, integrations
+- **[Reference](/forge/reference/)** — CLI, PRD guide, troubleshooting
 
-### 🧠 AI as Implementer
-You provide intent and constraints. AI handles implementation details via TDD.
-
-### ✅ Validated Phases
-Can't skip steps. Each phase must pass validation before advancing.
-
-### 🔄 Structured Iteration
-When output doesn't match intent, refine and regenerate with clear feedback.
-
-### 📝 Everything in Markdown
-All state, specs, and learnings in human-readable files. Full transparency.
-
-### 🤖 Specialized Agents
-Architect, Developer, Tester, DevOps, Reviewer - each with domain expertise.
-
----
-
-## Quick Example
-
-Using the Claude Code skill:
-
-```
-You: /forge new "payment processing"
-
-Claude: Starting Focus phase. Let me ask some questions:
-        - What payment providers do you need?
-        - What are your success criteria?
-        - Any security requirements?
-
-You: Stripe only. Success = charge cards and handle failures gracefully.
-
-Claude: Got it. Moving to Orchestrate phase...
-        [Creates architecture diagram]
-        [Breaks into session-sized tasks]
-
-Claude: Ready for Refine phase. Writing acceptance criteria...
-        Given a valid card, when charged, then return success
-        Given an invalid card, when charged, then return error with code
-
-Claude: Acceptance criteria approved. Starting Generate phase...
-        [Writes failing test first - RED]
-        [Implements minimal code - GREEN]
-        [Refactors - REFACTOR]
-
-Claude: All tests passing. Ready for Evaluate phase.
-        Does this match your intent?
-```
-
----
-
-## The IDD Philosophy
-
-> "The bottleneck in AI-assisted development isn't code generation.
-> It's expressing intent clearly enough for AI to implement correctly."
-
-FORGE exists to solve this. It provides just enough structure to capture intent precisely, then gets out of the way while AI does the implementation.
-
-**Less code. More clarity. Better software.**
-
----
-
-## About
-
-FORGE Framework was created by [Scott Feltham](https://github.com/scottfeltham) to enable Intent-Driven Development with AI assistants.
-
-### License
-
-Distributed under the [MIT license](https://github.com/scottfeltham/forge-framework/blob/main/LICENSE).
-
-### Contributing
-
-Discuss changes via issue or email before submitting PRs.
+FORGE and Intent-Driven Development were created by [Scott Feltham](/). The book, *Intent-Driven Development*, expands this material from founding axiom to autonomous delivery.

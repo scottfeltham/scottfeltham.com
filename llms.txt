@@ -29,9 +29,15 @@
 ## Pages
 
 - [Home](https://scottfeltham.com/): thesis, proof, methodology, record, FAQ
-- [FORGE documentation](https://scottfeltham.com/forge/): the complete framework
-  docs — getting started, the five phases, core concepts, agent patterns, tool
-  integrations (Claude Code, MCP, OpenCode), CLI reference
+- [FORGE documentation](https://scottfeltham.com/forge/): the methodology —
+  three pillars, five working principles, the FORGE cycle, and the collaboration
+  spectrum — plus implementation guides, core concepts, and reference
+- [Choosing an implementation](https://scottfeltham.com/forge/implementations/):
+  forge-skill (canonical Claude Code skill, owns the .forge/cycles state format),
+  forge-kit (enforcement), forge-framework CLI (standalone), forge-mcp-server
+  (maintenance mode)
+- [The collaboration spectrum](https://scottfeltham.com/forge/collaboration-spectrum/):
+  five levels from All Human to All Machine, escalation triggers, progressive trust
 - [Terminal archive](https://scottfeltham.com/terminal/): previous era of the
   site, preserved as a working CLI exhibit
 

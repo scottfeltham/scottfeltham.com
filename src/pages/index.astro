@@ -151,6 +151,7 @@ import Base from '../layouts/Base.astro';
 
     /* ---------- hero ---------- */
     .hero{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;padding:20vh 0 10vh;position:relative}
+    .herogrid{display:grid;grid-template-columns:minmax(0,1fr) clamp(250px,29vw,372px);gap:clamp(30px,5vw,74px);align-items:center}
     .eyebrow{
       display:inline-flex;align-items:center;gap:8px;width:max-content;
       font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ember);
@@ -159,8 +160,8 @@ import Base from '../layouts/Base.astro';
     }
     .eyebrow::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ember);box-shadow:0 0 10px var(--ember)}
     .hero h1{
-      font-family:var(--display);font-weight:300;font-size:clamp(2.5rem,6.6vw,5.2rem);
-      line-height:1.05;letter-spacing:-.015em;max-width:19ch;text-wrap:balance;
+      font-family:var(--display);font-weight:300;font-size:clamp(2.5rem,5.3vw,4.4rem);
+      line-height:1.05;letter-spacing:-.015em;max-width:17ch;text-wrap:balance;
     }
     .hero h1 .gl{white-space:pre}
     .hero h1 em{font-style:italic;font-weight:600;color:var(--ember);text-shadow:0 0 34px rgba(201,169,97,.35)}
@@ -175,6 +176,48 @@ import Base from '../layouts/Base.astro';
     .scrollcue::after{content:"";width:1px;height:44px;background:linear-gradient(var(--ember),transparent);animation:cue 2s var(--ease) infinite}
     @keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
     @media (prefers-reduced-motion:reduce){.scrollcue::after{animation:none}}
+
+    /* ---------- hero portrait ----------
+       The source is a cut-out (transparent background), so it can be graded into
+       the palette and let its shoulders dissolve into the void instead of sitting
+       in a photo box. Warm monochrome by default; true colour on hover/focus. */
+    .portrait{position:relative;margin:0;will-change:transform}
+    .p-in{position:relative;display:block}
+    .p-in::before{ /* ember bloom, sits behind the silhouette */
+      content:"";position:absolute;left:50%;top:44%;width:122%;aspect-ratio:1;z-index:0;
+      transform:translate(-50%,-50%);border-radius:50%;pointer-events:none;
+      background:radial-gradient(closest-side,rgba(201,169,97,.20),rgba(201,169,97,.055) 56%,transparent 73%);
+      filter:blur(7px);
+    }
+    .p-in .ring{ /* hairline frame the portrait breaks out of */
+      position:absolute;left:50%;top:45%;width:97%;aspect-ratio:1;z-index:0;
+      transform:translate(-50%,-50%) rotate(-32deg);border-radius:50%;
+      border:1px solid var(--line);border-top-color:rgba(201,169,97,.75);
+      pointer-events:none;
+    }
+    .p-in img{
+      position:relative;z-index:1;display:block;width:100%;height:auto;
+      filter:grayscale(1) sepia(.62) saturate(1.5) hue-rotate(-12deg) contrast(1.02) brightness(1.06);
+      -webkit-mask-image:linear-gradient(180deg,#000 54%,rgba(0,0,0,.34) 76%,transparent 93%);
+              mask-image:linear-gradient(180deg,#000 54%,rgba(0,0,0,.34) 76%,transparent 93%);
+      transition:filter .8s var(--ease);
+    }
+    .portrait:hover .p-in img,.portrait:focus-within .p-in img{filter:none}
+    .p-cap{
+      position:absolute;right:2px;bottom:-1.5rem;z-index:2;
+      font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);
+    }
+    .p-cap::before{content:"";display:inline-block;width:22px;height:1px;background:var(--ember);vertical-align:middle;margin-right:9px}
+    @media(max-width:900px){
+      /* phone: the same asset, read as an editorial byline portrait above the axiom */
+      .herogrid{grid-template-columns:1fr;gap:0}
+      .portrait{order:-1;width:122px;height:122px;margin:0 0 2.6rem;border-radius:50%;overflow:hidden;
+        border:1px solid rgba(201,169,97,.34);background:linear-gradient(160deg,var(--panel),var(--coal));
+        box-shadow:0 0 0 7px rgba(201,169,97,.045),0 18px 44px rgba(0,0,0,.55)}
+      .p-in{width:100%;height:100%;overflow:hidden}
+      .p-in::before,.p-in .ring,.p-cap{display:none}
+      .p-in img{width:136%;margin:-2% 0 0 -18%;-webkit-mask-image:none;mask-image:none}
+    }
 
     /* ---------- stat band ---------- */
     .stats{border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);background:linear-gradient(180deg,rgba(201,169,97,.04),transparent 65%);position:relative}
@@ -328,13 +371,22 @@ import Base from '../layouts/Base.astro';
 
   <div class="wrap">
     <section class="hero" aria-label="Thesis" style="border-bottom:none" id="hero">
-      <div data-hero-inner>
-        <p class="eyebrow g-up">Intent-Driven Development · founding axiom</p>
-        <h1 id="axiom" class="g-up" data-final="The quality of AI output is determined by the quality of the intent you express.">The quality of AI output is determined by the quality of the <em>intent</em> you express.</h1>
-        <p class="attrib g-up">
-          <span class="rulewrap" aria-hidden="true"></span>
-          <span><b>Scott Feltham</b> — creator of FORGE · 25 years of engineering leadership · CTO, proving it daily</span>
-        </p>
+      <div class="herogrid">
+        <div data-hero-inner>
+          <p class="eyebrow g-up">Intent-Driven Development · founding axiom</p>
+          <h1 id="axiom" class="g-up" data-final="The quality of AI output is determined by the quality of the intent you express.">The quality of AI output is determined by the quality of the <em>intent</em> you express.</h1>
+          <p class="attrib g-up">
+            <span class="rulewrap" aria-hidden="true"></span>
+            <span><b>Scott Feltham</b> — creator of FORGE · 25 years of engineering leadership · CTO, proving it daily</span>
+          </p>
+        </div>
+        <figure class="portrait" data-portrait>
+          <span class="p-in" data-portrait-in>
+            <span class="ring" aria-hidden="true"></span>
+            <img src="/assets/scott-feltham.webp" width="600" height="600" alt="Scott Feltham" fetchpriority="high" decoding="async" />
+          </span>
+          <figcaption class="p-cap">the engineer</figcaption>
+        </figure>
       </div>
       <div class="scrollcue" aria-hidden="true">scroll</div>
     </section>
@@ -579,14 +631,21 @@ import Base from '../layouts/Base.astro';
       /* ---- load choreography: hero rises in sequence ---- */
       gsap.set(['.eyebrow','.hero .attrib'], {y:26, opacity:0});
       gsap.set('#axiom', {y:34, opacity:0});
+      gsap.set('[data-portrait-in]', {y:30, opacity:0, scale:.97, transformOrigin:'50% 60%'});
       gsap.timeline({defaults:{ease:EASE}})
         .to('.eyebrow', {y:0, opacity:1, duration:1}, .1)
         .to('#axiom', {y:0, opacity:1, duration:1.2}, .25)
+        .to('[data-portrait-in]', {y:0, opacity:1, scale:1, duration:1.5}, .45)
         .to('.hero .attrib', {y:0, opacity:1, duration:1}, .55);
 
       /* ---- hero parallax + scrub-away ---- */
       gsap.to('[data-hero-inner]', {
         yPercent:-14, opacity:.15, ease:'none',
+        scrollTrigger:{trigger:'#hero', start:'top top', end:'bottom top', scrub:true}
+      });
+      /* portrait travels a touch faster than the type — parallax depth */
+      gsap.to('[data-portrait]', {
+        yPercent:-24, opacity:.08, ease:'none',
         scrollTrigger:{trigger:'#hero', start:'top top', end:'bottom top', scrub:true}
       });
       gsap.to('[data-aurora]', {

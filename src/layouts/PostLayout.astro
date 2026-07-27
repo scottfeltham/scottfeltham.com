@@ -108,7 +108,19 @@ const jsonLd = {
         font-family:var(--display);font-weight:300;font-size:clamp(2.1rem,5vw,3.4rem);
         line-height:1.08;letter-spacing:-.015em;text-wrap:balance;color:var(--ivory);
       }
-      .post-meta{margin-top:1.5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--dim)}
+      .post-meta{margin-top:1.5rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--dim);display:flex;align-items:center;gap:12px}
+      /* byline portrait — same cut-out as the homepage, circle-framed */
+      .post-byline{
+        width:38px;height:38px;flex:none;border-radius:50%;overflow:hidden;
+        border:1px solid rgba(201,169,97,.34);background:linear-gradient(160deg,var(--panel),var(--coal));
+      }
+      .post-byline img{
+        display:block;width:136%;height:auto;margin:-2% 0 0 -18%;
+        filter:grayscale(1) sepia(.36) saturate(1.4) hue-rotate(-8deg) contrast(1.05) brightness(.96);
+      }
+      .post-meta b{color:var(--ivory);font-weight:600}
+      .post-meta a{text-decoration:none}
+      .post-meta a:hover b{color:var(--ember)}
 
       /* ---------- prose ---------- */
       .post-body{max-width:var(--measure)}
@@ -200,7 +212,12 @@ const jsonLd = {
           {source}{draft && <span class="post-draft">draft</span>}
         </p>
         <h1 class="post-title">{title}</h1>
-        <p class="post-meta"><time datetime={isoDate}>{readableDate}</time></p>
+        <p class="post-meta">
+          <a class="post-byline" href="/" aria-hidden="true" tabindex="-1">
+            <img src="/assets/scott-feltham.webp" width="600" height="600" alt="" loading="lazy" decoding="async" />
+          </a>
+          <span><a href="/"><b>Scott Feltham</b></a> · <time datetime={isoDate}>{readableDate}</time></span>
+        </p>
       </header>
       <div class="post-body">
         <slot />

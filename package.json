@@ -4,11 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "npm run sync-static && astro dev",
-    "prebuild": "npm run sync-static",
+    "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "sync-static": "rm -rf public && mkdir -p public && cp -R assets public/assets && cp -R terminal public/terminal && cp assets/favicon.svg public/favicon.svg"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.14",
